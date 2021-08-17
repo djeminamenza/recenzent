@@ -7,7 +7,7 @@
         <header class="masthead">
             <div class="container">
                 <div class="masthead-subheading">Vozdra raja!</div>
-                <div class="masthead-heading text-uppercase">Kako su psi?</div>
+                <div class="masthead-heading text-uppercase">Ola piplsi!!! Kako su psi?</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Dobro vece</a>
             </div>
         </header>
