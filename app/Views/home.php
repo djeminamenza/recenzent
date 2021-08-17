@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="masthead-subheading">Vozdra raja!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Dobro vece</a>
             </div>
         </header>
         <!-- Services-->
