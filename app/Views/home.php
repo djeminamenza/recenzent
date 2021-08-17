@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="masthead-subheading">Welcome!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Info</a>
             </div>
         </header>
         <!-- Services-->
