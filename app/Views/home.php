@@ -6,15 +6,9 @@
 
         <header class="masthead">
             <div class="container">
-<<<<<<< HEAD
                 <div class="masthead-subheading">Vozdra raja!</div>
                 <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
-=======
-                <div class="masthead-subheading">Welcome!</div>
-                <div class="masthead-heading text-uppercase">Zdravo</div>
-                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Info</a>
->>>>>>> 933d310fe11b68590c937a902353ddc05f521667
             </div>
         </header>
         <!-- Services-->
