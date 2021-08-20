@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-heading text-uppercase">Recenzije naučnih rezultata</div>
-            </div>
-
-        </header>
-
         <h1 style="text-align: center;">Prijava naucnih rezultata</h1>
 
 

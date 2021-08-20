@@ -1,15 +1,39 @@
 <?php
     $links = [
         'Home' => 'home',
-        'Admin' => 'admins/index',
     ];
 
 
     //lang('Home.hello',['Jimmy'])
 
+    /*
+    in_groups()
+    Function: Ensures that the current user is in at least one of the passed in groups.
+    Parameters: Group IDs or names, as either a single item or an array of items.
+    Returns: true or false
+    */
+
 
         if(logged_in()){
-        $links[user()->username.', Logout'] = 'logout'; 
+            $links[user()->username.', Logout'] = 'logout';
+            if(in_groups(1)){
+                $links['Rezultati'] = 'administratori/rezultati';
+                $links['Prijave'] = 'administratori/prijave';
+                $links['Recenzije'] = 'administratori/recenzije';
+                $links['Ankete'] = 'administratori/ankete';
+                $links['Obavestenja'] = 'administratori/obavestenja';                
+            }
+            if(in_groups(2)){
+                $links['Profil'] = 'recenzenti/profil';
+                $links['Rezultati'] = 'recenzenti/rezultati';
+                $links['Recenzije'] = 'recenzenti/recenzije';
+                $links['Ankete'] = 'recenzenti/ankete';
+                $links['Obavestenja'] = 'recenzenti/obavestenja';                
+            }
+            if(in_groups(3)){
+                $links['Index'] = 'korisnici/index';
+                $links['Prijava'] = 'korisnici/prijava';              
+            }
         }else{
         $links['Login'] = 'login';
         $links['Register'] ='register';
