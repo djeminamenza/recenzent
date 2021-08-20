@@ -23,6 +23,7 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
+$routes->add('admins/index', 'Admins::index', ['filter' => 'role:admin']);
 
 /*
  * --------------------------------------------------------------------
