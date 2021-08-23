@@ -3,7 +3,7 @@
     $this->section('content');
 ?>
 
-<h1 style="text-align: center;">Шта сам ја оцени -о -ла</h1>
+<h1 style="text-align: center;">Шта су ове ленштине рецензенти оценили а шта нису</h1>
 
 
 

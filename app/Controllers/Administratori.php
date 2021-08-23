@@ -19,6 +19,11 @@ class Administratori extends BaseController
 		return view('administratori/prijave');
 	}
 
+	public function definicija()
+	{
+		return view('administratori/definicija');
+	}
+
 	public function recenzije()
 	{
 		return view('administratori/recenzije');

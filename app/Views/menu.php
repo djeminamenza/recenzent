@@ -20,6 +20,7 @@
                 $links['Rezultati'] = 'administratori/rezultati';
                 $links['Prijave'] = 'administratori/prijave';
                 $links['Recenzije'] = 'administratori/recenzije';
+                $links['Definicija'] = 'administratori/definicija';
                 $links['Ankete'] = 'administratori/ankete';
                 $links['Obavestenja'] = 'administratori/obavestenja';                
             }
