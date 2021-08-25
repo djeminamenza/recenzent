@@ -38,4 +38,9 @@ class Administratori extends BaseController
 	{
 		return view('administratori/obavestenja');
 	}
+	public function spisak()
+	{
+		return view('administratori/spisak');
+	} 
+
 }

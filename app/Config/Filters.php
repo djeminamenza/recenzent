@@ -21,6 +21,7 @@ class Filters extends BaseConfig
 		'honeypot' => Honeypot::class,
 		'login'    =>\Myth\Auth\Filters\LoginFilter::class,
 		'role'     =>\Myth\Auth\Filters\RoleFilter::class,
+        'perm'     =>\Myth\Auth\Filters\PermissionFilter::class,
 	];
 
 	/**

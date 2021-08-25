@@ -12,19 +12,25 @@
         <h1 style="text-align: center;">Definisanje naucnog rezultata</h1>
 
 
-    <div class="container">
+    <div class="container masthead">
         <div class="col">
-    <form>
+
+    <form action="<?=route_to('administratori/definicija') ?>" method="POST">
+    <?=csrf_field() ?>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group">
             <label for="nazivRezultata">Naziv rezultata</label>
-            <input type="text" class="form-control" id="nazivRezultata">
+            <input type="text" class="form-control" name="nazivRezultata">
           </div>
           <div class="form-group col-md-6">
             <label for="kategorija">Kategorija</label>
-            <select id="kategorija" class="form-control">
-              <option selected>Izaberi...</option>
-              <option>...</option>
+            <select name="kategorija" class="form-control">
+              <option value="0" selected>Izaberi oblast</option>
+              <option value="1">Prirodno-matematičke discipline</option>
+              <option value="2">Tehničko-tehnološke i biotehničke discipline</option>
+              <option value="3">Društvene nauke i discipline</option>
+              <option value="4">Humanističke discipline</option>
+              <option value="5">Medicinske nauke i discipline</option>
             </select>
           </div>
         </div>
@@ -32,49 +38,50 @@
         <legend style="width: 14%;margin-left: 7px;">Prijava:</legend>
         <div class="form-group">
           <label for="opisRezultata">Opis rezultata</label>
-          <input type="text" class="form-control" id="opisRezultata" placeholder="Opisi svoj rezultat, sta god to bilo?">
+          <input type="text" class="form-control" name="opisRezultata" placeholder="Opisi svoj rezultat, sta god to bilo?">
         </div>
         <div class="form-group">
             <label for="godinaRezultata">Godina rezultata</label>
-            <input type="text" class="form-control" id="godinaRezultata" placeholder="Kad ste izmerili?">
+            <input type="text" class="form-control" name="godinaRezultata" placeholder="Kad ste izmerili?">
           </div>
         <div class="form-group">
           <label for="spisakClanova">Spisak clanova</label>
-        <textarea class="form-control" placeholder="1. Clan, 2. Clan" id="spisakClanova" style="height: 100px"></textarea>
+        <textarea class="form-control" placeholder="1. Clan, 2. Clan" name="spisakClanova" style="height: 100px"></textarea>
         </div>
         <div class="form-group">
         <label for="biografija1">Biografija 1. Clana</label>
-        <input type="file" class="form-control-file" id="biografija1">
+        <input type="file" class="form-control-file" name="biografija1">
         <label for="biografija2">Biografija 2. Clana</label>
-        <input type="file" class="form-control-file" id="biografija2">
+        <input type="file" class="form-control-file" name="biografija2">
         <label for="biografija3">Biografija 3. Clana</label>
-        <input type="file" class="form-control-file" id="biografija3">
+        <input type="file" class="form-control-file" name="biografija3">
         <label for="biografija4">Biografija 4. Clana</label>
-        <input type="file" class="form-control-file" id="biografija4">
+        <input type="file" class="form-control-file" name="biografija4">
     </div>
     </fieldset>
 
         <div class="form-row">
                 <div class="form-group col-md-6">
                 <label for="oblast">Oblast</label>
-                <select id="oblast" class="form-control">
-                <option selected>Izaberi...</option>
-                <option>...</option>
+                <select name="oblast" class="form-control">
+                <option value="6" selected>Izaberi oblast</option>
+              <option value="7">Patent</option>
+              <option value="8">Tehničko rešenje</option>
+              <option value="9">Originalan naučni rad</option>
+              <option value="10">Studija ili ekspertiza</option>
+              <option value="11">Rad u domaćem stručnom časopisu</option>
+              <option value="12">Rad u stranom stručnom časopisu</option>
+              <option value="13">Nagrada na konkursu</option>
                 </select>
             </div>
             <div class="form-group col-md-6">
                 <label for="datumPrijave">Datum prijave</label>
-                <input type="date" class="form-control" id="datumPrijave">
+                <input type="date" class="form-control" name="datumPrijave">
             </div>
 
         </div>      
-        <div class="form-row">
-
-        </div>
-        <div class="form-group">
-          <p>Ovde ce doci spisak recenzenata, kad tad!</p>
-        </div>
-        <button type="submit" class="btn btn-primary">Posalji</button>
+        </br>
+        <button type="submit"name="login" class="btn btn-primary">Posalji</button>
       </form>
     </div>
   </div>
