@@ -1,6 +1,6 @@
 <?php
     $links = [
-        'Home' => 'home',
+        'Home' => 'home/index',
     ];
 
 

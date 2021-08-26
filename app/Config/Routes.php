@@ -23,10 +23,12 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
+/*
 $routes->add('administratori/index', 'Administratori::index', ['filter' => 'role:admin']);
 $routes->add('korisnici/index', 'Korisnici::index', ['filter' => 'role:korisnik']);
 $routes->add('recenzenti/index', 'Recenzenti::index', ['filter' => 'role:recenzent']);
 $routes->add('administratori/index', 'Administratori::attemptCreate', ['filter' => 'perm:admin_perm']);
+*/
 
 /*
  * --------------------------------------------------------------------
