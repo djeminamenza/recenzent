@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2021 at 07:56 PM
+-- Generation Time: Aug 27, 2021 at 08:55 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -470,6 +470,14 @@ CREATE TABLE `nacionalnost` (
   `naziv` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `nacionalnost`
+--
+
+INSERT INTO `nacionalnost` (`id`, `naziv`) VALUES
+(1, 'srpska'),
+(2, 'strana');
+
 -- --------------------------------------------------------
 
 --
@@ -480,6 +488,14 @@ CREATE TABLE `obavestenja_tip` (
   `id` int(11) NOT NULL,
   `naziv` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `obavestenja_tip`
+--
+
+INSERT INTO `obavestenja_tip` (`id`, `naziv`) VALUES
+(1, 'vidljivo na profilu'),
+(2, 'salje se na mejl');
 
 -- --------------------------------------------------------
 
@@ -566,7 +582,7 @@ CREATE TABLE `recenzent_anketa_odgovor` (
   `id` int(11) NOT NULL,
   `id_recenzent_anketa` int(11) NOT NULL,
   `id_pitanja` int(11) NOT NULL,
-  `tekst_odgovora` int(11) NOT NULL
+  `tekst_odgovora` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -638,6 +654,16 @@ CREATE TABLE `status_prijave` (
   `opis` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `status_prijave`
+--
+
+INSERT INTO `status_prijave` (`id`, `opis`) VALUES
+(1, 'stigla'),
+(2, 'razmatra se'),
+(3, 'prihvacena'),
+(4, 'odbijena');
+
 -- --------------------------------------------------------
 
 --
@@ -648,6 +674,14 @@ CREATE TABLE `status_rezultata` (
   `id` int(11) NOT NULL,
   `opis` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `status_rezultata`
+--
+
+INSERT INTO `status_rezultata` (`id`, `opis`) VALUES
+(1, 'prihvacen'),
+(2, 'odbijen');
 
 -- --------------------------------------------------------
 
@@ -691,8 +725,40 @@ INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `
 
 CREATE TABLE `zemlja` (
   `id` int(11) NOT NULL,
-  `naziv` int(11) NOT NULL
+  `naziv` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `zemlja`
+--
+
+INSERT INTO `zemlja` (`id`, `naziv`) VALUES
+(1, 'Srbija'),
+(2, 'BiH'),
+(3, 'Slovenija'),
+(4, 'Hrvatska'),
+(5, 'Crna Gora'),
+(6, 'Makedonija'),
+(7, 'Grcka'),
+(8, 'Bugarska'),
+(9, 'Madjarska'),
+(10, 'Rumunija'),
+(11, 'Austrija'),
+(12, 'Nemacka'),
+(13, 'Svajcarska'),
+(14, 'Italija'),
+(15, 'Kipar'),
+(16, 'SAD'),
+(17, 'Spanija'),
+(18, 'Kina'),
+(19, 'Japan'),
+(20, 'Rusija'),
+(21, 'Kuba'),
+(22, 'Brazil'),
+(23, 'Indija'),
+(24, 'Belgija'),
+(25, 'Velika Britanija'),
+(26, 'Francuska');
 
 -- --------------------------------------------------------
 
@@ -704,6 +770,18 @@ CREATE TABLE `zvanje` (
   `id` int(11) NOT NULL,
   `naziv` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `zvanje`
+--
+
+INSERT INTO `zvanje` (`id`, `naziv`) VALUES
+(1, 'visoka strucna sprema'),
+(2, 'master'),
+(3, 'specijalista'),
+(4, 'magistar'),
+(5, 'doktor nauka'),
+(6, 'akademik');
 
 --
 -- Indexes for dumped tables
@@ -1031,13 +1109,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `nacionalnost`
 --
 ALTER TABLE `nacionalnost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `obavestenja_tip`
 --
 ALTER TABLE `obavestenja_tip`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `oblast`
@@ -1103,13 +1181,13 @@ ALTER TABLE `rezultat_oblasti`
 -- AUTO_INCREMENT for table `status_prijave`
 --
 ALTER TABLE `status_prijave`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `status_rezultata`
 --
 ALTER TABLE `status_rezultata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1121,13 +1199,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `zemlja`
 --
 ALTER TABLE `zemlja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `zvanje`
 --
 ALTER TABLE `zvanje`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
