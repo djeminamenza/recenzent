@@ -8,48 +8,47 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 
-        <h1 style="text-align: center;">Prijava</h1>
-        <div class="container">
-        <div class="col">
+<h1 style="text-align: center;">Prijava</h1>
+<div class="container">
+  <div class="col">
     <form>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="ime">Ime</label>
-            <input type="text" class="form-control" id="ime">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="prezime">Prezime</label>
-            <input type="text" class="form-control" id="prezime">
-          </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="ime">Ime</label>
+          <input type="text" class="form-control" id="ime">
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="nacionalnost">Nacionalnost</label>
-            <input type="text" class="form-control" id="nacionalnost">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="zemlja">Zemlja zaposlenja</label>
-            <input type="text" class="form-control" id="zemlja">
-          </div>
+        <div class="form-group col-md-6">
+          <label for="prezime">Prezime</label>
+          <input type="text" class="form-control" id="prezime">
         </div>
-    <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
-        <legend style="width: 14%;margin-left: 7px;">Kontakt:</legend>
-        <div class="form-group">
-          <label for="telefon">Telefon</label>
-          <input type="text" class="form-control" id="telefon" placeholder="0123">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="nacionalnost">Nacionalnost</label>
+          <input type="text" class="form-control" id="nacionalnost">
         </div>
-        <div class="form-group">
-            <label for="email">email</label>
-            <input type="text" class="form-control" id="email" placeholder="pera@zika.com?">
-          </div>
-        <div class="form-group">
-          <label for="adresa">Spisak clanova</label>
-          <input type="text" class="form-control" id="adresa" placeholder="Mikina 1?">
+        <div class="form-group col-md-6">
+          <label for="zemlja">Zemlja zaposlenja</label>
+          <input type="text" class="form-control" id="zemlja">
         </div>
-        <button type="submit" class="btn btn-info">Prijavi se</button>
-
-      </form>
-    </div>
+      </div>
+      <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
+      <legend style="width: 14%;margin-left: 7px;">Kontakt:</legend>
+      <div class="form-group">
+        <label for="telefon">Telefon</label>
+        <input type="text" class="form-control" id="telefon" placeholder="0123">
+      </div>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="text" class="form-control" id="email" placeholder="pera@zika.com?">
+      </div>
+      <div class="form-group">
+        <label for="adresa">Spisak clanova</label>
+        <input type="text" class="form-control" id="adresa" placeholder="Mikina 1?">
+      </div>
+      <button type="submit" class="btn btn-info">Prijavi se</button>
+    </form>
   </div>
+</div>
 
 <?php $this->endSection(); ?>     

@@ -11,28 +11,29 @@
 
         <h1 style="text-align: center;">Definisanje naucnog rezultata</h1>
 
-
     <div class="container masthead">
         <div class="col">
 
     <form action="<?=route_to('administratori/definicija') ?>" method="POST">
     <?=csrf_field() ?>
         <div class="form-row">
-          <div class="form-group">
+          <div class="form-group col-md-6">
             <label for="nazivRezultata">Naziv rezultata</label>
             <input type="text" class="form-control" name="nazivRezultata">
           </div>
-          <div class="form-group col-md-6">
-            <label for="kategorija">Kategorija</label>
+
+          <!-- kategorije povucene iz baze -->
+        <div class="form-group col-md-6">
+          <label for="kategorija">Kategorija</label>
             <select name="kategorija" class="form-control">
-              <option value="0" selected>Izaberi oblast</option>
-              <option value="1">Prirodno-matematičke discipline</option>
-              <option value="2">Tehničko-tehnološke i biotehničke discipline</option>
-              <option value="3">Društvene nauke i discipline</option>
-              <option value="4">Humanističke discipline</option>
-              <option value="5">Medicinske nauke i discipline</option>
+              <?php
+                  foreach($kategorije as $k){
+                    echo '<option value='. $k->id. 'selected>'.  $k->opis .'</option>';
+                  }
+              ?>
             </select>
-          </div>
+        </div>
+
         </div>
     <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
         <legend style="width: 14%;margin-left: 7px;">Prijava:</legend>
@@ -61,19 +62,18 @@
     </fieldset>
 
         <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="oblast">Oblast</label>
-                <select name="oblast" class="form-control">
-                <option value="6" selected>Izaberi oblast</option>
-              <option value="7">Patent</option>
-              <option value="8">Tehničko rešenje</option>
-              <option value="9">Originalan naučni rad</option>
-              <option value="10">Studija ili ekspertiza</option>
-              <option value="11">Rad u domaćem stručnom časopisu</option>
-              <option value="12">Rad u stranom stručnom časopisu</option>
-              <option value="13">Nagrada na konkursu</option>
-                </select>
-            </div>
+
+         <!-- oblasti povucene iz baze -->
+        <div class="form-group col-md-6">
+          <label for="oblasti">Oblast</label>
+            <select name="oblasti" class="form-control">
+              <?php
+                  foreach($oblasti as $o){
+                    echo '<option value='. $o->id. 'selected>'.  $o->naziv .'</option>';
+                  }
+              ?>
+            </select>
+        </div>
             <div class="form-group col-md-6">
                 <label for="datumPrijave">Datum prijave</label>
                 <input type="date" class="form-control" name="datumPrijave">

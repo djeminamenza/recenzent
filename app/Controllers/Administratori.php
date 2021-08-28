@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\Kategorija;
+use App\Models\Oblast;
+
 class Administratori extends BaseController
 {
 	public function index()
@@ -21,7 +24,13 @@ class Administratori extends BaseController
 
 	public function definicija()
 	{
-		return view('administratori/definicija');
+		$kategorijaModel = new Kategorija();
+		$data['kategorije'] = $kategorijaModel->findAll();
+		$oblastiModel = new Oblast();
+		$data['oblasti'] = $oblastiModel->findAll();
+		return view('administratori/definicija',$data);
+
+
 	}
 
 	public function recenzije()
