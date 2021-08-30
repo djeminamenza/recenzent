@@ -3,7 +3,12 @@
 namespace App\Controllers;
 
 use App\Models\Kategorija;
+use App\Models\Korisnici;
 use App\Models\Oblast;
+use Myth\Auth\Models;
+use CodeIgniter\Model;
+use Myth\Auth\Authorization\GroupModel;
+use Myth\Auth\Entities\User;
 
 class Administratori extends BaseController
 {
@@ -19,7 +24,9 @@ class Administratori extends BaseController
 
 	public function prijave()
 	{
-		return view('administratori/prijave');
+		$korisnici = new Korisnici();
+		$data['korisnici'] = $korisnici->findAll();
+		return view('administratori/prijave',$data);
 	}
 
 	public function definicija()
