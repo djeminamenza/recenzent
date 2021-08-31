@@ -8,19 +8,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 offset-sm-3">
 
-            <div class="card">
-                <h2 class="card-header"><?=lang('Auth.register')?></h2>
-                <div class="card-body">
-
-                    <?= view('Myth\Auth\Views\_message_block') ?>
-
-                    <form action="<?= route_to('register') ?>" method="post">
-                        <?= csrf_field() ?>
-   <?=var_dump($podaci)?>
+<?=var_dump($nacionalnosti);?>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="ime">Ime</label>
@@ -29,20 +18,19 @@
                             <div class="form-group col-md-6">
                             <label for="prezime">Prezime</label>
                             <input type="text" class="form-control" id="prezime">
-                            </div>                            
-                            <div class="form-group col-md-6">
-                            <label for="nacionalnost">Nacionalnost</label>
-                            <select name="nacionalnost" class="form-control">
-                                <?php
-                                    foreach($podaci as $n){
-                                        echo '<option value='. $n[0]->id. 'selected>'.  $n[0]->naziv .'</option>';
-                                    }
-                                ?>
-                            </select>
                             </div>
                         </div>
                         <div class="form-row">
-
+<!--                             <div class="form-group col-md-6">
+                            <label for="nacionalnost">Nacionalnost</label>
+                            <select name="nacionalnost" class="form-control">
+                                <?php
+                                    foreach($nacionalnosti as $n){
+                                        echo '<option value='. $n->id. 'selected>'.  $n->naziv .'</option>';
+                                    }
+                                ?>
+                            </select>
+                        </div> -->
                             <div class="form-group col-md-6">
                             <label for="zemlja">Zemlja zaposlenja</label>
                             <input type="text" class="form-control" id="zemlja">
