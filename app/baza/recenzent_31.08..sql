@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 08:56 PM
+-- Generation Time: Aug 31, 2021 at 02:33 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -38,7 +38,7 @@ CREATE TABLE `anketa` (
 
 INSERT INTO `anketa` (`id`, `naziv`) VALUES
 (1, 'Naslov rada'),
-(2, 'Originalost rada'),
+(2, 'Originalnost rada'),
 (3, 'Naucni doprinos rada');
 
 -- --------------------------------------------------------
@@ -58,9 +58,9 @@ CREATE TABLE `anketa_pitanja` (
 --
 
 INSERT INTO `anketa_pitanja` (`id`, `id_anketa`, `tekst_pitanja`) VALUES
-(1, 1, 'Da li je naslov odgovarajuci '),
-(2, 2, 'Da li postoje elementi originalnosti'),
-(3, 3, 'Da li rad ima naucni doprinos');
+(1, 1, 'Da li je naslov odgovarajuci?'),
+(2, 2, 'Da li postoje elementi originalnosti?'),
+(3, 3, 'Da li rad ima naucni doprinos?');
 
 -- --------------------------------------------------------
 
@@ -161,9 +161,6 @@ CREATE TABLE `auth_groups_users` (
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (1, 1),
 (2, 4),
-(2, 8),
-(2, 9),
-(2, 9),
 (3, 5);
 
 -- --------------------------------------------------------
@@ -327,19 +324,36 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (139, '::1', 'mika@mikic.com', 5, '2021-08-27 12:36:07', 1),
 (140, '::1', 'mika@mikic.com', 5, '2021-08-27 12:36:26', 1),
 (141, '::1', 'mika@mikic.com', 5, '2021-08-27 12:38:10', 1),
-(142, '::1', 'pera@peric.com', 1, '2021-08-29 07:20:47', 1),
-(143, '::1', 'ceca1', 8, '2021-08-29 09:08:18', 0),
-(144, '::1', 'ceca@gmail.com', 7, '2021-08-29 09:08:47', 1),
-(145, '::1', 'svetlanacakic412@gmail.com', 8, '2021-08-29 09:10:03', 1),
-(146, '::1', 'svetlanacakic412@gmail.com', 8, '2021-08-29 09:10:09', 1),
-(147, '::1', 'per', NULL, '2021-08-29 09:24:07', 0),
-(148, '::1', 'pera@peric.com', 1, '2021-08-29 09:24:15', 1),
-(149, '::1', 'svetlanacakic412@gmail.com', 8, '2021-08-29 09:40:27', 1),
-(150, '::1', 'mika@mikic.com', 5, '2021-08-29 09:40:42', 1),
-(151, '::1', 'pera@peric.com', 1, '2021-08-29 11:48:19', 1),
-(152, '::1', 'mika@mikic.com', 5, '2021-08-29 11:48:21', 1),
-(153, '::1', 'pera@peric.com', 1, '2021-08-29 11:48:30', 1),
-(154, '::1', 'svetlanacakic412@gmail.com', 8, '2021-08-30 12:45:15', 1);
+(142, '::1', 'mika@mikic.com', 5, '2021-08-27 14:14:47', 1),
+(143, '::1', 'mika@mikic.com', 5, '2021-08-27 14:27:21', 1),
+(144, '::1', 'mika@mikic.com', 5, '2021-08-27 14:27:35', 1),
+(145, '::1', 'zika@zikic.com', 4, '2021-08-27 14:58:41', 1),
+(146, '::1', 'pera@peric.com', 1, '2021-08-27 14:58:54', 1),
+(147, '::1', 'recenzije.kontakt@gmail.com', 6, '2021-08-27 14:59:07', 1),
+(148, '::1', 'mika@mikic.com', 5, '2021-08-27 16:34:36', 1),
+(149, '::1', 'mika@mikic.com', 5, '2021-08-27 16:46:57', 1),
+(150, '::1', 'mika@mikic.com', 5, '2021-08-27 17:31:29', 1),
+(151, '::1', 'mika@mikic.com', 5, '2021-08-28 04:38:31', 1),
+(152, '::1', 'mika@mikic.com', 5, '2021-08-28 12:57:35', 1),
+(153, '::1', 'mika@mikic.com', 5, '2021-08-28 14:13:52', 1),
+(154, '::1', 'pera@peric.com', 1, '2021-08-28 14:14:04', 1),
+(155, '::1', 'mika@mikic.com', 5, '2021-08-28 14:16:33', 1),
+(156, '::1', 'pera@peric.com', 1, '2021-08-28 14:55:44', 1),
+(157, '::1', 'pera@peric.com', 1, '2021-08-28 15:47:50', 1),
+(158, '::1', 'pera@peric.com', 1, '2021-08-28 15:47:59', 1),
+(159, '::1', 'pera@peric.com', 1, '2021-08-30 18:19:31', 1),
+(160, '::1', 'pera@peric.com', 1, '2021-08-30 18:19:58', 1),
+(161, '::1', 'pera@peric.com', 1, '2021-08-31 05:41:09', 1),
+(162, '::1', 'mika@mikic.com', 5, '2021-08-31 05:41:38', 1),
+(163, '::1', 'zika@zikic.com', 4, '2021-08-31 05:58:08', 1),
+(164, '::1', 'mika@mikic.com', 5, '2021-08-31 06:17:36', 1),
+(165, '::1', 'mika@mikic.com', 5, '2021-08-31 06:18:00', 1),
+(166, '::1', 'mika@mikic.com', 5, '2021-08-31 06:19:17', 1),
+(167, '::1', 'zika@zikic.com', 4, '2021-08-31 06:19:24', 1),
+(168, '::1', 'pera@peric.com', 1, '2021-08-31 06:20:11', 1),
+(169, '::1', 'zika@zikic.com', 4, '2021-08-31 06:23:18', 1),
+(170, '::1', 'pera@peric.com', 1, '2021-08-31 06:23:33', 1),
+(171, '::1', 'mika@mikic.com', 5, '2021-08-31 07:29:33', 1);
 
 -- --------------------------------------------------------
 
@@ -416,7 +430,7 @@ INSERT INTO `auth_users_permissions` (`user_id`, `permission_id`) VALUES
 CREATE TABLE `biografija` (
   `id` int(11) NOT NULL,
   `id_rezult` int(11) NOT NULL,
-  `tekst` mediumblob NOT NULL
+  `tekst` varchar(640) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -442,60 +456,6 @@ INSERT INTO `kategorija` (`id`, `opis`) VALUES
 (5, 'Rad u domacem strucnom casopisu'),
 (6, 'Rad u stranom strucnom casopisu'),
 (7, 'Nagrada na konkursu');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `lice`
---
-
-CREATE TABLE `lice` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) UNSIGNED NOT NULL,
-  `ime` varchar(32) NOT NULL,
-  `prezime` varchar(32) NOT NULL,
-  `organizacija` varchar(32) NOT NULL,
-  `id_zemlje` int(11) NOT NULL,
-  `id_nac` int(11) NOT NULL,
-  `id_oblast` int(11) NOT NULL,
-  `id_zvanja` int(11) NOT NULL,
-  `telefon` varchar(16) NOT NULL,
-  `mail` varchar(32) NOT NULL,
-  `adresa` varchar(64) NOT NULL,
-  `web-str` varchar(32) NOT NULL,
-  `biografija` mediumblob NOT NULL,
-  `radovi` varchar(1024) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `lice`
---
-
-INSERT INTO `lice` (`id`, `id_user`, `ime`, `prezime`, `organizacija`, `id_zemlje`, `id_nac`, `id_oblast`, `id_zvanja`, `telefon`, `mail`, `adresa`, `web-str`, `biografija`, `radovi`) VALUES
-(1, 1, 'pera', 'peric', 'hr', 1, 1, 3, 1, '0616273049', '', '', '', '', ''),
-(2, 4, 'zika', 'zikic', 'QM', 6, 2, 2, 2, '0616273048', 'zika@zikic.com', '', '', '', ''),
-(3, 8, 'svetlana', 'cakic', 'hr', 15, 2, 3, 3, '0616273041', '', '', '', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `lice_oblast`
---
-
-CREATE TABLE `lice_oblast` (
-  `id` int(11) NOT NULL,
-  `id_lice` int(11) NOT NULL,
-  `id_oblast` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `lice_oblast`
---
-
-INSERT INTO `lice_oblast` (`id`, `id_lice`, `id_oblast`) VALUES
-(1, 1, 5),
-(2, 2, 2),
-(3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -611,7 +571,7 @@ CREATE TABLE `poziv` (
 
 CREATE TABLE `prijava` (
   `id` int(11) NOT NULL,
-  `id_lice` int(11) NOT NULL,
+  `id_user` int(11) UNSIGNED NOT NULL,
   `id_status` int(11) NOT NULL,
   `datum_prijave` date NOT NULL,
   `datum_izmene` date NOT NULL
@@ -625,10 +585,10 @@ CREATE TABLE `prijava` (
 
 CREATE TABLE `recenzent_anketa` (
   `id` int(11) NOT NULL,
-  `id_lice` int(11) NOT NULL,
+  `id_user` int(11) UNSIGNED NOT NULL,
   `id_anketa` int(11) NOT NULL,
   `id_obavestenja` int(11) NOT NULL,
-  `vidljivo_profil` int(11) NOT NULL,
+  `vidjeno_profil` int(11) NOT NULL,
   `datum_mejla` date NOT NULL,
   `datum_ankete` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -637,10 +597,8 @@ CREATE TABLE `recenzent_anketa` (
 -- Dumping data for table `recenzent_anketa`
 --
 
-INSERT INTO `recenzent_anketa` (`id`, `id_lice`, `id_anketa`, `id_obavestenja`, `vidljivo_profil`, `datum_mejla`, `datum_ankete`) VALUES
-(1, 1, 1, 2, 1, '2021-08-29', '2021-08-29'),
-(2, 2, 3, 2, 1, '2021-08-29', '2021-08-29'),
-(3, 3, 2, 1, 2, '2021-08-29', '2021-08-29');
+INSERT INTO `recenzent_anketa` (`id`, `id_user`, `id_anketa`, `id_obavestenja`, `vidjeno_profil`, `datum_mejla`, `datum_ankete`) VALUES
+(1, 4, 1, 2, 1, '2021-08-29', '2021-08-29');
 
 -- --------------------------------------------------------
 
@@ -661,11 +619,8 @@ CREATE TABLE `recenzent_anketa_odgovor` (
 
 INSERT INTO `recenzent_anketa_odgovor` (`id`, `id_recenzent_anketa`, `id_pitanja`, `tekst_odgovora`) VALUES
 (1, 1, 1, 'da'),
-(2, 1, 1, 'ne'),
-(3, 2, 2, 'da'),
-(4, 2, 2, 'ne'),
-(5, 3, 3, 'da'),
-(6, 3, 3, 'ne');
+(2, 1, 2, 'da'),
+(3, 1, 3, 'ne');
 
 -- --------------------------------------------------------
 
@@ -675,7 +630,7 @@ INSERT INTO `recenzent_anketa_odgovor` (`id`, `id_recenzent_anketa`, `id_pitanja
 
 CREATE TABLE `recenzent_rezultat` (
   `id` int(11) NOT NULL,
-  `id_lice` int(11) NOT NULL,
+  `id_user` int(11) UNSIGNED NOT NULL,
   `id_rezult` int(11) NOT NULL,
   `id_status` int(11) NOT NULL,
   `datum_dodele` date NOT NULL,
@@ -775,6 +730,18 @@ CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(30) DEFAULT NULL,
+  `ime` varchar(16) NOT NULL,
+  `prezime` varchar(16) NOT NULL,
+  `organizacija` varchar(32) NOT NULL,
+  `id_zemlje` int(11) NOT NULL,
+  `id_nac` int(11) NOT NULL,
+  `id_oblast` int(11) NOT NULL,
+  `id_zvanja` int(11) NOT NULL,
+  `adresa` varchar(64) NOT NULL,
+  `telefon` varchar(32) NOT NULL,
+  `web_str` varchar(32) NOT NULL,
+  `biografija` varchar(160) NOT NULL,
+  `radovi` varchar(160) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `reset_hash` varchar(255) DEFAULT NULL,
   `reset_at` datetime DEFAULT NULL,
@@ -793,14 +760,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'pera@peric.com', 'pera', '$2y$10$/zR6v861LuPvDUYH778wu.B/nD1m0maY/r9ljjuhLgKkfp6SgLGTe', NULL, NULL, NULL, 'e700177ebea8776c3fdbae983420484b', NULL, NULL, 1, 0, '2021-08-19 17:35:42', '2021-08-19 17:35:42', NULL),
-(4, 'zika@zikic.com', 'zika', '$2y$10$0XGxBsNMYmIQKr8cnsKDGOWBQcEYWhcepVDt85huzps.WgolcwrNa', NULL, NULL, NULL, 'b7085ea63f0175d5a137246f68a4d56a', NULL, NULL, 1, 0, '2021-08-20 13:26:23', '2021-08-20 13:26:23', NULL),
-(5, 'mika@mikic.com', 'mika', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-08-20 13:27:03', NULL),
-(6, 'recenzije.kontakt@gmail.com', 'Ana', '$2y$10$7ctQA4WmWawxkL8K0CQ4d.zdywWgjNDtsfUFYxLC9Dqxr7zl27MqK', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-08-25 18:23:03', '2021-08-25 18:26:43', NULL),
-(8, 'svetlanacakic412@gmail.com', 'ceca', '$2y$10$1/7.hs40vKj6f4dkhpaFPuBbnkqN5It/LtMe.1wV1bRAzZL/FGGq2', NULL, NULL, NULL, '04870275f95154e55e01b37282af28f5', NULL, NULL, 1, 0, '2021-08-29 08:58:33', '2021-08-29 08:58:33', NULL),
-(9, 'marko@gmail.com', 'marko', '$2y$10$IfVgSLn2Lvf0N1FxCnh9pOLlR3IxsdfiSKiD2q52s6IZAxv8PNAvC', NULL, NULL, NULL, '34aa68f5dd87f0732f53d3b4491ca482', NULL, NULL, 1, 0, '2021-08-30 12:46:42', '2021-08-30 12:46:42', NULL),
-(10, 'zarko@gmail.com', 'zarko', '$2y$10$ioy8mPu/zcF2PLEASXW9g.rclxa45vgCymtr89XWPyld6QK6Ff6ti', NULL, NULL, NULL, '93b33b33273b156e23a35df4e5203e11', NULL, NULL, 1, 0, '2021-08-30 12:48:37', '2021-08-30 12:48:37', NULL);
+INSERT INTO `users` (`id`, `email`, `username`, `ime`, `prezime`, `organizacija`, `id_zemlje`, `id_nac`, `id_oblast`, `id_zvanja`, `adresa`, `telefon`, `web_str`, `biografija`, `radovi`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'pera@peric.com', 'pera', '', '', '', 1, 1, 1, 1, '', '', '', '', '', '$2y$10$/zR6v861LuPvDUYH778wu.B/nD1m0maY/r9ljjuhLgKkfp6SgLGTe', NULL, NULL, NULL, 'e700177ebea8776c3fdbae983420484b', NULL, NULL, 1, 0, '2021-08-19 17:35:42', '2021-08-19 17:35:42', NULL),
+(4, 'zika@zikic.com', 'zika', '', '', '', 5, 2, 2, 2, '', '', '', '', '', '$2y$10$0XGxBsNMYmIQKr8cnsKDGOWBQcEYWhcepVDt85huzps.WgolcwrNa', NULL, NULL, NULL, 'b7085ea63f0175d5a137246f68a4d56a', NULL, NULL, 1, 0, '2021-08-20 13:26:23', '2021-08-20 13:26:23', NULL),
+(5, 'mika@mikic.com', 'mika', '', '', '', 3, 1, 3, 3, '', '', '', '', '', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-08-20 13:27:03', NULL);
 
 -- --------------------------------------------------------
 
@@ -882,7 +845,8 @@ ALTER TABLE `anketa`
 -- Indexes for table `anketa_pitanja`
 --
 ALTER TABLE `anketa_pitanja`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `anketa_pitanja_anketa` (`id_anketa`);
 
 --
 -- Indexes for table `anketa_pitanja_vezna`
@@ -966,25 +930,6 @@ ALTER TABLE `kategorija`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `lice`
---
-ALTER TABLE `lice`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `lice_zemlja` (`id_zemlje`),
-  ADD KEY `lice_nacionalnost` (`id_nac`),
-  ADD KEY `lice_zvanje` (`id_zvanja`),
-  ADD KEY `lice_oblast` (`id_oblast`),
-  ADD KEY `lice_users` (`id_user`);
-
---
--- Indexes for table `lice_oblast`
---
-ALTER TABLE `lice_oblast`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `lice_oblast_oblast` (`id_oblast`),
-  ADD KEY `lice_oblast_lice` (`id_lice`);
-
---
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -1012,7 +957,8 @@ ALTER TABLE `oblast`
 -- Indexes for table `pitanja`
 --
 ALTER TABLE `pitanja`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pitanja_poziv` (`id_poziv`);
 
 --
 -- Indexes for table `poziv`
@@ -1025,16 +971,17 @@ ALTER TABLE `poziv`
 --
 ALTER TABLE `prijava`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `prijava_status_prijave` (`id_status`);
+  ADD KEY `prijava_status_prijave` (`id_status`),
+  ADD KEY `prijava_users` (`id_user`);
 
 --
 -- Indexes for table `recenzent_anketa`
 --
 ALTER TABLE `recenzent_anketa`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `recenzent_anketa_lice` (`id_lice`),
   ADD KEY `recenzent_anketa_anketa` (`id_anketa`),
-  ADD KEY `recenzent_anketa_obavestenja_tip` (`id_obavestenja`);
+  ADD KEY `recenzent_anketa_obavestenja_tip` (`id_obavestenja`),
+  ADD KEY `recenzent_anketa_users` (`id_user`);
 
 --
 -- Indexes for table `recenzent_anketa_odgovor`
@@ -1050,7 +997,8 @@ ALTER TABLE `recenzent_anketa_odgovor`
 ALTER TABLE `recenzent_rezultat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `recenzent_rezultat_rezultat` (`id_rezult`),
-  ADD KEY `recenzent_rezultat_lice` (`id_lice`);
+  ADD KEY `recenzent_rezultat_users` (`id_user`),
+  ADD KEY `recenzent_rezultat_status_rezu` (`id_status`);
 
 --
 -- Indexes for table `recenzent_rezultat_odgovor`
@@ -1094,7 +1042,11 @@ ALTER TABLE `status_rezultata`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `users_nacionalnost` (`id_nac`),
+  ADD KEY `users_zemlja` (`id_zemlje`),
+  ADD KEY `users_zvanje` (`id_zvanja`),
+  ADD KEY `users_oblast` (`id_oblast`);
 
 --
 -- Indexes for table `zemlja`
@@ -1122,7 +1074,7 @@ ALTER TABLE `anketa`
 -- AUTO_INCREMENT for table `anketa_pitanja`
 --
 ALTER TABLE `anketa_pitanja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `anketa_pitanja_vezna`
@@ -1146,7 +1098,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1171,18 +1123,6 @@ ALTER TABLE `auth_tokens`
 --
 ALTER TABLE `kategorija`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `lice`
---
-ALTER TABLE `lice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `lice_oblast`
---
-ALTER TABLE `lice_oblast`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1230,13 +1170,13 @@ ALTER TABLE `prijava`
 -- AUTO_INCREMENT for table `recenzent_anketa`
 --
 ALTER TABLE `recenzent_anketa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `recenzent_anketa_odgovor`
 --
 ALTER TABLE `recenzent_anketa_odgovor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `recenzent_rezultat`
@@ -1278,7 +1218,7 @@ ALTER TABLE `status_rezultata`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `zemlja`
@@ -1295,6 +1235,12 @@ ALTER TABLE `zvanje`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `anketa_pitanja`
+--
+ALTER TABLE `anketa_pitanja`
+  ADD CONSTRAINT `anketa_pitanja_anketa` FOREIGN KEY (`id_anketa`) REFERENCES `anketa` (`id`);
 
 --
 -- Constraints for table `anketa_pitanja_vezna`
@@ -1337,40 +1283,25 @@ ALTER TABLE `biografija`
   ADD CONSTRAINT `biografija_rezultat` FOREIGN KEY (`id_rezult`) REFERENCES `rezultat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `lice`
---
-ALTER TABLE `lice`
-  ADD CONSTRAINT `lice_nacionalnost` FOREIGN KEY (`id_nac`) REFERENCES `nacionalnost` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `lice_oblast` FOREIGN KEY (`id_oblast`) REFERENCES `oblast` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `lice_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `lice_zemlja` FOREIGN KEY (`id_zemlje`) REFERENCES `zemlja` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `lice_oblast`
---
-ALTER TABLE `lice_oblast`
-  ADD CONSTRAINT `lice_oblast_lice` FOREIGN KEY (`id_lice`) REFERENCES `lice` (`id`),
-  ADD CONSTRAINT `lice_oblast_oblast` FOREIGN KEY (`id_oblast`) REFERENCES `oblast` (`id`);
-
---
 -- Constraints for table `pitanja`
 --
 ALTER TABLE `pitanja`
-  ADD CONSTRAINT `pitanja_poziv` FOREIGN KEY (`id`) REFERENCES `poziv` (`id`);
+  ADD CONSTRAINT `pitanja_poziv` FOREIGN KEY (`id_poziv`) REFERENCES `poziv` (`id`);
 
 --
 -- Constraints for table `prijava`
 --
 ALTER TABLE `prijava`
-  ADD CONSTRAINT `prijava_status_prijave` FOREIGN KEY (`id_status`) REFERENCES `status_prijave` (`id`);
+  ADD CONSTRAINT `prijava_status_prijave` FOREIGN KEY (`id_status`) REFERENCES `status_prijave` (`id`),
+  ADD CONSTRAINT `prijava_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `recenzent_anketa`
 --
 ALTER TABLE `recenzent_anketa`
   ADD CONSTRAINT `recenzent_anketa_anketa` FOREIGN KEY (`id_anketa`) REFERENCES `anketa` (`id`),
-  ADD CONSTRAINT `recenzent_anketa_lice` FOREIGN KEY (`id_lice`) REFERENCES `lice` (`id`),
-  ADD CONSTRAINT `recenzent_anketa_obavestenja_tip` FOREIGN KEY (`id_obavestenja`) REFERENCES `obavestenja_tip` (`id`);
+  ADD CONSTRAINT `recenzent_anketa_obavestenja_tip` FOREIGN KEY (`id_obavestenja`) REFERENCES `obavestenja_tip` (`id`),
+  ADD CONSTRAINT `recenzent_anketa_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `recenzent_anketa_odgovor`
@@ -1383,8 +1314,9 @@ ALTER TABLE `recenzent_anketa_odgovor`
 -- Constraints for table `recenzent_rezultat`
 --
 ALTER TABLE `recenzent_rezultat`
-  ADD CONSTRAINT `recenzent_rezultat_lice` FOREIGN KEY (`id_lice`) REFERENCES `lice` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `recenzent_rezultat_rezultat` FOREIGN KEY (`id_rezult`) REFERENCES `rezultat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `recenzent_rezultat_rezultat` FOREIGN KEY (`id_rezult`) REFERENCES `rezultat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `recenzent_rezultat_status_rezu` FOREIGN KEY (`id_status`) REFERENCES `status_rezultata` (`id`),
+  ADD CONSTRAINT `recenzent_rezultat_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `recenzent_rezultat_odgovor`
@@ -1407,6 +1339,15 @@ ALTER TABLE `rezultat`
 ALTER TABLE `rezultat_oblasti`
   ADD CONSTRAINT `rezultat_oblasti_oblast` FOREIGN KEY (`id_oblast`) REFERENCES `oblast` (`id`),
   ADD CONSTRAINT `rezultat_oblasti_rezultat` FOREIGN KEY (`id_rezult`) REFERENCES `rezultat` (`id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_nacionalnost` FOREIGN KEY (`id_nac`) REFERENCES `nacionalnost` (`id`),
+  ADD CONSTRAINT `users_oblast` FOREIGN KEY (`id_oblast`) REFERENCES `oblast` (`id`),
+  ADD CONSTRAINT `users_zemlja` FOREIGN KEY (`id_zemlje`) REFERENCES `zemlja` (`id`),
+  ADD CONSTRAINT `users_zvanje` FOREIGN KEY (`id_zvanja`) REFERENCES `zvanje` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
