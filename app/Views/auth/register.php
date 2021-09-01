@@ -20,7 +20,7 @@
 
                     <form action="<?= route_to('register') ?>" method="post">
                         <?= csrf_field() ?>
-   <?=var_dump($podaci)?>
+   <!-- <?php //var_dump($podaci)?> -->
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="ime">Ime</label>
@@ -32,11 +32,11 @@
                             </div>                            
                             <div class="form-group col-md-6">
                             <label for="nacionalnost">Nacionalnost</label>
-                            <select name="nacionalnost" class="form-control">
+                            <select name="nacija" class="form-control">
                                 <?php
-                                    foreach($podaci as $n){
-                                        echo '<option value='. $n[0]->id. 'selected>'.  $n[0]->naziv .'</option>';
-                                    }
+                                    foreach($podaci['nacionalnosti'] as $n):
+                                        echo "<option value=".$n->id." <selected>".  $n->naziv ."</option>";
+                                    endforeach;
                                 ?>
                             </select>
                             </div>
@@ -45,7 +45,13 @@
 
                             <div class="form-group col-md-6">
                             <label for="zemlja">Zemlja zaposlenja</label>
-                            <input type="text" class="form-control" id="zemlja">
+                            <select name="zemlja" class="form-control">
+                                <?php
+                                    foreach($podaci['zemlje'] as $p):
+                                        echo "<option value=".$p->id." <selected>".  $p->naziv ."</option>";
+                                    endforeach;
+                                ?>
+                            </select>
                             </div>
                         </div>
                         <div class="form-row">
@@ -55,7 +61,13 @@
                             </div>
                             <div class="form-group col-md-4">
                             <label for="zvanje">Naucno zvanje</label>
-                            <input type="text" class="form-control" id="zvanje">
+                            <select name="zvanje" class="form-control">
+                                <?php
+                                    foreach($podaci['zvanje'] as $p):
+                                        echo "<option value=".$p->id." <selected>".  $p->naziv ."</option>";
+                                    endforeach;
+                                ?>
+                            </select>
                             </div>
                             <div class="form-group col-md-4">
                             <label for="angazovanje">Angazovanje</label>

@@ -11,6 +11,18 @@
 
         <h1 style="text-align: center;">Vasa prijava je:</h1>
 
+        <div class="form-group col-md-6">
+          <label for="kategorija">Kategorija</label>
+            <select name="kategorija" class="form-control">
+              <?php
+                  foreach($status_prijave as $s){
+                    echo '<option value='. $s->id. 'selected>'.  $s->opis .'</option>';
+                  }
+              ?>
+            </select>
+        </div>
+
+
 
     <div class="container">
       <div class="col">

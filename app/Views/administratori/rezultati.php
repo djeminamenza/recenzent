@@ -11,9 +11,13 @@
 
         <h1 style="text-align: center;">Lista naucnih rezultata</h1>
 
-
+        <form action="<?= route_to('administratori/rezultat') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <p>Ovde ce doci spisak recenzenata, kad tad!</p>
+          <div class="form-group">
+        <label for="biografija1">Biografija</label>
+        <input type="file" class="form-control-file" name="biografija1">
+    </div>
         </div>
         <button type="submit" class="btn btn-primary">Posalji</button>
 

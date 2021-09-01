@@ -33,8 +33,7 @@
                 $links['Obavestenja'] = 'recenzenti/obavestenja';                
             }
             if(in_groups(3)){
-                $links['Index'] = 'korisnici/index';
-                $links['Prijava'] = 'korisnici/prijava';              
+                $links['Status'] = 'korisnici/index';
             }
         }else{
         $links['Login'] = 'login';
