@@ -34,7 +34,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="nacionalnost">Nacionalnost</label>
-                            <select name="nacija" class="form-control">
+                            <select name="id_nac" class="form-control">
                                 <?php
                                     foreach($podaci['nacionalnosti'] as $n):
                                         echo '<option value='.$n->id.' <selected>'.  $n->naziv .'</option>';
@@ -44,10 +44,10 @@
                             </div>
                             <div class="form-group col-md-6">
                             <label for="zemlje">Zemlja zaposlenja</label>
-                            <select name="zemlje" class="form-control">
+                            <select name="id_zemlje" class="form-control">
                                 <?php
                                     foreach($podaci['zemlje'] as $p):
-                                        echo "<option value=".$p->id." <selected>".  $p->naziv ."</option>";
+                                        echo '<option value='.$p->id.' <selected>'.  $p->naziv .'</option>';
                                     endforeach;
                                 ?>
                             </select>
@@ -55,15 +55,21 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                            <label for="nio">NIO</label>
-                            <input type="text" class="form-control" id="nio">
+                            <label for="oblasti">Oblast</label>
+                                <select name="id_oblast" class="form-control">
+                                    <?php
+                                        foreach($podaci['oblasti'] as $o){
+                                            echo '<option value='. $o->id. 'selected>'.  $o->naziv .'</option>';
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <div class="form-group col-md-4">
                             <label for="zvanje">Naucno zvanje</label>
-                            <select name="zvanje" class="form-control">
+                            <select name="id_zvanja" class="form-control">
                                 <?php
                                     foreach($podaci['zvanje'] as $p):
-                                        echo "<option value=".$p->id." <selected>".  $p->naziv ."</option>";
+                                        echo '<option value='.$p->id.' <selected>'.  $p->naziv .'</option>';
                                     endforeach;
                                 ?>
                             </select>
