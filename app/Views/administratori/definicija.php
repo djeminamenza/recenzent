@@ -46,18 +46,8 @@
             <input type="text" class="form-control" name="godinaRezultata" placeholder="Kad ste izmerili?">
           </div>
         <div class="form-group">
-          <label for="spisakClanova">Spisak clanova</label>
-        <textarea class="form-control" placeholder="1. Clan, 2. Clan" name="spisakClanova" style="height: 100px"></textarea>
-        </div>
-        <div class="form-group">
-        <label for="biografija1">Biografija 1. Clana</label>
-        <input type="file" class="form-control-file" name="biografija1">
-        <label for="biografija2">Biografija 2. Clana</label>
-        <input type="file" class="form-control-file" name="biografija2">
-        <label for="biografija3">Biografija 3. Clana</label>
-        <input type="file" class="form-control-file" name="biografija3">
-        <label for="biografija4">Biografija 4. Clana</label>
-        <input type="file" class="form-control-file" name="biografija4">
+        <label for="biografije">Biografije clanova</label>
+        <input type="file" class="form-control-file" name="biografije">
     </div>
     </fieldset>
 
