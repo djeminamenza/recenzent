@@ -24,18 +24,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="ime">Ime</label>
-                            <input type="text" class="form-control" id="ime">
+                            <input type="text" class="form-control" id="ime" name="ime">
                             </div>
                             <div class="form-group col-md-6">
                             <label for="prezime">Prezime</label>
-                            <input type="text" class="form-control" id="prezime">
+                            <input type="text" class="form-control" id="prezime"  name="prezime">
                             </div>                            
                             <div class="form-group col-md-6">
                             <label for="nacionalnost">Nacionalnost</label>
                             <select name="nacija" class="form-control">
                                 <?php
                                     foreach($podaci['nacionalnosti'] as $n):
-                                        echo "<option value=".$n->id." <selected>".  $n->naziv ."</option>";
+                                        echo '<option value='.$n->id.' <selected>'.  $n->naziv .'</option>';
                                     endforeach;
                                 ?>
                             </select>
@@ -44,8 +44,8 @@
                         <div class="form-row">
 
                             <div class="form-group col-md-6">
-                            <label for="zemlja">Zemlja zaposlenja</label>
-                            <select name="zemlja" class="form-control">
+                            <label for="zemlje">Zemlja zaposlenja</label>
+                            <select name="zemlje" class="form-control">
                                 <?php
                                     foreach($podaci['zemlje'] as $p):
                                         echo "<option value=".$p->id." <selected>".  $p->naziv ."</option>";
@@ -70,25 +70,25 @@
                             </select>
                             </div>
                             <div class="form-group col-md-4">
-                            <label for="angazovanje">Angazovanje</label>
-                            <input type="text" class="form-control" id="angazovanje">
+                            <label for="angazovanje">Organizacija</label>
+                            <input type="text" class="form-control" id="organizacija"  name="organizacija">
                             </div>
                         </div>
                         <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
                         <legend style="width: 40%; margin-left: 7px;">Kontakt:</legend>
                         <div class="form-group">
                             <label for="telefon">Telefon</label>
-                            <input type="text" class="form-control" id="telefon" placeholder="0123">
+                            <input type="text" class="form-control" id="telefon"  name="telefon" placeholder="0123">
                         </div>
                         <div class="form-group">
                             <label for="adresa">Adresa</label>
-                            <input type="text" class="form-control" id="adresa" placeholder="Mikina 1">
+                            <input type="text" class="form-control" id="adresa"  name="adresa" placeholder="Mikina 1">
                         </div>
                         </fieldset>
 
                         <div class="form-group">
                             <label for="web">Licna Web stranica</label>
-                            <input type="text" class="form-control" id="web" placeholder="www.page.com">
+                            <input type="text" class="form-control" id="web"  name="web_str" placeholder="www.page.com">
                         </div>
                         <div class="form-group">
                             <label for="biografija1">Biografija</label>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label for="najznacajniji">10 najznacajnijih radova</label>
-                            <textarea class="form-control" placeholder="" name="najznacajniji" style="height: 100px"></textarea>
+                            <textarea class="form-control" placeholder="" name="radovi" style="height: 100px"></textarea>
                         </div>
 
 
