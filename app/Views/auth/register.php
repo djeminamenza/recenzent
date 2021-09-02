@@ -30,6 +30,8 @@
                             <label for="prezime">Prezime</label>
                             <input type="text" class="form-control" id="prezime"  name="prezime">
                             </div>                            
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="nacionalnost">Nacionalnost</label>
                             <select name="nacija" class="form-control">
@@ -40,9 +42,6 @@
                                 ?>
                             </select>
                             </div>
-                        </div>
-                        <div class="form-row">
-
                             <div class="form-group col-md-6">
                             <label for="zemlje">Zemlja zaposlenja</label>
                             <select name="zemlje" class="form-control">
