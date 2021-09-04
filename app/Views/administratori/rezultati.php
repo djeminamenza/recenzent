@@ -10,14 +10,19 @@
 
 
         <h1 style="text-align: center;">Lista naucnih rezultata</h1>
+        <?= view('Myth\Auth\Views\_message_block') ?>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 offset-sm-3">
-                        <form action="<?= route_to('administratori/rezultati') ?>" method="post" enctype="multipart/form-data">
+                        <form action="<?= route_to('administratori/upload') ?>" method="post" enctype="multipart/form-data">
                             <p>Ovde ce doci spisak recenzenata, kad tad!</p>
-                            <div class="form-group">
-                            <label for="biografija1">Biografija</label>
-                            <input type="file" class="form-control-file" name="biografija1">
+                            <div class="form-group col-md-6">
+                                <label for="naziv">Naziv</label>
+                                <input type="text" class="form-control" name="naziv">
+                           </div>  
+                            <div class="form-group col-md-6">
+                            <label for="opis">Biografija</label>
+                            <input type="file" class="form-control-file" name="opis">
                             </div>
                             <button type="submit" class="btn btn-success">Posalji</button>
                         </form>

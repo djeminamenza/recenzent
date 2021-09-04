@@ -23,6 +23,11 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
+
+/*------------ proba rute Za upload ------------------------------*/
+$routes->post('administratori/rezultati', 'Administratori::upload');
+/*------------ kraj probe rute Za upload ------------------------------*/
+
 /*
 $routes->add('administratori/index', 'Administratori::index', ['filter' => 'role:admin']);
 $routes->add('korisnici/index', 'Korisnici::index', ['filter' => 'role:korisnik']);
