@@ -44,8 +44,7 @@ class Administratori extends BaseController
 			])){
 
 				$rezultat = [
-					'naziv' =>$this->request->getPost('naziv'),
-					'opis' =>$this->request->getPost('opis'),
+					'naziv' =>$this->request->getPost('naziv'),					
 				];
 
 				$biografijaID = $this->model->insert($rezultat, true);
@@ -54,6 +53,10 @@ class Administratori extends BaseController
 				$biografija = $this->request->getFile('opis');
 				$biografija->move('../public/biografije', $biografijaName, true);
 
+
+				$rezultat['id'] = $biografijaID;
+				$rezultat['opis'] = $biografijaName;
+				$this->model->update($biografijaID, $rezultat);
 
 				return redirect()->to('administratori/rezultati')->with('message','Success');
 

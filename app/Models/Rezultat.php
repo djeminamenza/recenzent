@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Rezultat extends Model{
     protected $table = 'rezultat';
-    protected $allowedFields = ['naziv'];
+    protected $allowedFields = ['naziv','opis'];
     protected $returnType = 'object';
 }
 
