@@ -26,6 +26,8 @@ $routes->setAutoRoute(true);
 
 /*------------ proba rute Za upload ------------------------------*/
 $routes->post('administratori/rezultati', 'Administratori::upload');
+$routes->get('administratori/definicija', 'Administratori::definicija');
+$routes->post('administratori/definicija', 'Administratori::attemptDefinicija');
 /*------------ kraj probe rute Za upload ------------------------------*/
 
 /*

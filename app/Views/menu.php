@@ -23,7 +23,9 @@
                 $links['Definicija'] = 'administratori/definicija';
                 $links['Ankete'] = 'administratori/ankete';
                 $links['Obavestenja'] = 'administratori/obavestenja';  
-                $links['Spisak'] = 'administratori/spisak';              
+                $links['Spisak'] = 'administratori/spisak'; 
+                $links['Poziv'] = 'administratori/poziv'; 
+
             }
             if(in_groups(2)){
                 $links['Profil'] = 'recenzenti/profil';

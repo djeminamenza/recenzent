@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 
-<div class="container">
+<div class="container masthead">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
 
@@ -18,9 +18,9 @@
 
                     <?= view('Myth\Auth\Views\_message_block') ?>
 
-                    <form action="<?= route_to('register') ?>" method="post">
+                    <form action="<?= route_to('register') ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field() ?>
-   <!-- <?php //var_dump($podaci)?> -->
+                        
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="ime">Ime</label>
@@ -59,7 +59,7 @@
                                 <select name="id_oblast" class="form-control">
                                     <?php
                                         foreach($podaci['oblasti'] as $o){
-                                            echo '<option value='. $o->id. 'selected>'.  $o->naziv .'</option>';
+                                            echo '<option value='.$o->id.' <selected>'.  $o->naziv .'</option>';
                                         }
                                     ?>
                                 </select>
@@ -95,10 +95,17 @@
                             <label for="web">Licna Web stranica</label>
                             <input type="text" class="form-control" id="web"  name="web_str" placeholder="www.page.com">
                         </div>
+
+<!-- ************************************ U P L O A D ********************************************* -->
+
                         <div class="form-group">
-                            <label for="biografija1">Biografija</label>
+                            <label for="biografija">Biografija</label>
                             <input type="file" class="form-control-file" name="biografija">
+                            
                         </div>
+
+<!-- ************************************ U P L O A D ********************************************* -->         
+
                         <div class="form-group">
                             <label for="najznacajniji">10 najznacajnijih radova</label>
                             <textarea class="form-control" placeholder="" name="radovi" style="height: 100px"></textarea>
