@@ -20,6 +20,7 @@ class Administratori extends BaseController
 	public function __construct()
 	{
 		$this->model = new Rezultat();
+		$this->model = new Poziv();
 		
 	}
 // kraj dodatka
@@ -50,6 +51,22 @@ class Administratori extends BaseController
 		$podaci['pozivi'] = $pozivModel->findAll();
 		return view('administratori/poziv', $podaci);
 	}
+	public function attemptPoziv(){
+	
+		if($this->validate([
+			'naziv'=> 'required'
+
+		])){
+			$poziv =[
+				'naziv'=>$this->request->getPost('naziv'),
+			];
+			$pozivID = $this->model->insert($poziv, true);
+			return redirect()->to('administratori/poziv')->with('message', 'Success');
+		}else{
+			return redirect()->back()->withInput->with('errors', $this->validator->getErrors());
+		}
+	}
+
 
 	public function definicija()
 	{	
@@ -121,5 +138,6 @@ class Administratori extends BaseController
 	{
 		return view('administratori/spisak');
 	} 
+
 
 }
