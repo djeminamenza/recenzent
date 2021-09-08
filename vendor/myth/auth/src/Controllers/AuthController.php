@@ -190,6 +190,7 @@ class AuthController extends Controller
 		$allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
 		$user = new User($this->request->getPost($allowedPostFields));
 		
+		
 		// ***************** BIOGRAFIJA UPLOAD *****************
 
 /* 		$biografijaID = $user-> insert($rezultat, true);
@@ -197,7 +198,9 @@ class AuthController extends Controller
 				$biografijaName = $biografijaID . ".pdf";
 				$biografija = $this->request->getFile('opis');
 				$biografija->move('../public/biografije', $biografijaName, true);
-
+				
+PROVERI OVO
+$user->user_id();
 
 				$rezultat['id'] = $biografijaID;
 				$rezultat['opis'] = $biografijaName;

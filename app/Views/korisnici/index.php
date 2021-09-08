@@ -24,6 +24,12 @@
 
       </select>
         </div>
+
+        <?php 
+        //$status = $status_prijave->$this->model->opis ;
+        //var_dump($status_prijave);
+        ?>
+
     </div>
         </div>
       </div>

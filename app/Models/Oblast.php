@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Oblast extends Model{
     protected $table = 'oblast';
-    protected $allowedFields = ['name'];
+    protected $allowedFields = ['naziv'];
     protected $returnType = 'object';
 }
 

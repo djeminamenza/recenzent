@@ -25,7 +25,7 @@
             <select name='id_poziv' class="form-control">
             <?php
                   foreach($pozivi as $p):
-                    echo '<option value='. $p->id.' selected>'.  $p->naziv .'</option>';
+                    echo '<option value='. $p->id.'>'.  $p->naziv .'</option>';
                     //echo '<option value='.$n->id.' <selected>'.  $n->naziv .'</option>';
                   endforeach;
                   
@@ -57,27 +57,35 @@
         </div>
 
         </div>
-    <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
-        <legend style="width: 14%;margin-left: 7px;">Prijava:</legend>
-        <div class="form-group">
-          <label for="opisRezultata">Opis rezultata</label>
-          <input type="text" class="form-control" name='opis' placeholder="Opisi svoj rezultat, sta god to bilo?">
-        </div>
-        <div class="form-group">
-            <label for="godinaRezultata">Godina rezultata</label>
-            <input type="text" class="form-control" name='god_rez' placeholder="Kad ste izmerili?">
-          </div>
-          <div class = "form-row">
-          <div class="form-group">
-        <label for="clanovi">Imena clanova tima</label>
-        <input type="text" class="form-control" name='clanovi'>
-    </div>
-        <div class="form-group">
-        <label for="biografije">Biografije clanova</label>
-        <input type="file" class="form-control-file" name='biografije'>
-    </div>
-   </div>
-    </fieldset>
+              <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
+                  <legend style="width: 14%;margin-left: 7px;">Prijava:</legend>
+                  <div class="form-group">
+                    <label for="opisRezultata">Opis rezultata</label>
+                    <input type="text" class="form-control" name='opis' placeholder="Opisi svoj rezultat, sta god to bilo?">
+                  </div>
+                  <div class="form-group">
+                      <label for="godinaRezultata">Godina rezultata</label>
+                      <input type="text" class="form-control" name='god_rez' placeholder="Kad ste izmerili?">
+                    </div>
+                    <div class = "form-row">
+                    <div class="form-group">
+                  <label for="clanovi">Imena clanova tima</label>
+                  <input type="text" class="form-control" name='clanovi'>
+              </div>
+                  <div class="form-group">
+                  <label for="biografije">Biografije clanova</label>
+                  <input type="file" class="form-control-file" name='biografije'>
+              </div>
+
+              <div class="form-group">
+              <label for="id_status">Status rezultata (ovo bi trebalo da je hidden)</label>
+                <select name= "id_status" class="form-control">
+                  <option value="3"selected>razmatra se</option>
+                </select>
+              <div>
+
+            </div>
+              </fieldset>
               
         <div class="form-row">
 

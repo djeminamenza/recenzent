@@ -20,7 +20,7 @@ class Administratori extends BaseController
 	public function __construct()
 	{
 		$this->model = new Rezultat();
-		$this->model = new Poziv();
+		
 		
 	}
 // kraj dodatka
@@ -34,9 +34,11 @@ class Administratori extends BaseController
 
 	public function rezultati()
 	{
-		$rezultatModel = new Rezultat();
-		$podaci['rezultati'] = $rezultatModel->findAll();
-		return view('administratori/rezultati', $podaci);
+		//$rezultati = $this->model->dohvatiRezultate();
+		//$podaci['rezultati'] = $rezultati->getResult();
+		$rezultati = new Rezultat();
+		$data['rezultati'] = $rezultati->findAll();
+		return view('administratori/rezultati', $data);
 	}
 
 	public function prijave()
@@ -45,12 +47,16 @@ class Administratori extends BaseController
 		$data['korisnici'] = $korisnici->findAll();
 		return view('administratori/prijave',$data);
 	}
+
+
 	public function poziv()
 	{
 		$pozivModel = new Poziv();
 		$podaci['pozivi'] = $pozivModel->findAll();
 		return view('administratori/poziv', $podaci);
 	}
+
+
 	public function attemptPoziv(){
 	
 		if($this->validate([
@@ -77,7 +83,6 @@ class Administratori extends BaseController
 		$pozivModel = new Poziv();
 		$def['pozivi'] = $pozivModel->findAll();
 		return view('administratori/definicija', $def);
-		
 	}
 
 	public function attemptDefinicija(){
@@ -94,11 +99,11 @@ class Administratori extends BaseController
 					'id_kateg' =>$this->request->getPost('id_kateg'),
 					'id_status' =>$this->request->getPost('id_status'),
 					'naziv' =>$this->request->getPost('naziv'),		
-					'datum' =>$this->request->getPost('datum'),		
 					'opis' =>$this->request->getPost('opis'),		
 					'clanovi' =>$this->request->getPost('clanovi'),		
 					'god_rez' =>$this->request->getPost('god_rez'),		
-					'datum_prijave' =>$this->request->getPost('naziv'),		
+					'datum_prijave' =>$this->request->getPost('datum_prijave'),
+					'id_oblast' =>$this->request->getPost('id_oblast'),		
 				];
 
 				$biografijaID = $this->model->insert($rezultat, true);
@@ -125,15 +130,19 @@ class Administratori extends BaseController
 		return view('administratori/recenzije');
 	}
 
+
 	public function ankete()
 	{
 		return view('administratori/ankete');
 	}
 
+
 	public function obavestenja()
 	{
 		return view('administratori/obavestenja');
 	}
+
+
 	public function spisak()
 	{
 		return view('administratori/spisak');

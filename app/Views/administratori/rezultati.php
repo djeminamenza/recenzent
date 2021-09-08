@@ -23,6 +23,7 @@
                 <th scope="col">Kategorija</th>
                 <th scope="col">Oblast</th>
                 <th scope="col">Datum prijave</th>
+                <th scope="col">Status rezultata</th>
             </tr>
             </thead>
             <tbody>
@@ -33,8 +34,9 @@
                         echo '<td scope="row">'.$r->naziv.'</td>';
                         echo '<td scope="row">'. $r->id_poziv. '</td>';
                         echo '<td scope="row">'.$r->id_kateg.'</td>';
-                        echo '<td scope="row">NEMA</td>';
+                        echo '<td scope="row">'.$r->id_oblast.'</td>';
                         echo '<td scope="row">'.$r->datum_prijave.'</td>';                    
+                        echo '<td scope="row">'.$r->id_status.'</td>';    
                         
                       echo '</tr>';
                   }
