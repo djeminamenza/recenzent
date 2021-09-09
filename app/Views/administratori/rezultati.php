@@ -28,16 +28,17 @@
             </thead>
             <tbody>
             <?php
+
                   foreach($rezultati as $r){
                     //echo '<option value='. $k->id. 'selected>'.  $k->email .'</option>';
                       echo '<tr>';
-                        echo '<td scope="row">'.$r->naziv.'</td>';
-                        echo '<td scope="row">'. $r->id_poziv. '</td>';
-                        echo '<td scope="row">'.$r->id_kateg.'</td>';
-                        echo '<td scope="row">'.$r->id_oblast.'</td>';
-                        echo '<td scope="row">'.$r->datum_prijave.'</td>';                    
-                        echo '<td scope="row">'.$r->id_status.'</td>';    
-                        
+                        echo '<td scope="row">'.$r->ime.'</td>';
+                        echo '<td scope="row">'. $r->rezpoziv. '</td>';
+                        echo '<td scope="row">'. $r->rezkateg. '</td>';
+                        echo '<td scope="row">'. $r->rezoblast. '</td>';
+                        echo '<td scope="row">'. $r->datum_prijave. '</td>';
+                        echo '<td scope="row">'. $r->rezstatus. '</td>';
+   
                       echo '</tr>';
                   }
             ?>  

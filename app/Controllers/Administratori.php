@@ -34,11 +34,12 @@ class Administratori extends BaseController
 
 	public function rezultati()
 	{
-		//$rezultati = $this->model->dohvatiRezultate();
-		//$podaci['rezultati'] = $rezultati->getResult();
-		$rezultati = new Rezultat();
-		$data['rezultati'] = $rezultati->findAll();
+		$rezultati = $this->model->dohvatiRezultate();
+		$data['rezultati'] = $rezultati->getResult();
 		return view('administratori/rezultati', $data);
+		//$rezultati = new Rezultat();
+		//$data['rezultati'] = $rezultati->findAll();
+		//return view('administratori/rezultati', $data);
 	}
 
 	public function prijave()
