@@ -232,7 +232,7 @@ $user->user_id();
 			}
 			// ******** OVDE JE VALJDA UPISAN KORISNIK U BAZU ************
 			//$biografijaID =$user->getid($email); // OVO NE RADI !!!
-			$biografijaName = $user->biografija->parse_str;
+			$biografijaName = 'Pera.pdf';
 			//var_dump($biografijaName);
 			$biografija = $this->request-> getFile('biografija');
 			$biografija->move('../public/biografije/recenzenti', $biografijaName, true);

@@ -9,10 +9,6 @@ class Korisnici extends Model{
     protected $allowedFields = ['id'];
     protected $returnType = 'object';
 
-    // public function __construct()
-    // {
-    //     $this->model = new Korisnici();
-    // }
 
 public function dohvatiKorisnike(){
     return $this->builder()
@@ -27,12 +23,6 @@ public function dohvatiKorisnike(){
     }   
 }
 /*
-SELECT * FROM users 
-inner join auth_groups_users a 
-on users.id = a.user_id 
-inner join auth_groups g 
-where a.group_id = g.id 
-and g.name='korisnik'
 
 SELECT * FROM users
 inner join auth_groups_users 

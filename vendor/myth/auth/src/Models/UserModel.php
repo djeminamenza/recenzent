@@ -44,13 +44,13 @@ class UserModel extends Model
      * Get a userID.
      *
      * @param string      $email
-     * @return            $this
+     * @return            $id
      */
     public function getid(string $email)
     {
         $this->db->table('users')->where('email', $email)->get()->getFirstRow();
-        $this->id;
-        return $this;
+        $id=$this->id;
+        return $id;
     }
 
 

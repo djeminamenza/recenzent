@@ -31,6 +31,9 @@ $routes->post('administratori/definicija', 'Administratori::attemptDefinicija');
 $routes->post('administratori/poziv', 'Administratori::attemptPoziv');
 /*------------ kraj probe rute Za upload ------------------------------*/
 
+$routes->get('korisnici/status_prijave', 'Korisnici::status_prijave');
+//$routes->post('korisnici/status_prijave', 'Korisnici::attemptStatus');
+
 /*
 $routes->add('administratori/index', 'Administratori::index', ['filter' => 'role:admin']);
 $routes->add('korisnici/index', 'Korisnici::index', ['filter' => 'role:korisnik']);

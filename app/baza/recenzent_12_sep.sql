@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2021 at 12:48 PM
+-- Generation Time: Sep 12, 2021 at 11:53 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -102,7 +102,11 @@ CREATE TABLE `auth_activation_attempts` (
 --
 
 INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token`, `created_at`) VALUES
-(1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36', '072e2f4683dae329a901117db33c38d0', '2021-08-25 18:26:43');
+(1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36', '072e2f4683dae329a901117db33c38d0', '2021-08-25 18:26:43'),
+(2, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:00:42'),
+(3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:01:17'),
+(4, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:02:15'),
+(5, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:04:23');
 
 -- --------------------------------------------------------
 
@@ -167,7 +171,9 @@ INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (2, 4),
 (2, 4),
 (3, 5),
-(3, 21);
+(3, 21),
+(3, 25),
+(3, 27);
 
 -- --------------------------------------------------------
 
@@ -196,7 +202,17 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (224, '::1', 'zika@zikic.com', 4, '2021-09-10 17:30:50', 1),
 (225, '::1', 'pera@peric.com', 1, '2021-09-10 17:31:14', 1),
 (226, '::1', 'pera@peric.com', 1, '2021-09-10 17:57:45', 1),
-(227, '::1', 'pera@peric.com', 1, '2021-09-12 04:59:40', 1);
+(227, '::1', 'pera@peric.com', 1, '2021-09-12 04:59:40', 1),
+(228, '::1', 'pera@peric.com', 1, '2021-09-12 10:41:15', 1),
+(229, '::1', 'mika@mikic.com', 5, '2021-09-12 10:55:00', 1),
+(230, '::1', 'pera@peric.com', 1, '2021-09-12 10:59:57', 1),
+(231, '::1', 'mika@mikic.com', 5, '2021-09-12 11:03:53', 1),
+(232, '::1', 'pera@peric.com', 1, '2021-09-12 11:28:54', 1),
+(233, '::1', 'darko', 25, '2021-09-12 11:52:28', 0),
+(234, '::1', 'darko', 25, '2021-09-12 11:55:45', 0),
+(235, '::1', 'jelenastn30@gmail.com', 27, '2021-09-12 12:10:16', 1),
+(236, '::1', 'mika@mikic.com', 5, '2021-09-12 15:52:59', 1),
+(237, '::1', 'darko@stankov.co', 25, '2021-09-12 16:47:30', 1);
 
 -- --------------------------------------------------------
 
@@ -420,8 +436,16 @@ CREATE TABLE `prijava` (
   `id_user` int(11) UNSIGNED NOT NULL,
   `id_status` int(11) NOT NULL,
   `datum_prijave` date NOT NULL,
-  `datum_izmene` date NOT NULL
+  `datum_izmene` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prijava`
+--
+
+INSERT INTO `prijava` (`id`, `id_user`, `id_status`, `datum_prijave`, `datum_izmene`) VALUES
+(3, 25, 1, '2021-09-11', NULL),
+(4, 27, 2, '2021-09-12', NULL);
 
 -- --------------------------------------------------------
 
@@ -624,7 +648,9 @@ INSERT INTO `users` (`id`, `email`, `username`, `ime`, `prezime`, `organizacija`
 (1, 'pera@peric.com', 'pera', 'Petar', 'Petrovic', '', 1, 1, 1, 1, '', '', '', '', '', '$2y$10$/zR6v861LuPvDUYH778wu.B/nD1m0maY/r9ljjuhLgKkfp6SgLGTe', NULL, NULL, NULL, 'e700177ebea8776c3fdbae983420484b', NULL, NULL, 1, 0, '2021-08-19 17:35:42', '2021-08-19 17:35:42', NULL),
 (4, 'zika@zikic.com', 'zika', 'Zivojin', 'Zivojinovic', '', 5, 2, 2, 2, '', '', '', '', '', '$2y$10$0XGxBsNMYmIQKr8cnsKDGOWBQcEYWhcepVDt85huzps.WgolcwrNa', NULL, NULL, NULL, 'b7085ea63f0175d5a137246f68a4d56a', NULL, NULL, 1, 0, '2021-08-20 13:26:23', '2021-08-20 13:26:23', NULL),
 (5, 'mika@mikic.com', 'mika', 'Mike', 'Miller', '', 3, 1, 3, 3, '', '', '', '', '', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-08-20 13:27:03', NULL),
-(21, 'kiki@kiki.com', 'kiki', 'Kiki', 'Kikic', 'MGM', 2, 1, 3, 3, 'Kikina 99', '066', 'www.kikic.com', '', '7', '$2y$10$y87FgT0hQYUj/Kdgjzx/DeN8706SKQmEI39ix2heANmZ9PBJbLwHq', NULL, NULL, NULL, '24883946fed2a3a4d893f04401ee7701', NULL, NULL, 1, 0, '2021-09-06 15:18:08', '2021-09-06 15:18:08', NULL);
+(21, 'kiki@kiki.com', 'kiki', 'Kiki', 'Kikic', 'MGM', 2, 1, 3, 3, 'Kikina 99', '066', 'www.kikic.com', '', '7', '$2y$10$y87FgT0hQYUj/Kdgjzx/DeN8706SKQmEI39ix2heANmZ9PBJbLwHq', NULL, NULL, NULL, '24883946fed2a3a4d893f04401ee7701', NULL, NULL, 1, 0, '2021-09-06 15:18:08', '2021-09-06 15:18:08', NULL),
+(25, 'darko@stankov.co', 'darko', 'Darko', 'Stankov', '', 1, 1, 1, 1, '', '', '', '', '10', '$2y$10$P5Nx/FeqI/tsMhC9H2w.ieb7lYkK3/gB/hnZ/Xmx2wjFROp5efHCG', NULL, NULL, NULL, '8177e6639b725b2c97b8cb8da3e372ce', NULL, NULL, 1, 0, '2021-09-12 11:52:00', '2021-09-12 11:52:00', NULL),
+(27, 'jelenastn30@gmail.com', 'jelena', 'Jelena', 'Stanic', '', 1, 1, 1, 1, '', '', '', '', '', '$2y$10$MR9KkreEeSpurq2vzCvd6.LNgH4UUK9klOkN..KcyzxRsPh.H9OI2', NULL, NULL, NULL, 'c9d596043af5c8da5b9bea6f7178cc1f', NULL, NULL, 1, 0, '2021-09-12 12:03:01', '2021-09-12 12:03:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -941,7 +967,7 @@ ALTER TABLE `anketa_pitanja_vezna`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
@@ -953,7 +979,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=228;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1019,7 +1045,7 @@ ALTER TABLE `poziv`
 -- AUTO_INCREMENT for table `prijava`
 --
 ALTER TABLE `prijava`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `recenzent_anketa`
@@ -1073,7 +1099,7 @@ ALTER TABLE `status_rezultata`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `zemlja`

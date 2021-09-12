@@ -20,7 +20,6 @@
           <th>prebaci u recenzente</th>
           </tr>
           <?php
-          //var_dump($korisnici);
               foreach($korisnici as $k){
                   echo '<tr>';
                   echo '<td>'.$k->id.'</td>';  

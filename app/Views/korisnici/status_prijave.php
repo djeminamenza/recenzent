@@ -9,30 +9,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
   
-    <div class="container">
-    <div class="row">
-		<div class="col-sm-6 offset-sm-3">
-    <div class="card">
-		<h2 class="card-header">Status Vase prijave je:</h2>
-				<div class="card-body">
-      <select name= "status" class="form-control">
-      <?php 
-        foreach($status_prijave as $s){
-          echo'<option value='. $s->id. 'selected>'. $s->opis.'</option>';
-        }
-      ?>
-
-      </select>
-        </div>
-
-        <?php 
-        //$status = $status_prijave->$this->model->opis ;
-        //var_dump($status_prijave);
-        ?>
-
-    </div>
-        </div>
+    <div class="container masthead">
+    <br>
+      <div class="form col-md-12" style="text-align: center;">      
+        <table class="table table-bordered table-striped table-dark">        
+          <tr>
+            <th><h3>Status prijave</h3></th>
+          </tr>
+            <?php
+            //var_dump($statusi);
+              foreach($statusi as $s){
+                  echo '<tr>';
+                    echo '<td><h4>'.$s->opis.'</h4></td>';                                                  
+                  echo '</tr>';
+              }
+              ?>
+        </table>          
       </div>
-  </div>
+    </div>
 
 <?php $this->endSection(); ?>     

@@ -34,9 +34,11 @@
                 $links['Ankete'] = 'recenzenti/ankete';
                 $links['Obavestenja'] = 'recenzenti/obavestenja';                
             }
+            
             if(in_groups(3)){
-                $links['Status'] = 'korisnici/index';
+                $links['Status'] = 'korisnici/status_prijave';
             }
+
         }else{
         $links['Login'] = 'login';
         $links['Register'] ='register';
