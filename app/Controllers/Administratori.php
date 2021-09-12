@@ -45,7 +45,7 @@ class Administratori extends BaseController
 	public function prijave()
 	{
 		$korisnici = new Korisnici();
-		$data['korisnici'] = $korisnici->findAll();
+		$data['korisnici'] = $korisnici->dohvatiKorisnike();
 		return view('administratori/prijave',$data);
 	}
 

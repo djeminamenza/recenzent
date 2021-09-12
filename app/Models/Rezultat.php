@@ -39,7 +39,7 @@ class Rezultat extends Model{
                 where id_kateg = kategorija.id) as rezkateg")
         ->select("(select naziv from oblast
                 where id_oblast = oblast.id) as rezoblast")
-        ->select("(select naziv from status_rezultata
+        ->select("(select opis from status_rezultata
                 where id_status = status_rezultata.id) as rezstatus")
         ->get();
     }
