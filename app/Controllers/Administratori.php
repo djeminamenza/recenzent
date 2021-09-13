@@ -7,21 +7,28 @@ use App\Models\Korisnici;
 use App\Models\Oblast;
 use App\Models\Poziv;
 use App\Models\Rezultat;
+use App\Models\RoleChange;
 use Myth\Auth\Models;
 use CodeIgniter\Model;
+use Exception;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
+
 
 class Administratori extends BaseController
 {
 // *********************************************************
 // dodato za probu uploadovanja biografije
 	protected $model;
+	protected $roleChange;
+	protected $request;
+
+
 	public function __construct()
 	{
 		$this->model = new Rezultat();
-		
-		
+		$this->roleChange = new RoleChange();
+	
 	}
 // kraj dodatka
 // *********************************************************
@@ -149,5 +156,26 @@ class Administratori extends BaseController
 		return view('administratori/spisak');
 	} 
 
+	public function changeRole(){
+		$post = $this->request->getPost();
+       
+        try {
+            $response = $this->roleChange->update_data($post, array('group_id' => '2'));
+			return $this->response->setJson(['affectedRows'=>$response]);
+        }catch (Exception $e) {
+            throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
+        }
+    }
+
+	public function deleteUser(){
+		$post = $this->request->getPost();
+
+        try {
+            $response = $this->roleChange->delete_data($post['uid']);
+			return $this->response->setJson(['affectedRows'=>$response]);
+        }catch (Exception $e) {
+            throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
+        }
+	}
 
 }
