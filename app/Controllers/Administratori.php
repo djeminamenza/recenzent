@@ -8,6 +8,8 @@ use App\Models\Oblast;
 use App\Models\Poziv;
 use App\Models\Rezultat;
 use App\Models\RoleChange;
+use App\Models\Recenzent_rezultat;
+use App\Models\Status_prijave;
 use Myth\Auth\Models;
 use CodeIgniter\Model;
 use Exception;
@@ -153,7 +155,9 @@ class Administratori extends BaseController
 
 	public function spisak()
 	{
-		return view('administratori/spisak');
+        $Recenzent_rezultatModel = new Recenzent_rezultat();
+        $recenzenti['rec'] = $Recenzent_rezultatModel->Recenzent_rezultat();
+        return view('administratori/spisak', $recenzenti);
 	} 
 
 	public function changeRole(){

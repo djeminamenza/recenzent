@@ -12,13 +12,26 @@ class Korisnici extends Model{
 
 public function dohvatiKorisnike(){
     return $this->builder()
-    ->select("users.id, concat(ime,' ',prezime) as korisnik")
-    ->select("description as uloga")
+    ->select("users.id as kid, concat(ime,' ',prezime) as korisnik")
+    ->select("name as uloga")
+    ->select("auth_groups.id as gid ")
+
+// **********************************************************
+    ->select("opis, id_user, id_status,status_prijave.id as sid")
+    ->where('prijava.id_user = users.id')
+    ->where('prijava.id_status = status_prijave.id')
+// **********************************************************    
+
+
     ->where('users.id = auth_groups_users.user_id')
     ->where('auth_groups_users.group_id = auth_groups.id')
-    ->where("auth_groups.name = 'korisnik'")
+    ->where("auth_groups.id != 1")
     ->from('auth_groups')
     ->from('auth_groups_users')
+// **********************************************************
+    ->from('prijava')
+    ->from('status_prijave')
+// **********************************************************
     ->get()->getResult();
     }   
 }

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 
-  <h1 style="text-align: center;">Pregled prijava</h1>
+  <h1 style="text-align: center;">Pregled recenzenata</h1>
   <div class="container masthead">
   <!-- korisnici dohvaceni iz baze -->
     <div class="form-group" style="text-align: center;">
@@ -17,17 +17,25 @@
           <th>id korisnika</th>
           <th>Ime i prezime</th>
           <th>uloga</th>
+          <th>opis</th>
           <th>prebaci u recenzente</th>
           <th>obrisi korisnika</th>
           </tr>
           <?php
               foreach($korisnici as $k){
                   echo '<tr>';
-                  echo '<td>'.$k->id.'</td>';  
+                  echo '<td>'.$k->kid.'</td>';  
                   echo '<td>'.$k->korisnik.'</td>';
                   echo '<td>'.$k->uloga.'</td>';
-                  echo '<td><button value='.$k->id.' type="button" class="rolechange btn btn-primary">Premesti</button></td>';
-                  echo '<td><button value='.$k->id.' type="button" class="deleteUser btn btn-primary">Obrisi Korisnika</button></td>';
+                  echo '<td>'.$k->opis.'</td>';
+                  if($k->gid==3 && $k->id_status <> 4){
+                    echo "<td><button value=".$k->kid. "type='button' class='rolechange btn btn-primary'>Premesti</button></td>";
+                  }else{
+                    echo '<td></td>';
+                  }
+                  //echo '<td>'.$k->name.'</td>';
+                  //echo '<td><button value='.$k->id.' type="button" class="rolechange btn btn-primary">Premesti</button></td>';
+                  echo '<td><button value='.$k->kid.' type="button" class="deleteUser btn btn-primary">Obrisi Korisnika</button></td>';
                   echo '</tr>';
               }
           ?>

@@ -31,15 +31,22 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td scope="row">naziv Rezultata iz baze</td>
-                <td scope="row">ime/imena iz baze</td>
-                <td scope="row">datum iz baze</td>
-                <td scope="row">konacna odluka iz baze</td>
-            </tr>    
+            <?php
+            //var_dump($rec);
+            foreach($rec as $c){
+                echo '<tr>';
+               echo '<td scope="row">'.$c->naziv.'</td>';
+               echo '<td scope="row">'.$c->recen.'</td>';
+               echo '<td scope="row">'.$c->datum_dodele.'</td>';
+               echo '<td scope="row">'.$c->opis.'</td>';
+            echo '</tr>';  
+            }
+            ?> 
         </tbody>
         </table>
         </div>
         </div>
        
 <?php $this->endSection(); ?>  
+
+    
