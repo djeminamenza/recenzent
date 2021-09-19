@@ -16,8 +16,8 @@
         <table class="table table-bordered">
             <thead>
             <tr>
+                <th scope="col">Recenzenti</th>
                 <th scope="col">Naziv rezultata</th>
-                <th scope="col">Recenzent/i</th>
                 <th scope="col">Status ocene</th>
             </tr>
             </thead>
@@ -26,9 +26,13 @@
         
             foreach($rez as $z){
                 echo '<tr>';
-               echo '<td scope="row">'.$z->naziv.'</td>';
-               echo '<td scope="row">'.$z->recen.'</td>';
-               echo '<td scope="row">'.$z->opis.'</td>';
+                echo '<td scope="row">'.$z->recen.'</td>';
+                echo '<td scope="row">'.$z->naziv.'</td>';
+                if($z->opis==3){
+                    echo '<td scope="row">neocenjena</td>';
+                }else{
+                    echo '<td scope="row">ocenjena</td>';
+                }
             echo '</tr>';  
             }
             ?> 

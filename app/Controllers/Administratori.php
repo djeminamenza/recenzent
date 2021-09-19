@@ -16,6 +16,7 @@ use CodeIgniter\Model;
 use Exception;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
+use Myth\Auth\Models\UserModel;
 
 
 class Administratori extends BaseController
@@ -175,14 +176,18 @@ class Administratori extends BaseController
     }
 
 	public function deleteUser(){
+		$userModel = new UserModel();
 		$post = $this->request->getPost();
+		$id = $post['uid'];
+		$userModel->delete($id);
 
-        try {
-            $response = $this->roleChange->delete_data($post['uid']);
-			return $this->response->setJson(['affectedRows'=>$response]);
-        }catch (Exception $e) {
-            throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
-        }
+		//$post = $this->request->getPost();
+        // try {
+        //     $response = $this->roleChange->delete_data($post['uid']);
+		// 	return $this->response->setJson(['affectedRows'=>$response]);
+        // }catch (Exception $e) {
+        //     throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
+        // }
 	}
 
 }

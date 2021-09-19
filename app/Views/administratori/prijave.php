@@ -17,7 +17,7 @@
           <th>id korisnika</th>
           <th>Ime i prezime</th>
           <th>uloga</th>
-          <th>opis</th>
+          <th>prijava za recenzenta</th>
           <th>prebaci u recenzente</th>
           <th>obrisi korisnika</th>
           </tr>
@@ -35,7 +35,7 @@
                   }
                   //echo '<td>'.$k->name.'</td>';
                   //echo '<td><button value='.$k->id.' type="button" class="rolechange btn btn-primary">Premesti</button></td>';
-                  echo '<td><button value='.$k->kid.' type="button" class="deleteUser btn btn-primary">Obrisi Korisnika</button></td>';
+                  echo "<td><button value=".$k->kid. "type='button' class='deleteUser btn btn-danger'>Obrisi Korisnika</button></td>";
                   echo '</tr>';
               }
           ?>
