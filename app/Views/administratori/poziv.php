@@ -24,7 +24,8 @@
                         //echo '<option value='. $k->id. 'selected>'.  $k->email .'</option>';
                           echo '<tr>';
                             echo '<td><h4>'.$k->naziv.'</h4></td>';
-                            echo '<td><h4>'. $k->id. '</h4></td>';                        
+                            echo '<td><h4>'. $k->id. '</h4></td>'; 
+                            echo "<td><button value=".$k->id. "type='button' class='deleteUser btn btn-danger'>Obrisi poziv</button></td>";                   
                           echo '</tr>';
                       }
                   ?>
@@ -47,6 +48,49 @@
                 <!-- </select> -->
       </div>
     </div>
+
+   <!-- Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type='text/javascript'>
+    $(document).ready(function() {
+        $('.rolechange').click(function(e) {
+            e.preventDefault();
+            var uid = $(this).attr("value");
+            $.ajax({
+                url:'<?=base_url()?>/Administratori/changeRole',
+                method: 'post',
+                data: {uid: uid},
+                dataType: 'json',
+                success: function(response){
+                   if(response.affectedRows == '1'){
+                        location.reload();
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert('Doslo je do greske pokusajte kasnije ponovo');
+                }
+            });
+        });
+        $('.deleteUser').click(function(e) {
+            var uid = $(this).attr("value");
+            $.ajax({
+                url:'<?=base_url()?>/Administratori/deleteUser',
+                method: 'post',
+                data: {uid: uid},
+                dataType: 'json',
+                success: function(response){
+                   if(response.affectedRows == '1'){
+                        location.reload();
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest);
+                    alert('Doslo je do greske pokusajte kasnije ponovo');
+                }
+            });
+        });
+    });
+</script>
 
 <?php $this->endSection(); ?>     
 

@@ -23,12 +23,12 @@
             </thead>
             <tbody>
             <?php
-        
+            
             foreach($rez as $z){
                 echo '<tr>';
                 echo '<td scope="row">'.$z->recen.'</td>';
                 echo '<td scope="row">'.$z->naziv.'</td>';
-                if($z->opis==3){
+                if($z->opis=='razmatra se'){
                     echo '<td scope="row">neocenjena</td>';
                 }else{
                     echo '<td scope="row">ocenjena</td>';
@@ -38,8 +38,36 @@
             ?> 
         </tbody>
         </table>
+
+       
+<h1 style="text-align: center;">Broj rezultat na recenziji</h1>
+        </br>
+        </br>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Recenzenti</th>
+                <th scope="col">Broj rezultata na recenziji</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            //var_dump($br);
+           foreach($br as $b){
+                echo '<tr>';
+                echo '<td scope="row">'.$b->recen.'</td>';
+                if($b->opis=='razmatra se'){
+            
+                    echo '<td scope="row">'.$b->zbir.'</td>';
+                
+                }else{
+                    echo '<td scope="row">0</td>';
+                }
+            echo '</tr>';  
+            }
+            ?> 
+        </tbody>
+        </table>
         </div>
         </div>
-
-
 <?php $this->endSection(); ?>     

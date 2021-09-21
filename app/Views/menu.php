@@ -27,15 +27,16 @@
                 $links['Poziv'] = 'administratori/poziv'; 
 
             }
-            if(in_groups(2)){
+            elseif
+            (in_groups(2)){
                 $links['Profil'] = 'recenzenti/profil';
                 $links['Rezultati'] = 'recenzenti/rezultati';
                 $links['Recenzije'] = 'recenzenti/recenzije';
                 $links['Ankete'] = 'recenzenti/ankete';
                 $links['Obavestenja'] = 'recenzenti/obavestenja';                
             }
-            
-            if(in_groups(3)){
+            elseif
+            (in_groups(3)){
                 $links['Status'] = 'korisnici/status_prijave';
             }
 

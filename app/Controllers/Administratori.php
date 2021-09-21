@@ -10,6 +10,7 @@ use App\Models\Rezultat;
 use App\Models\RoleChange;
 use App\Models\Recenzent_rezultat;
 use App\Models\Rezultat_recenzent;
+use App\Models\Broj_rezultata;
 use App\Models\Status_prijave;
 use Myth\Auth\Models;
 use CodeIgniter\Model;
@@ -140,8 +141,13 @@ class Administratori extends BaseController
 	public function recenzije()
 	{
 		$Rezultat_recenzentModel = new Rezultat_recenzent();
-        $rezultati['rez'] = $Rezultat_recenzentModel->Rezultat_recenzent();
-        return view('administratori/recenzije', $rezultati);
+        $data['rez'] = $Rezultat_recenzentModel->Rezultat_recenzent();
+        //return view('administratori/recenzije', $data);
+		
+		$Broj_rezultataModel = new Broj_rezultata();
+		$data['br'] = $Broj_rezultataModel->Broj_rezultata();
+        return view('administratori/recenzije', $data);
+
 	}
 
 
