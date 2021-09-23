@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
   
-    <div class="container masthead">
+    <div class="container masthead mx-auto">
     <br>
       <div class="form col-md-12" style="text-align: center;">      
         <table class="table table-bordered table-striped table-dark">        

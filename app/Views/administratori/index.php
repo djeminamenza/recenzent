@@ -14,7 +14,7 @@
         <h1 style="text-align: center;">Administratorske strane</h1>
 
 
-    <div class="container">
+        <div class="container masthead mx-auto">
       <div class="col">
         <div class="form-row">
           <button type="submit" class="btn btn-primary">Posalji</button>

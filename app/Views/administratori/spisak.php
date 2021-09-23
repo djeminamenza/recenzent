@@ -14,7 +14,7 @@
     $sql1 = "SELECT konOdl FROM rezultati "." JOIN odluke on(id_lokacije=lokacija.id)  WHERE nazivRez='$nazivRezultata'";
 */
 ?>
-    <div class="container masthead">
+    <div class="container masthead mx-auto">
         <div class="col">
         </br>
         </br>

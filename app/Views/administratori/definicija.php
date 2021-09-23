@@ -5,7 +5,7 @@
 
 
 
-    <div class="container masthead">
+    <div class="container masthead mx-auto">
         <h1 style="text-align: center;">Definisanje naucnog rezultata</h1>
         <br>
         <br>

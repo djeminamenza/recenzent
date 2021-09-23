@@ -3,7 +3,7 @@
     $this->section('content');
 ?>
   
-    <div class="container masthead">
+  <div class="container masthead mx-auto">
       <br>
     <h1 style="text-align: center;">Programski Pozivi</h1>
     <br>

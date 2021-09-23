@@ -2,9 +2,10 @@
     $this->extend('layout');
     $this->section('content');
 ?>
+    <div class="container masthead mx-auto">
 
         <h1 style="text-align: center;">Moj profil</h1>
 
 
-
+    </div>
 <?php $this->endSection(); ?>     

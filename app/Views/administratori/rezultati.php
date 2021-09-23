@@ -8,7 +8,7 @@
     
         <h1 style="text-align: center;">Lista naucnih rezultata</h1>
         
-        <div class="container masthead">
+        <div class="container masthead mx-auto">
         <div class="col">
         </br>
         </br>

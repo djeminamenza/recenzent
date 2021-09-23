@@ -5,7 +5,7 @@
 
 
 
-    <div class="container masthead">
+<div class="container masthead mx-auto">
         <div class="col">
         <h1 style="text-align: center;">Шта су ове ленштине рецензенти оценили а шта нису</h1>
         </br>

@@ -4,7 +4,7 @@
 ?>
 
 
-
+<div class="container masthead mx-auto">
   <h1 style="text-align: center;">Pregled recenzenata</h1>
   <div class="container masthead">
   <!-- korisnici dohvaceni iz baze -->
@@ -84,5 +84,5 @@
         });
     });
 </script>
-
+</div>
 <?php $this->endSection(); ?>   
