@@ -155,6 +155,7 @@ class Administratori extends BaseController
 	{
 		return view('administratori/ankete');
 	}
+	
 
 
 	public function obavestenja()
