@@ -32,6 +32,7 @@ class Administratori extends BaseController
 	public function __construct()
 	{
 		$this->model = new Rezultat();
+		$this->model = new Poziv();
 		$this->roleChange = new RoleChange();
 	
 	}
@@ -46,8 +47,9 @@ class Administratori extends BaseController
 
 	public function rezultati()
 	{
-		$rezultati = $this->model->dohvatiRezultate();
-		$data['rezultati'] = $rezultati->getResult();
+		$rezultati = new Rezultat();
+		
+		$data['rezultati'] = $rezultati->dohvatiRezultate();
 		return view('administratori/rezultati', $data);
 		//$rezultati = new Rezultat();
 		//$data['rezultati'] = $rezultati->findAll();
@@ -76,6 +78,7 @@ class Administratori extends BaseController
 			'naziv'=> 'required'
 
 		])){
+			$poziv = new Poziv();
 			$poziv =[
 				'naziv'=>$this->request->getPost('naziv'),
 			];
@@ -84,6 +87,33 @@ class Administratori extends BaseController
 		}else{
 			return redirect()->back()->withInput->with('errors', $this->validator->getErrors());
 		}
+	}
+
+
+	public function deletePoziv(){
+
+	$post = $this->request->getPost();
+			try {
+				$response = delete_data($post['uid']);
+				return $this->response->setJson(['affectedRows'=>$response]);
+			}catch (Exception $e) {
+				throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
+			}
+
+
+/* 	
+		if($this->validate([
+			'id'=> 'required'
+
+		])){
+			$poziv =[
+				'id'=>$this->request->getPost('id'),
+			];
+			$pozivID = $this->model->delete($poziv, true);
+			return redirect()->to('administratori/poziv')->with('message', 'Success');
+		}else{
+			return redirect()->back()->withInput->with('errors', $this->validator->getErrors());
+		} */
 	}
 
 

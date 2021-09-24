@@ -41,7 +41,7 @@ class Rezultat extends Model{
                 where id_oblast = oblast.id) as rezoblast")
         ->select("(select opis from status_rezultata
                 where id_status = status_rezultata.id) as rezstatus")
-        ->get();
+        ->get()->getResult();
     }
     
 }

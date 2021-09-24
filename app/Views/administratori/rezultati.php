@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <?php
-
+            //var_dump($rezultati);
                   foreach($rezultati as $r){
                     //echo '<option value='. $k->id. 'selected>'.  $k->email .'</option>';
                       echo '<tr>';

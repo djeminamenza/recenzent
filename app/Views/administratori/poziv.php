@@ -22,19 +22,19 @@
                           echo '<tr>';
                             echo '<td><h4>'.$k->naziv.'</h4></td>';
                             echo '<td><h4>'. $k->id. '</h4></td>'; 
-                            echo "<td><button value=".$k->id. "type='button' class='deleteUser btn btn-danger'>Obrisi poziv</button></td>";                   
+                            echo "<td><button value='$k->id'type='button' class='deletePoziv btn btn-danger'>Obrisi poziv</button></td>"; 
                           echo '</tr>';
                       }
                   ?>
             </table>
             <br>
-         <form action="<?= route_to('administratori/poziv') ?>" method="post">   
+         <form action="<?= route_to('administratori/attemptPoziv') ?>" method="post">   
            <table class="table table-bordered table-striped table-dark">
                     <tr>
                     <th><h3>Ubacivanje novog poziva</h3></th>
                     </tr>
                     <tr>
-                    <td><input type="text" class="form-control" <?php if (session('errors.naziv')) : ?>is-invalid<?php endif ?>" name="naziv" aria_describedby="nazivHelp" 
+                    <td><input type="text" class="form-control" <?php if (session('errors.naziv')) : ?>is-invalid<?php endif ?> name="naziv" aria_describedby="nazivHelp" 
                       placeholder="Unesi naziv novog poziva" value="<?=old('naziv') ?>"></td>
                     </tr>
                     <tr>
@@ -50,28 +50,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type='text/javascript'>
     $(document).ready(function() {
-        $('.rolechange').click(function(e) {
-            e.preventDefault();
+
+        $('.deletePoziv').click(function(e) {
             var uid = $(this).attr("value");
             $.ajax({
-                url:'<?=base_url()?>/Administratori/changeRole',
-                method: 'post',
-                data: {uid: uid},
-                dataType: 'json',
-                success: function(response){
-                   if(response.affectedRows == '1'){
-                        location.reload();
-                    }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert('Doslo je do greske pokusajte kasnije ponovo');
-                }
-            });
-        });
-        $('.deleteUser').click(function(e) {
-            var uid = $(this).attr("value");
-            $.ajax({
-                url:'<?=base_url()?>/Administratori/deleteUser',
+                url:'<?=base_url()?>/Administratori/deletePoziv',
                 method: 'post',
                 data: {uid: uid},
                 dataType: 'json',
