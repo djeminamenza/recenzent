@@ -12,9 +12,11 @@
     */
 
 
-        if(logged_in()){
-            $links[user()->username.', Logout'] = 'logout';
-            if(in_groups(1)){ ?>
+        if(logged_in()){ ?>
+          <button class="btn dropdown-item" type="button" id="logbtn"><?= anchor('logout', user()->username.', LOGOUT'); ?></button>
+ 
+          
+         <?php   if(in_groups(1)){ ?>
          <div class="dropdown">
        <button class="btn btn-dark dropdown-toggle " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         NAUČNI REZULTAT
@@ -64,31 +66,24 @@
             }
             elseif
             (in_groups(2)){?>
-         <ul class="nav nav-pills nav-fill">
-              <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/recenzenti/profil">Profil</a>
-             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/recenzenti/rezultati" >Rezultati</a>
-             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/recenzenti/recenzije">Recenzije</a>
-             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/recenzenti/ankete">Ankete</a>
-             </li>
-             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/recenzenti/obavestenja">Obaveštenja</a>
-             </li>
-           </ul>
+                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/profil', 'Profil'); ?></button>
+                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/rezultati', 'Rezultati'); ?></button>
+                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/recenzije', 'Recenzije'); ?></button>
+                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/ankete', 'Ankete'); ?></button>
+                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/obavestenja', 'Obavestenja'); ?></button>
+
+           
             
            <?php }
             elseif
-            (in_groups(3)){
-                $links['Status'] = 'korisnici/status_prijave';
-            }
+            (in_groups(3)){?>
+              <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('korisnici/status_prijave', 'Status'); ?></button>
+
+                
+           <?php }
 
         }else{
+          
         $links['Login'] = 'login';
         $links['Register'] ='register';
         }
@@ -99,4 +94,5 @@
           </li>
       <?php endforeach; ?>
       <li class="nav-item mx-0 mx-lg-1">
-     
+        
+    
