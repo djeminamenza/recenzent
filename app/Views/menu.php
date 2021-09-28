@@ -24,7 +24,8 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <button class="dropdown-item" type="button"><?= anchor('administratori/definicija', 'Definicija'); ?></button>
         <button class="dropdown-item" type="button"><?= anchor('administratori/rezultati', 'Rezultati'); ?></button>
-       
+        <button class="dropdown-item" type="button"><?= anchor('administratori/izmena_statusa', 'Konacni status rezultata'); ?></button>
+
        </div>
      </div>
      <div class="dropdown">

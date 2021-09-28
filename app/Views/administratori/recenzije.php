@@ -37,7 +37,7 @@
         </table>
 
        
-<h1 style="text-align: center;">Broj rezultat na recenziji</h1>
+<h1 style="text-align: center;">Broj rezultata na recenziji</h1>
         </br>
         </br>
         <table class="table table-bordered">

@@ -21,10 +21,16 @@
                         //echo '<option value='. $k->id. 'selected>'.  $k->email .'</option>';
                           echo '<tr>';
                             echo '<td><h4>'.$k->naziv.'</h4></td>';
-                            echo '<td><h4>'. $k->id. '</h4></td>'; 
-                            echo "<td><button value='$k->id'type='button' class='deletePoziv btn btn-danger'>Obrisi poziv</button></td>"; 
-                          echo '</tr>';
-                      }
+                            echo '<td><h4>'. $k->id. '</h4></td>';
+                    ?>    
+                     <td><?php 
+                     echo anchor ('administratori/delete/'.$k->id, 'Obrisi poziv' , ['class' => 'btn btn-danger']); }
+                     ?>
+                     </td>
+                          
+                      <?php    
+                      echo '</tr>';
+                      
                   ?>
             </table>
             <br>
