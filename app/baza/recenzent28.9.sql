@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2021 at 10:46 PM
+-- Generation Time: Sep 28, 2021 at 11:36 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -174,13 +174,13 @@ INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (1, 27),
 (2, 4),
 (2, 4),
+(2, 5),
+(2, 5),
 (2, 21),
 (2, 22),
 (2, 24),
 (2, 25),
 (2, 26),
-(3, 5),
-(3, 5),
 (3, 23),
 (3, 27);
 
@@ -450,7 +450,105 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (244, '::1', 'pera@peric.com', 1, '2021-09-17 06:58:34', 1),
 (245, '::1', 'pera@peric.com', 1, '2021-09-17 07:14:07', 1),
 (246, '::1', 'pera@peric.com', 1, '2021-09-17 14:22:43', 1),
-(247, '::1', 'pera@peric.com', 1, '2021-09-18 15:30:42', 1);
+(247, '::1', 'pera@peric.com', 1, '2021-09-18 15:30:42', 1),
+(248, '::1', 'pera', NULL, '2021-09-19 16:11:34', 0),
+(249, '::1', 'pera', NULL, '2021-09-19 16:12:29', 0),
+(250, '::1', 'pera@peric.com', NULL, '2021-09-19 16:12:36', 0),
+(251, '::1', 'pera', NULL, '2021-09-19 16:14:09', 0),
+(252, '::1', 'pera', NULL, '2021-09-19 16:14:49', 0),
+(253, '::1', 'pera@peric.com', 27, '2021-09-19 16:15:02', 1),
+(254, '::1', 'pera@peric.com', 27, '2021-09-19 16:15:53', 1),
+(255, '::1', 'pera@peric.com', 27, '2021-09-20 13:20:01', 1),
+(256, '::1', 'pera@peric.com', 27, '2021-09-21 04:02:40', 1),
+(257, '::1', 'mika@mikic.com', 5, '2021-09-21 04:04:29', 1),
+(258, '::1', 'mika@mikic.com', 5, '2021-09-21 04:04:50', 1),
+(259, '::1', 'pera@peric.com', 27, '2021-09-21 04:06:27', 1),
+(260, '::1', 'mika@mikic.com', 5, '2021-09-21 04:07:12', 1),
+(261, '::1', 'mika@mikic.com', 5, '2021-09-21 04:08:32', 1),
+(262, '::1', 'mika@mikic.com', 5, '2021-09-21 04:08:37', 1),
+(263, '::1', 'pera@peric.com', 27, '2021-09-21 14:49:57', 1),
+(264, '::1', 'mika@mikic.com', 5, '2021-09-21 15:00:21', 1),
+(265, '::1', 'ivastanic@gmail.com', 24, '2021-09-21 15:00:42', 1),
+(266, '::1', 'jelenastn30@gmail.com', 23, '2021-09-21 15:00:57', 1),
+(267, '::1', 'pera@peric.com', 27, '2021-09-21 15:01:26', 1),
+(268, '::1', 'pera@peric.com', 27, '2021-09-21 18:01:02', 1),
+(269, '::1', 'pera@peric.com', 27, '2021-09-21 18:02:06', 1),
+(270, '::1', 'zika@zikic.com', 4, '2021-09-21 18:02:15', 1),
+(271, '::1', 'pera@peric.com', 27, '2021-09-21 18:02:45', 1),
+(272, '::1', 'pera@peric.com', 27, '2021-09-22 02:14:59', 1),
+(273, '::1', 'zika@zikic.com', 4, '2021-09-22 02:37:54', 1),
+(274, '::1', 'pera@peric.com', 27, '2021-09-22 02:52:05', 1),
+(275, '::1', 'pera@peric.com', 27, '2021-09-22 06:12:56', 1),
+(276, '::1', 'pera@peric.com', 27, '2021-09-22 15:48:39', 1),
+(277, '::1', 'zika@zikic.com', 4, '2021-09-22 15:49:14', 1),
+(278, '::1', 'pera@peric.com', 27, '2021-09-22 15:53:45', 1),
+(279, '::1', 'pera@peric.com', 27, '2021-09-22 16:02:05', 1),
+(280, '::1', 'pera@peric.com', 27, '2021-09-22 18:34:08', 1),
+(281, '::1', 'pera@peric.com', 27, '2021-09-22 18:38:33', 1),
+(282, '::1', 'pera@peric.com', 27, '2021-09-23 00:48:39', 1),
+(283, '::1', 'pera@peric.com', 27, '2021-09-23 01:10:54', 1),
+(284, '::1', 'pera@peric.com', 27, '2021-09-23 01:12:13', 1),
+(285, '::1', 'pera@peric.com', 27, '2021-09-23 01:19:48', 1),
+(286, '::1', 'zika@zikic.com', 4, '2021-09-23 02:30:43', 1),
+(287, '::1', 'pera@peric.com', 27, '2021-09-23 02:32:02', 1),
+(288, '::1', 'zika@zikic.com', 4, '2021-09-23 02:34:43', 1),
+(289, '::1', 'mika', NULL, '2021-09-23 02:50:24', 0),
+(290, '::1', 'mika', NULL, '2021-09-23 02:50:31', 0),
+(291, '::1', 'zika@zikic.com', 4, '2021-09-23 02:50:36', 1),
+(292, '::1', 'pera@peric.com', 27, '2021-09-23 03:02:40', 1),
+(293, '::1', 'zika@zikic.com', 4, '2021-09-23 03:05:17', 1),
+(294, '::1', 'jelenastn30@gmail.com', 23, '2021-09-23 03:07:38', 1),
+(295, '::1', 'zika@zikic.com', 4, '2021-09-23 03:08:20', 1),
+(296, '::1', 'jelenastn30@gmail.com', 23, '2021-09-23 03:09:33', 1),
+(297, '::1', 'pera@peric.com', 27, '2021-09-23 03:14:29', 1),
+(298, '::1', 'zika@zikic.com', 4, '2021-09-23 03:22:41', 1),
+(299, '::1', 'jelenastn30@gmail.com', 23, '2021-09-23 03:23:37', 1),
+(300, '::1', 'pera@peric.com', 27, '2021-09-23 03:24:10', 1),
+(301, '::1', 'zika@zikic.com', 4, '2021-09-23 03:24:21', 1),
+(302, '::1', 'pera@peric.com', 27, '2021-09-23 03:24:45', 1),
+(303, '::1', 'zika@zikic.com', 4, '2021-09-23 03:25:22', 1),
+(304, '::1', 'jelenastn30@gmail.com', 23, '2021-09-23 03:25:35', 1),
+(305, '::1', 'zika@zikic.com', 4, '2021-09-23 03:26:07', 1),
+(306, '::1', 'pera@peric.com', 27, '2021-09-23 03:32:35', 1),
+(307, '::1', 'pera@peric.com', 27, '2021-09-23 07:31:45', 1),
+(308, '::1', 'zika@zikic.com', 4, '2021-09-23 07:51:14', 1),
+(309, '::1', 'jelenastn30@gmail.com', 23, '2021-09-23 07:57:08', 1),
+(310, '::1', 'ivastanic@gmail.com', 24, '2021-09-23 12:56:24', 1),
+(311, '::1', 'ivastanic@gmail.com', 24, '2021-09-23 12:56:30', 1),
+(312, '::1', 'pera@peric.com', 27, '2021-09-23 16:54:32', 1),
+(313, '::1', 'pera@peric.com', 27, '2021-09-24 15:25:48', 1),
+(314, '::1', 'jelenastn30@gmail.com', 23, '2021-09-24 17:38:05', 1),
+(315, '::1', 'pera@peric.com', 27, '2021-09-24 17:39:45', 1),
+(316, '::1', 'jelenastn30@gmail.com', 23, '2021-09-24 17:59:59', 1),
+(317, '::1', 'zika@zikic.com', 4, '2021-09-24 18:00:13', 1),
+(318, '::1', 'zika@zikic.com', 4, '2021-09-24 18:00:54', 1),
+(319, '::1', 'pera@peric.com', 27, '2021-09-24 18:01:04', 1),
+(320, '::1', 'zika@zikic.com', 4, '2021-09-24 18:02:41', 1),
+(321, '::1', 'pera@peric.com', 27, '2021-09-24 18:13:38', 1),
+(322, '::1', 'zika@zikic.com', 4, '2021-09-24 18:41:31', 1),
+(323, '::1', 'pera@peric.com', 27, '2021-09-24 18:58:05', 1),
+(324, '::1', 'jelenastn30@gmail.com', 23, '2021-09-24 19:00:01', 1),
+(325, '::1', 'zika@zikic.com', 4, '2021-09-24 19:00:15', 1),
+(326, '::1', 'pera@peric.com', 27, '2021-09-24 19:11:49', 1),
+(327, '::1', 'pera@peric.com', 27, '2021-09-25 01:46:27', 1),
+(328, '::1', 'zika@zikic.com', 4, '2021-09-25 02:11:35', 1),
+(329, '::1', 'jelenastn30@gmail.com', 23, '2021-09-25 02:11:56', 1),
+(330, '::1', 'zika@zikic.com', 4, '2021-09-25 02:12:08', 1),
+(331, '::1', 'jelenastn30@gmail.com', 23, '2021-09-25 02:33:52', 1),
+(332, '::1', 'zika@zikic.com', 4, '2021-09-25 02:34:31', 1),
+(333, '::1', 'pera@peric.com', 27, '2021-09-25 02:34:50', 1),
+(334, '::1', 'zika@zikic.com', 4, '2021-09-25 02:39:15', 1),
+(335, '::1', 'pera@peric.com', 27, '2021-09-25 02:40:02', 1),
+(336, '::1', 'zika@zikic.com', 4, '2021-09-25 02:57:54', 1),
+(337, '::1', 'jelenastn30@gmail.com', 23, '2021-09-25 03:00:32', 1),
+(338, '::1', 'pera@peric.com', 27, '2021-09-25 03:09:50', 1),
+(339, '::1', 'jelenastn30@gmail.com', 23, '2021-09-25 03:15:55', 1),
+(340, '::1', 'pera@peric.com', 27, '2021-09-25 03:16:10', 1),
+(341, '::1', 'pera@peric.com', 27, '2021-09-26 11:43:12', 1),
+(342, '::1', 'pera@peric.com', 27, '2021-09-27 16:58:24', 1),
+(343, '::1', 'pera@peric.com', 27, '2021-09-28 06:06:42', 1),
+(344, '::1', 'pera@peric.com', 27, '2021-09-28 09:19:50', 1),
+(345, '::1', 'pera@peric.com', 27, '2021-09-28 14:39:58', 1);
 
 -- --------------------------------------------------------
 
@@ -510,6 +608,17 @@ CREATE TABLE `auth_users_permissions` (
   `user_id` int(11) UNSIGNED NOT NULL DEFAULT 0,
   `permission_id` int(11) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `izmena`
+-- (See below for the actual view)
+--
+CREATE TABLE `izmena` (
+`id_rezult` int(11)
+,`status` varchar(11)
+);
 
 -- --------------------------------------------------------
 
@@ -651,7 +760,9 @@ INSERT INTO `poziv` (`id`, `naziv`) VALUES
 (2, 'Роботика'),
 (5, 'Математика'),
 (6, ' Српски језик на интернету'),
-(8, 'Robo Jo');
+(8, 'Robo Jo'),
+(9, 'Analiza Rnk'),
+(10, 'Irigacioni sistemi');
 
 -- --------------------------------------------------------
 
@@ -677,6 +788,17 @@ INSERT INTO `prijava` (`id`, `id_user`, `id_status`, `datum_prijave`, `datum_izm
 (3, 21, 2, '2021-09-05', '0000-00-00'),
 (4, 22, 3, '2021-09-06', '0000-00-00'),
 (5, 23, 1, '2021-09-01', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `primeni`
+-- (See below for the actual view)
+--
+CREATE TABLE `primeni` (
+`id_rezult` int(11)
+,`status` varchar(1)
+);
 
 -- --------------------------------------------------------
 
@@ -731,8 +853,10 @@ INSERT INTO `recenzent_rezultat` (`id`, `id_user`, `id_rezult`, `id_status`, `da
 (4, 26, 9, 2, '2021-09-02', '2021-09-06'),
 (5, 25, 14, 1, '2021-09-01', '2021-09-05'),
 (6, 24, 14, 1, '2021-09-01', '2021-09-08'),
-(9, 21, 11, 3, '2021-09-01', NULL),
-(10, 5, 10, 3, '2021-09-02', NULL);
+(9, 21, 11, 2, '2021-09-01', '2021-09-06'),
+(10, 5, 10, 3, '2021-09-02', NULL),
+(11, 22, 11, 2, '2021-09-04', '2021-09-12'),
+(12, 25, 15, 3, '2021-09-01', NULL);
 
 -- --------------------------------------------------------
 
@@ -874,7 +998,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `username`, `ime`, `prezime`, `organizacija`, `id_zemlje`, `id_nac`, `id_oblast`, `id_zvanja`, `adresa`, `telefon`, `web_str`, `biografija`, `radovi`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (4, 'zika@zikic.com', 'zika', '', '', '', 5, 2, 2, 2, '', '', '', '', '', '$2y$10$0XGxBsNMYmIQKr8cnsKDGOWBQcEYWhcepVDt85huzps.WgolcwrNa', NULL, NULL, NULL, 'b7085ea63f0175d5a137246f68a4d56a', NULL, NULL, 1, 0, '2021-08-20 13:26:23', '2021-08-20 13:26:23', NULL),
-(5, 'mika@mikic.com', 'mika', '', '', '', 3, 1, 3, 3, '', '', '', '', '', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-08-20 13:27:03', NULL),
+(5, 'mika@mikic.com', 'mika', '', '', '', 3, 1, 3, 3, '', '', '', '', '', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-09-21 16:05:33', '2021-09-21 16:05:33'),
 (21, 'kiki@kiki.com', 'kiki', 'Kiki', 'Kikic', 'MGM', 2, 1, 3, 3, 'Kikina 99', '066', 'www.kikic.com', '', '7', '$2y$10$y87FgT0hQYUj/Kdgjzx/DeN8706SKQmEI39ix2heANmZ9PBJbLwHq', NULL, NULL, NULL, '24883946fed2a3a4d893f04401ee7701', NULL, NULL, 1, 0, '2021-09-06 15:18:08', '2021-09-06 15:18:08', NULL),
 (22, 'matijastnc@gmail.com', 'mata', 'Matija', 'Stanic', 'Tata Mata', 1, 1, 2, 1, 'Gandijeva 2', '063/123-462', 'www.plk.com', '', 'kkk', '$2y$10$0l2IbvRzEiw42XODmKhaJOoCAtYInkJpObsCS8JQ6PD4uUbFbW0Fa', NULL, NULL, NULL, 'a5598a649caba4e5b547a8ee348b7275', NULL, NULL, 1, 0, '2021-09-10 18:16:46', '2021-09-10 18:16:46', NULL),
 (23, 'jelenastn30@gmail.com', 'Jelena', '', '', '', 1, 1, 1, 1, '', '', '', '', '', '$2y$10$9R82yZUQa2cwxGKXVEgsQuxUn4ccBQVFX1fzzfOy9num1paz/Hi7S', NULL, NULL, NULL, '1643ac4fd60d72a8f109f0890ab7c40d', NULL, NULL, 1, 0, '2021-09-12 17:25:30', '2021-09-12 17:25:30', NULL),
@@ -948,6 +1072,24 @@ INSERT INTO `zvanje` (`id`, `naziv`) VALUES
 (4, 'magistar'),
 (5, 'doktor nauka'),
 (6, 'akademik');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `izmena`
+--
+DROP TABLE IF EXISTS `izmena`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `izmena`  AS SELECT `pom`.`id_rezult` AS `id_rezult`, CASE WHEN `pom`.`Status` = 2 THEN 'Prihvacen' WHEN `pom`.`Status` < 0 THEN 'Odbijen' ELSE 'Razmatra se' END AS `status` FROM (select `rr`.`id_rezult` AS `id_rezult`,sum(case `rr`.`id_status` when 1 then 1 when 2 then -2 else 0 end) AS `Status` from `recenzent_rezultat` `rr` group by `rr`.`id_rezult`) AS `pom` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `primeni`
+--
+DROP TABLE IF EXISTS `primeni`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `primeni`  AS SELECT `pom`.`id_rezult` AS `id_rezult`, CASE WHEN `pom`.`Status` = 2 THEN 'P' WHEN `pom`.`Status` < 0 THEN 'O' ELSE 'R' END AS `status` FROM (select `rr`.`id_rezult` AS `id_rezult`,sum(case `rr`.`id_status` when 1 then 1 when 2 then -2 else 0 end) AS `Status` from `recenzent_rezultat` `rr` group by `rr`.`id_rezult`) AS `pom` ;
 
 --
 -- Indexes for dumped tables
@@ -1211,7 +1353,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1271,7 +1413,7 @@ ALTER TABLE `pitanja`
 -- AUTO_INCREMENT for table `poziv`
 --
 ALTER TABLE `poziv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `prijava`
@@ -1295,7 +1437,7 @@ ALTER TABLE `recenzent_anketa_odgovor`
 -- AUTO_INCREMENT for table `recenzent_rezultat`
 --
 ALTER TABLE `recenzent_rezultat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `recenzent_rezultat_odgovor`
@@ -1307,7 +1449,7 @@ ALTER TABLE `recenzent_rezultat_odgovor`
 -- AUTO_INCREMENT for table `rezultat`
 --
 ALTER TABLE `rezultat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `rezultat_oblasti`

@@ -25,13 +25,13 @@
                   echo '<td>'.$k->korisnik.'</td>';
                   echo '<td>'.$k->uloga.'</td>';
                   echo '<td>'.$k->opis.'</td>';
-                  if($k->gid==3 && $k->id_status <> 4){
-                    echo "<td><button value=".$k->kid. "type='button' class='rolechange btn btn-primary'>Premesti</button></td>";
+                  if($k->gid==3 ){//&& $k->id_status <> 4){
+                    echo '<td>';
+                    echo anchor('Administratori/premesti/' .$k->kid,'Premesti', ['class' => 'btn btn-primary']);
+                    echo '</td>';
                   }else{
                     echo '<td></td>';
                   }
-                  //echo '<td>'.$k->name.'</td>';
-                  //echo '<td><button value='.$k->id.' type="button" class="rolechange btn btn-primary">Premesti</button></td>';
                   echo "<td><button value=".$k->kid. "type='button' class='deleteUser btn btn-danger'>Obrisi Korisnika</button></td>";
                   echo '</tr>';
               }
@@ -39,50 +39,5 @@
       </table>
     </div>
   </div>
-  
-
-            <!-- echo anchor('movies/delete/' .$movie->id,'Delete movie', ['class' => 'btn btn-danger']); -->
-<!-- Script -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type='text/javascript'>
-    $(document).ready(function() {
-        $('.rolechange').click(function(e) {
-            e.preventDefault();
-            var uid = $(this).attr("value");
-            $.ajax({
-                url:'<?=base_url()?>/Administratori/changeRole',
-                method: 'post',
-                data: {uid: uid},
-                dataType: 'json',
-                success: function(response){
-                   if(response.affectedRows == '1'){
-                        location.reload();
-                    }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    alert('Doslo je do greske pokusajte kasnije ponovo');
-                }
-            });
-        });
-        $('.deleteUser').click(function(e) {
-            var uid = $(this).attr("value");
-            $.ajax({
-                url:'<?=base_url()?>/Administratori/deleteUser',
-                method: 'post',
-                data: {uid: uid},
-                dataType: 'json',
-                success: function(response){
-                   if(response.affectedRows == '1'){
-                        location.reload();
-                    }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log(XMLHttpRequest);
-                    alert('Doslo je do greske pokusajte kasnije ponovo');
-                }
-            });
-        });
-    });
-</script>
 </div>
 <?php $this->endSection(); ?>   
