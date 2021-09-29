@@ -37,6 +37,8 @@
         <button class="dropdown-item" type="button"><?= anchor('administratori/spisak', 'Spisak'); ?></button>
         <button class="dropdown-item" type="button"><?= anchor('administratori/recenzije', 'Recenzije'); ?></button>
         <button class="dropdown-item" type="button"><?= anchor('administratori/obavestenja', 'Obavestenja'); ?></button>
+        <button class="dropdown-item" type="button"><?= anchor('administratori/izbor_recenzenta', 'Izbor recenzenta'); ?></button>
+
         </div>  
             </div>
             <div class="dropdown">

@@ -13,6 +13,8 @@ use App\Models\Recenzent_rezultat;
 use App\Models\Rezultat_recenzent;
 use App\Models\Broj_rezultata;
 use App\Models\Prijava;
+use App\Models\Izbor_recenzenta;
+
 use App\Models\Status_prijave;
 use Myth\Auth\Models;
 use CodeIgniter\Model;
@@ -32,6 +34,7 @@ class Administratori extends BaseController
 	protected $modelAuthGroupsUsers;
 	protected $modelPrijava;
 	protected $modelIzmena_Statusa;
+	protected $modelIzbor_recenzenta;
 
 
 
@@ -43,6 +46,7 @@ class Administratori extends BaseController
 		$this->modelAuthGroupsUsers = new AuthGroupsUsers();
 		$this->modelPrijava = new Prijava();
 		$this->modelIzmena_Statusa = new Izmena_Statusa();
+		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
 
 	
 	}
@@ -180,9 +184,8 @@ class Administratori extends BaseController
 
 	public function recenzije()
 	{
-		$Rezultat_recenzentModel = new Rezultat_recenzent();
-        $data['rez'] = $Rezultat_recenzentModel->Rezultat_recenzent();
-        //return view('administratori/recenzije', $data);
+		$Recenzent_rezultatModel = new Recenzent_rezultat();
+        $data['rez'] = $Recenzent_rezultatModel->Recenzent_rezultat();        //return view('administratori/recenzije', $data);
 		
 		$Broj_rezultataModel = new Broj_rezultata();
 		$data['br'] = $Broj_rezultataModel->Broj_rezultata();
@@ -218,6 +221,9 @@ class Administratori extends BaseController
         return view('administratori/izmena_statusa', $recenzenti);
     }
 
+	
+
+
 	public function premesti($id){
 
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
@@ -225,6 +231,36 @@ class Administratori extends BaseController
 		return $this->prijave();
 	
 
+	}
+	public function izbor_recenzenta()
+	{	
+		$modelIzbor_recenzenta = new Izbor_recenzenta();
+		$def['rec'] = $modelIzbor_recenzenta->Izbor_recenzenta();
+		return view('administratori/izbor_recenzenta', $def);
+
+
+	}
+	public function attemptIzbor_recenzenta(){
+	
+		if($this->validate([
+			'id_rezult'=> 'required',
+			'id_user'=> 'required',
+			'datum_dodele'=> 'required'
+
+
+		])){
+			$izbor =[
+				'id_rezult'=>$this->request->getPost('id_rezult'),
+				'id_user'=>$this->request->getPost('id_user'),
+				'datum_dodele'=>$this->request->getPost('datum_dodele'),
+				'id_status'=>3,
+				
+			];
+			$izborID = $this->modelIzbor_recenzenta->insert($izbor, true);
+			return redirect()->to('administratori/izbor_recenzenta')->with('message', 'Success');
+		}else{
+			return redirect()->back()->withInput->with('errors', $this->validator->getErrors());
+		}
 	}
 
 	
