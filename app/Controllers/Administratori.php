@@ -24,6 +24,7 @@ use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
 
 
+
 class Administratori extends BaseController
 {
 // *********************************************************
@@ -32,23 +33,22 @@ class Administratori extends BaseController
 	protected $request;
 	protected $modelPoziv;
 	protected $modelAuthGroupsUsers;
+	protected $modelKorisnici;
 	protected $modelPrijava;
 	protected $modelIzmena_Statusa;
 	protected $modelIzbor_recenzenta;
 
-
-
-
+	
 	public function __construct()
 	{
 		$this->modelRezultat = new Rezultat(); 
 		$this->modelPoziv = new Poziv();
 		$this->modelAuthGroupsUsers = new AuthGroupsUsers();
+		$this->modelKorisnici = new Korisnici();
 		$this->modelPrijava = new Prijava();
 		$this->modelIzmena_Statusa = new Izmena_Statusa();
 		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
-
-	
+			
 	}
 // kraj dodatka
 // *********************************************************
@@ -226,12 +226,39 @@ class Administratori extends BaseController
 
 	public function premesti($id){
 
+		/**@todo wrap all in try catch to handle the errors */
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
+		/*Update Update_At in User table */
+		$this->modelKorisnici->updateUser($id);
+		/*end Updating */
+		/* Send an email to notify the customer */
+		$this->sendEmail($this->modelKorisnici->getUserEmail($id));
+		/*end email sending */
+
 		$this->modelPrijava->changeStatus_prijave($id);
 		return $this->prijave();
 	
 
 	}
+
+	public function sendEmail($email){
+		$emailTo = $email->getResult()[0]->email;
+		$email = \Config\Services::email();
+		
+		$email->setFrom('recenzije.kontakt@gmail.com', 'Recenzije naucnih radova');
+		//$email->setTo($emailTo);
+		$email->setTo('ljubomirlukic@gmail.com');
+		$email->setSubject('Promena Statusa');
+		$email->setMessage('Postovani Ovim putem zelimo da Vas obavestimo da je Vas status promenjen iz korisnika u recenzenta. Hvala.');
+
+		try{
+			$email->send();
+		}catch(Exception $e){
+			throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
+		}
+		
+	}
+
 	public function izbor_recenzenta()
 	{	
 		$modelIzbor_recenzenta = new Izbor_recenzenta();
