@@ -51,7 +51,7 @@
         <!-- Masthead-->
         <header class="masthead" id="subheading">
             <div class="container">
-                <div id="subheading" class="masthead-subheading">Dobrodošli na naš i Vaš portal!</div>
+                <div id="subheading" class="masthead-subheading">    </div>
                 <div  class="masthead-heading text-uppercase">Recenzije naučnih rezultata</div>
             </div>
 

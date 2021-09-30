@@ -4,14 +4,15 @@
 ?>
   
   <div class="container masthead mx-auto">
-      <br>
-    <h1 style="text-align: center;">Programski Pozivi</h1>
-    <br>
-    <br>
-      <div class="form col-md-12" style="text-align: center;">
-              <!-- <label for="korisnici">Korisnici</label> -->
-                <!-- <select name="korisnici" class="form-control"> -->
-                <table class="table table-bordered table-striped table-dark">
+  <div class="col-sm-8 offset-sm-4 mx-auto">
+        <div class="row">
+        <div class="card">
+        </br>
+    <div class="form col-md-12" style="text-align: center;">
+   
+      <h1 style="text-align: center;">Programski Pozivi</h1>
+
+                <table class="table table-bordered">
                     <tr>
                     <th><h3>NAZIV</h3></th>
                     <th><h3>ID</h3></th>
@@ -20,7 +21,7 @@
                       foreach($pozivi as $k){
                         //echo '<option value='. $k->id. 'selected>'.  $k->email .'</option>';
                           echo '<tr>';
-                            echo '<td><h4>'.$k->naziv.'</h4></td>';
+                            echo '<td><h5>'.$k->naziv.'</h5></td>';
                             echo '<td><h4>'. $k->id. '</h4></td>';
                     ?>    
                      <td><?php 
@@ -51,6 +52,9 @@
                 <!-- </select> -->
       </div>
     </div>
+    </div>
+      </div>
+  </div>
 
    <!-- Script -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

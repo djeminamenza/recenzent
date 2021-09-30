@@ -5,9 +5,15 @@
 
 
 
-<div class="container masthead mx-auto">
-        <div class="col">
-        <h1 style="text-align: center;">Шта су ове ленштине рецензенти оценили а шта нису</h1>
+<div class="container masthead">
+    
+<div class="col-sm-6 offset-sm-3 mx-auto">
+   
+        <div class="row mx-auto">
+        <div class="card mx-auto">
+        </br>
+    <div class="form col-md-12 mx-auto" style="text-align: center;">
+        <h1 style="text-align: center;">Pregled ocenjenih rezultata</h1>
         </br>
         </br>
         <table class="table table-bordered">
@@ -35,16 +41,25 @@
             ?> 
         </tbody>
         </table>
-
-       
-<h1 style="text-align: center;">Broj rezultata na recenziji</h1>
+        </div>
+        </div>
+        </div>
+        </div>
+        </br>
+        </br>
+        <div class="col-sm-6 offset-sm-3 mx-auto">
+        <div class="row">
+        <div class="card">
+        </br>
+    <div class="form col-md-12" style="text-align: center;">      
+<h1 style="text-align: center;">Broj rezultata na recenziji po recenzentu</h1>
         </br>
         </br>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th scope="col">Recenzenti</th>
-                <th scope="col">Broj rezultata na recenziji</th>
+                <th scope="col">Broj neocenjenih rezultata na recenziji</th>
             </tr>
             </thead>
             <tbody>
@@ -65,6 +80,9 @@
             ?> 
         </tbody>
         </table>
+        </div>
+        
+        </div>
         </div>
         </div>
 <?php $this->endSection(); ?>     

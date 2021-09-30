@@ -6,19 +6,27 @@
 
 
     <div class="container masthead mx-auto">
-        <h1 style="text-align: center;">Definisanje naucnog rezultata</h1>
-        <br>
-        <br>
-    
-        <?= view('Myth\Auth\Views\_message_block') ?>
+    <div class="col-sm-6 offset-sm-3">
+        <div class="row ">
+        <div class="card mx-auto">
+    </br>
+    <div class="form col-md-12" style="text-align: center;">
+
+        <h1 style="text-align: center;">Definisanje naučnog rezultata</h1>
+        </br>
+        </br>
+
+
+        
+          <?= view('Myth\Auth\Views\_message_block') ?>
 
     <form action="<?=route_to('administratori/attemptDefinicija') ?>" method="POST" enctype="multipart/form-data">
     <?=csrf_field() ?>
 
-    <div class="row">
+    
           
-         <div class="card align-items-center">
-          <h3><label for="poziv">Odaberite programski poziv</label></h3>
+         
+          <h4><label for="poziv">Odaberite programski poziv</label></h>
             <select name='id_poziv' class="form-control">
             <?php
                   foreach($pozivi as $p):
@@ -27,8 +35,7 @@
                   endforeach;
                   
               ?>
-            </select>
-        </div> 
+     
 
     </div>
   
@@ -55,40 +62,41 @@
 
         </div>
               <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
-                  <legend style="width: 14%;margin-left: 7px;">Prijava:</legend>
+                 <legend><h3 style="text-align: center;" >Prijava</h3></legend>
                   <div class="form-group">
                     <label for="opisRezultata">Opis rezultata</label>
-                    <input type="text" class="form-control" name='opis' placeholder="Opisi svoj rezultat, sta god to bilo?">
+                    <input type="text" class="form-control" name='opis' placeholder="Opišite svoj rezultat u kratkim crtama.">
                   </div>
                   <div class="form-group">
                       <label for="godinaRezultata">Godina rezultata</label>
-                      <input type="text" class="form-control" name='god_rez' placeholder="Kad ste izmerili?">
+                      <input type="text" class="form-control" name='god_rez' placeholder="Koje godine ste kreirali ovaj rezultat?">
                     </div>
                     <div class = "form-row">
                     <div class="form-group">
-                  <label for="clanovi">Imena clanova tima</label>
+                  <label for="clanovi">Imena članova tima</label>
                   <input type="text" class="form-control" name='clanovi'>
               </div>
-                  <div class="form-group">
-                  <label for="biografije">Biografije clanova</label>
-                  <input type="file" class="form-control-file" name='biografije'>
-              </div>
 
+              &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp;<div class="form-group">
+                  <label for="biografije">Biografije članova&nbsp; &nbsp; &nbsp;  &nbsp;</label>
+                   <input type="file" class="form-control-file" name='biografije'>
+              </div>
               <div class="form-group">
-              <label for="id_status">Status rezultata (ovo bi trebalo da je hidden)</label>
+              <label for="id_status">Početni status rezultata</label>
                 <select name= "id_status" class="form-control">
                   <option value="3"selected>razmatra se</option>
                 </select>
-              <div>
+                </div>
+              </div>
 
-            </div>
-              </fieldset>
+              
+              
               
         <div class="form-row">
 
          <!-- oblasti povucene iz baze -->
         <div class="form-group col-md-6">
-          <label for="oblasti">Oblast</label>
+          <label for="oblasti">Oblast rada</label>
             <select name='id_oblast' class="form-control">
               <?php
                   foreach($oblasti as $o):
@@ -104,10 +112,13 @@
 
         </div>      
         </br>
-        <button type="submit" class="btn btn-primary btn-block">Definisi naucni rezultat</button>
+        <button type="submit" class="btn btn-primary btn-block">Predajte naučni rezultat</button>
+        </fieldset>
       </form>
     </div>
   </div>
-      
-
+  </div>
+  </div>     
+  </div> 
+  
   <?php $this->endSection(); ?>     

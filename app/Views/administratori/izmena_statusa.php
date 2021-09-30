@@ -5,25 +5,22 @@
 
 
 
-<?php
+         <div class="container masthead mx-auto">
 
-
-
-
-  /* $sql = "SELECT imeRec, datumDod FROM rezultati  WHERE nazivRez='$nazivRezultata'";
-    $sql1 = "SELECT konOdl FROM rezultati "." JOIN odluke on(id_lokacije=lokacija.id)  WHERE nazivRez='$nazivRezultata'";
-*/
-?>
-    <div class="container masthead mx-auto">
-        <div class="col">
+        <div class="col-sm-6 offset-sm-3">
+        <div class="row">
+        <div class="card">
         </br>
-        </br>
+    <div class="form col-md-12" style="text-align: center;">
+    <h1 style="text-align: center;">Konačna odluka o rezultatu</h1>
+
+    </br>
         <table class="table table-bordered">
             <thead>
             <tr>
                 <th scope="col">ID rezultata</th>
                 <th scope="col">Status </th>
-                <th scope="col">Izmeni</th>
+                <th scope="col">Izmena statusa u bazi</th>
             </tr>
             </thead>
             <tbody>
@@ -37,7 +34,7 @@
               // echo '<td scope="row">'.$c->opis.'</td>';
               // echo '<td scope="row">'.$c->recen.'</td>';
               // echo '<td scope="row">'.$c->opis.'</td>';
-               echo '<td><button type = submit>Izmeni</button></td>';
+               echo '<td><button type = submit>Promeni u bazi</button></td>';
             echo '</tr>';  
             }
             ?> 
@@ -45,7 +42,9 @@
         </table>
         </div>
         </div>
-       
+        </div>
+        </div>
+        </div>
 <?php $this->endSection(); ?>  
 
     

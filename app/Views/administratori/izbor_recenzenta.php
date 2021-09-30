@@ -6,13 +6,21 @@
 
 
     <div class="container masthead mx-auto">
-    <div class="col">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+        <div class="card">
+
     <div class="form col-md-12" style="text-align: center;">
+    </br>
         <h1 style="text-align: center;">Dodeljivanje recenzenta rezultatu</h1>
+        </br>
+        </br>
+
+
           <div class="row">
           <?= view('Myth\Auth\Views\_message_block') ?>
 
-          <h3><label for="rec">Odaberite rezultat</label></h3>
+          <h4><label for="rec">Odaberite rezultat</label></h4>
           <form action="<?=route_to('administratori/attemptIzbor_recenzenta') ?>" method="POST" enctype="multipart/form-data">
           <?=csrf_field() ?>
 
@@ -23,7 +31,7 @@
                   endforeach;
               ?>
             </select>
-                <h3><label for="rec">Odaberite recenzenta</label></h3>
+                <h4><label for="rec">Odaberite recenzenta</label></h4>
                 <select name='id_user' class="form-control">
                   
                 <?php
@@ -32,8 +40,8 @@
                       endforeach;
                   ?>
                 </select>
-                <div class="form-group col-md-6">
-                <label for="datum_dodele">Datum dodele</label>
+                <div class="form-group">
+                <h4><label for="datum_dodele">Datum dodele</label></h4>
                 <input type="date" class="form-control" name='datum_dodele'>
             </div>
         </br>
@@ -41,6 +49,8 @@
         <button type="submit" class="btn btn-primary btn-block">Potvrdi izbor</button>
       </form>
     </div>
+  </div>
+  </div>   
   </div>
   </div>   
   </div>
