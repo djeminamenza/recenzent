@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 use Myth\Auth\Models\LoginModel;
 use Myth\Auth\Models\UserModel;
 
-class Prijava extends Model{
+class Prijave extends Model{
     protected $table = 'prijava';
     protected $allowedFields = ['id_user','id_status'];
     protected $returnType = 'object';

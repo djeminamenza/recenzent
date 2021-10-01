@@ -7,22 +7,19 @@ use App\Models\Kategorija;
 use App\Models\Korisnici;
 use App\Models\Oblast;
 use App\Models\Poziv;
-use App\Models\Izmena_statusa;
+use App\Models\IzmenaStatusaRezultata;
 use App\Models\Rezultat;
 use App\Models\Recenzent_rezultat;
-use App\Models\Rezultat_recenzent;
 use App\Models\Broj_rezultata;
-use App\Models\Prijava;
+use App\Models\Prijave;
+use App\Models\UserStatus;
 use App\Models\Izbor_recenzenta;
-
-use App\Models\Status_prijave;
 use Myth\Auth\Models;
 use CodeIgniter\Model;
 use Exception;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
-
 
 
 class Administratori extends BaseController
@@ -33,22 +30,24 @@ class Administratori extends BaseController
 	protected $request;
 	protected $modelPoziv;
 	protected $modelAuthGroupsUsers;
-	protected $modelKorisnici;
-	protected $modelPrijava;
-	protected $modelIzmena_Statusa;
+	protected $modelPrijave;
+	protected $modelIzmenaStatusaRezultata;
 	protected $modelIzbor_recenzenta;
+	protected $modelUserStatus;
 
-	
+
+
 	public function __construct()
 	{
 		$this->modelRezultat = new Rezultat(); 
 		$this->modelPoziv = new Poziv();
 		$this->modelAuthGroupsUsers = new AuthGroupsUsers();
-		$this->modelKorisnici = new Korisnici();
-		$this->modelPrijava = new Prijava();
-		$this->modelIzmena_Statusa = new Izmena_Statusa();
+		$this->modelPrijava = new Prijave();
+		$this->modelIzmena_Statusa = new IzmenaStatusaRezultata();
 		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
-			
+		$this->modelUserStatus = new UserStatus();
+
+	
 	}
 // kraj dodatka
 // *********************************************************
@@ -61,13 +60,8 @@ class Administratori extends BaseController
 
 	public function rezultati()
 	{
-		//$rezultati = new Rezultat(); /// NOVO !!!
-		
-		$data['rezultati'] = $this->modelRezultat->dohvatiRezultate(); /// NOVO !!!
+		$data['rezultati'] = $this->modelRezultat->dohvatiRezultate();
 		return view('administratori/rezultati', $data);
-		//$rezultati = new Rezultat();
-		//$data['rezultati'] = $rezultati->findAll();
-		//return view('administratori/rezultati', $data);
 	}
 
 	public function prijave()
@@ -80,7 +74,6 @@ class Administratori extends BaseController
 
 	public function poziv()
 	{
-		//$pozivModel = new Poziv();
 		$podaci['pozivi'] = $this->modelPoziv->findAll();
 		return view('administratori/poziv', $podaci);
 	}
@@ -92,7 +85,6 @@ class Administratori extends BaseController
 			'naziv'=> 'required'
 
 		])){
-			//$poziv = new Poziv();
 			$poziv =[
 				'naziv'=>$this->request->getPost('naziv'),
 			];
@@ -163,7 +155,7 @@ class Administratori extends BaseController
 					'id_oblast' =>$this->request->getPost('id_oblast'),		
 				];
 
-				$biografijaID = $this->model->insert($rezultat, true);
+				$biografijaID = $this->modelRezultat->insert($rezultat, true);
 
 				$biografijaName = $biografijaID . ".pdf";
 				$biografija = $this->request->getFile('biografije');
@@ -172,7 +164,7 @@ class Administratori extends BaseController
 
 				//$rezultat['id'] = $biografijaID;
 				$rezultat['biografije'] = $biografijaName;
-				$this->model->update($biografijaID, $rezultat);
+				$this->modelRezultat->update($biografijaID, $rezultat);
 
 				return redirect()->to('administratori/definicija')->with('message','Success');
 
@@ -214,10 +206,10 @@ class Administratori extends BaseController
         return view('administratori/spisak', $recenzenti);
 	} 
 
-	public function izmena_statusa()
+	public function izmenaStatusaRezultata()
     {
-        $Izmena_statusaModel = new Izmena_statusa();
-        $recenzenti['sta'] = $Izmena_statusaModel->Izmena_statusa();
+        $modelIzmenaStatusaRezultata = new IzmenaStatusaRezultata();
+        $recenzenti['sta'] = $modelIzmenaStatusaRezultata->izmenaStatusaRezultata();
         return view('administratori/izmena_statusa', $recenzenti);
     }
 
@@ -226,39 +218,12 @@ class Administratori extends BaseController
 
 	public function premesti($id){
 
-		/**@todo wrap all in try catch to handle the errors */
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
-		/*Update Update_At in User table */
-		$this->modelKorisnici->updateUser($id);
-		/*end Updating */
-		/* Send an email to notify the customer */
-		$this->sendEmail($this->modelKorisnici->getUserEmail($id));
-		/*end email sending */
-
-		$this->modelPrijava->changeStatus_prijave($id);
+		$this->modelUserStatus->promeniMiStatus($id);
 		return $this->prijave();
 	
 
 	}
-
-	public function sendEmail($email){
-		$emailTo = $email->getResult()[0]->email;
-		$email = \Config\Services::email();
-		
-		$email->setFrom('recenzije.kontakt@gmail.com', 'Recenzije naucnih radova');
-		//$email->setTo($emailTo);
-		$email->setTo('ljubomirlukic@gmail.com');
-		$email->setSubject('Promena Statusa');
-		$email->setMessage('Postovani Ovim putem zelimo da Vas obavestimo da je Vas status promenjen iz korisnika u recenzenta. Hvala.');
-
-		try{
-			$email->send();
-		}catch(Exception $e){
-			throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
-		}
-		
-	}
-
 	public function izbor_recenzenta()
 	{	
 		$modelIzbor_recenzenta = new Izbor_recenzenta();
@@ -298,13 +263,6 @@ class Administratori extends BaseController
 		$id = $post['uid'];
 		$userModel->delete($id);
 
-		//$post = $this->request->getPost();
-        // try {
-        //     $response = $this->roleChange->delete_data($post['uid']);
-		// 	return $this->response->setJson(['affectedRows'=>$response]);
-        // }catch (Exception $e) {
-        //     throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
-        // }
 	}
 
 }

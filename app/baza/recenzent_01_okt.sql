@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2021 at 11:36 PM
+-- Generation Time: Oct 01, 2021 at 09:55 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.4.16
 
@@ -110,7 +110,9 @@ INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token
 (3, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:03:19'),
 (4, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:03:38'),
 (5, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:03:50'),
-(6, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:06:07');
+(6, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36', '62d0e3d5dd700300a3da0d52373e2db9', '2021-09-12 12:06:07'),
+(7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36', '62fe2d79735d9bf38241d1a67a7b7c21', '2021-09-30 16:01:46'),
+(8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36', 'dfc063d6f9608c703d2bd1c7be49659e', '2021-10-01 14:36:43');
 
 -- --------------------------------------------------------
 
@@ -171,18 +173,14 @@ CREATE TABLE `auth_groups_users` (
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
 (1, 27),
-(1, 27),
 (2, 4),
-(2, 4),
-(2, 5),
-(2, 5),
-(2, 21),
 (2, 22),
-(2, 24),
-(2, 25),
-(2, 26),
-(3, 23),
-(3, 27);
+(3, 5),
+(3, 21),
+(3, 24),
+(3, 25),
+(3, 26),
+(3, 29);
 
 -- --------------------------------------------------------
 
@@ -548,7 +546,22 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (342, '::1', 'pera@peric.com', 27, '2021-09-27 16:58:24', 1),
 (343, '::1', 'pera@peric.com', 27, '2021-09-28 06:06:42', 1),
 (344, '::1', 'pera@peric.com', 27, '2021-09-28 09:19:50', 1),
-(345, '::1', 'pera@peric.com', 27, '2021-09-28 14:39:58', 1);
+(345, '::1', 'pera@peric.com', 27, '2021-09-28 14:39:58', 1),
+(346, '::1', 'pera@peric.com', 27, '2021-09-29 15:43:10', 1),
+(347, '::1', 'pera@peric.com', 27, '2021-09-30 14:45:27', 1),
+(348, '::1', 'zika@zikic.com', 4, '2021-09-30 15:03:23', 1),
+(349, '::1', 'mika', NULL, '2021-09-30 15:03:35', 0),
+(350, '::1', 'kiki@kiki.com', 21, '2021-09-30 15:03:40', 1),
+(351, '::1', 'jelena', NULL, '2021-09-30 15:03:50', 0),
+(352, '::1', 'jelena', NULL, '2021-09-30 15:03:59', 0),
+(353, '::1', 'pera@peric.com', 27, '2021-09-30 15:33:37', 1),
+(354, '::1', 'jelenastn30@gmail.com', 28, '2021-09-30 16:02:10', 1),
+(355, '::1', 'jelenastn30@gmail.com', 28, '2021-09-30 16:02:25', 1),
+(356, '::1', 'pera@peric.com', 27, '2021-09-30 16:03:07', 1),
+(357, '::1', 'pera@peric.com', 27, '2021-10-01 13:40:11', 1),
+(358, '::1', 'pera@peric.com', 27, '2021-10-01 14:34:51', 1),
+(359, '::1', 'jelenastn30@gmail.com', 29, '2021-10-01 14:36:46', 1),
+(360, '::1', 'pera@peric.com', 27, '2021-10-01 14:36:59', 1);
 
 -- --------------------------------------------------------
 
@@ -762,7 +775,8 @@ INSERT INTO `poziv` (`id`, `naziv`) VALUES
 (6, ' Српски језик на интернету'),
 (8, 'Robo Jo'),
 (9, 'Analiza Rnk'),
-(10, 'Irigacioni sistemi');
+(10, 'Irigacioni sistemi'),
+(11, 'Novi Beograd grad u gradu');
 
 -- --------------------------------------------------------
 
@@ -786,8 +800,7 @@ INSERT INTO `prijava` (`id`, `id_user`, `id_status`, `datum_prijave`, `datum_izm
 (1, 5, 3, '2021-09-01', '2021-09-02'),
 (2, 4, 3, '2021-08-01', '2021-08-20'),
 (3, 21, 2, '2021-09-05', '0000-00-00'),
-(4, 22, 3, '2021-09-06', '0000-00-00'),
-(5, 23, 1, '2021-09-01', '0000-00-00');
+(4, 22, 3, '2021-09-06', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -839,7 +852,7 @@ CREATE TABLE `recenzent_rezultat` (
   `id` int(11) NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `id_rezult` int(11) NOT NULL,
-  `id_status` int(11) NOT NULL,
+  `id_status` int(11) DEFAULT NULL,
   `datum_dodele` date NOT NULL,
   `datum_ocene` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -856,7 +869,9 @@ INSERT INTO `recenzent_rezultat` (`id`, `id_user`, `id_rezult`, `id_status`, `da
 (9, 21, 11, 2, '2021-09-01', '2021-09-06'),
 (10, 5, 10, 3, '2021-09-02', NULL),
 (11, 22, 11, 2, '2021-09-04', '2021-09-12'),
-(12, 25, 15, 3, '2021-09-01', NULL);
+(12, 25, 15, 3, '2021-09-01', NULL),
+(14, 5, 10, NULL, '2021-09-01', NULL),
+(15, 22, 9, 3, '2021-09-02', NULL);
 
 -- --------------------------------------------------------
 
@@ -901,7 +916,8 @@ INSERT INTO `rezultat` (`id`, `id_poziv`, `id_kateg`, `id_status`, `id_oblast`, 
 (12, 6, 7, 3, 3, 'њњњ.рс', 'истраживање заступљености ћирилице на интернету', 'ср и рс', '12.pdf', '2006.', '2021-07-27'),
 (13, 5, 4, 3, 1, 'Pera', 'lep', '1,2,3', '13.pdf', '789.', '2021-09-20'),
 (14, 8, 3, 3, 5, 'Analiza Rnk', 'RNK nastaje transkripcijom DNK pomoću enzima koji se nazivaju RNK polimeraze, a dalje se procesira preko drugih enzima. Uloga RNK u sintezi bjelančevina je nezamjenjiva. U tom procesu, vrsta RNK koja se naziva prijenosna RNK prenosi informacije sadržane u ', 'Iva, Matija, Jelena', '14.pdf', '1.1.2021.', '2021-08-29'),
-(15, 2, 1, 3, 4, 'Vaze starih civilizacija', 'U 9. veku p. n. e. Grci su počeli da oslikavaju vaze geometrijskim oblicima: spiralama, rozetama, prepletima, meandrima,trouglovima, krugovima, svastikama- koje su raspoređene u horizontalne trake kao kod Mikenaca. Takvo ukrašavanje se naziva „geometriski ', 'Jelena', '15.pdf', '1.1.2020', '2021-08-29');
+(15, 2, 1, 3, 4, 'Vaze starih civilizacija', 'U 9. veku p. n. e. Grci su počeli da oslikavaju vaze geometrijskim oblicima: spiralama, rozetama, prepletima, meandrima,trouglovima, krugovima, svastikama- koje su raspoređene u horizontalne trake kao kod Mikenaca. Takvo ukrašavanje se naziva „geometriski ', 'Jelena', '15.pdf', '1.1.2020', '2021-08-29'),
+(52, 11, 7, 3, 3, 'Novobeogradjani', 'Beogradjani ....', 'Pera, Zika, Mika', '52.pdf', '1999.', '2021-10-05');
 
 -- --------------------------------------------------------
 
@@ -973,6 +989,7 @@ CREATE TABLE `users` (
   `id_nac` int(11) NOT NULL,
   `id_oblast` int(11) NOT NULL,
   `id_zvanja` int(11) NOT NULL,
+  `id_status_prijave` int(11) NOT NULL DEFAULT 1,
   `adresa` varchar(64) NOT NULL,
   `telefon` varchar(32) NOT NULL,
   `web_str` varchar(32) NOT NULL,
@@ -996,16 +1013,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `username`, `ime`, `prezime`, `organizacija`, `id_zemlje`, `id_nac`, `id_oblast`, `id_zvanja`, `adresa`, `telefon`, `web_str`, `biografija`, `radovi`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4, 'zika@zikic.com', 'zika', '', '', '', 5, 2, 2, 2, '', '', '', '', '', '$2y$10$0XGxBsNMYmIQKr8cnsKDGOWBQcEYWhcepVDt85huzps.WgolcwrNa', NULL, NULL, NULL, 'b7085ea63f0175d5a137246f68a4d56a', NULL, NULL, 1, 0, '2021-08-20 13:26:23', '2021-08-20 13:26:23', NULL),
-(5, 'mika@mikic.com', 'mika', '', '', '', 3, 1, 3, 3, '', '', '', '', '', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-09-21 16:05:33', '2021-09-21 16:05:33'),
-(21, 'kiki@kiki.com', 'kiki', 'Kiki', 'Kikic', 'MGM', 2, 1, 3, 3, 'Kikina 99', '066', 'www.kikic.com', '', '7', '$2y$10$y87FgT0hQYUj/Kdgjzx/DeN8706SKQmEI39ix2heANmZ9PBJbLwHq', NULL, NULL, NULL, '24883946fed2a3a4d893f04401ee7701', NULL, NULL, 1, 0, '2021-09-06 15:18:08', '2021-09-06 15:18:08', NULL),
-(22, 'matijastnc@gmail.com', 'mata', 'Matija', 'Stanic', 'Tata Mata', 1, 1, 2, 1, 'Gandijeva 2', '063/123-462', 'www.plk.com', '', 'kkk', '$2y$10$0l2IbvRzEiw42XODmKhaJOoCAtYInkJpObsCS8JQ6PD4uUbFbW0Fa', NULL, NULL, NULL, 'a5598a649caba4e5b547a8ee348b7275', NULL, NULL, 1, 0, '2021-09-10 18:16:46', '2021-09-10 18:16:46', NULL),
-(23, 'jelenastn30@gmail.com', 'Jelena', '', '', '', 1, 1, 1, 1, '', '', '', '', '', '$2y$10$9R82yZUQa2cwxGKXVEgsQuxUn4ccBQVFX1fzzfOy9num1paz/Hi7S', NULL, NULL, NULL, '1643ac4fd60d72a8f109f0890ab7c40d', NULL, NULL, 1, 0, '2021-09-12 17:25:30', '2021-09-12 17:25:30', NULL),
-(24, 'ivastanic@gmail.com', 'iva', 'Iva', 'Stanic', 'Tata Mata', 1, 1, 5, 1, 'Gandijeva 2', '063/123-463', 'www.iva.com', '', 'jkllioo', '$2y$10$MxvC1hEznkEYwVTwFLeKQei14nj7C0om1mgrL/LOUGNj/Kq/cqt7q', NULL, NULL, NULL, '763aaf3b82b2fde61946a5aadffee54b', NULL, NULL, 1, 0, '2021-09-15 13:43:10', '2021-09-15 13:43:10', NULL),
-(25, 'ana@gmail.com', 'ana', 'Ana', 'Lukic', 'sdf', 1, 1, 5, 1, 'Gandijeva 22', '069/123456', 'www,ana.com', '', 'asde', '$2y$10$Oko3NKvr7ooPEH81Wh/vpOL4i1gRWRJpHsoEuNvkacVAmelsZszLu', NULL, NULL, NULL, '2c73be2eb2657ade31ce7f3134861eea', NULL, NULL, 1, 0, '2021-09-15 13:44:49', '2021-09-15 13:44:49', NULL),
-(26, 'niki@gmail.com', 'nikola', 'Nikola', 'Lukic', 'qwe', 1, 1, 3, 1, 'Gandijeva 22', '063/123-890', 'www.niki.com', '', 'nbmh', '$2y$10$rHT09QHtI1ykbrxicGQt9ez4520abJ9/orm2/rFqTDQ5T5BpLV7GW', NULL, NULL, NULL, '3d45f71e0d58e2701075c59964b8020a', NULL, NULL, 1, 0, '2021-09-15 13:46:19', '2021-09-15 13:46:19', NULL),
-(27, 'pera@peric.com', 'pera', 'Pera', 'Peric', '', 1, 1, 1, 1, '', '', '', '', '', '$2y$10$kAk0NsJn1DaCAcqRgzkcm.NeSGLsa3dGPbblezmNgriES3EVjWWDS', NULL, NULL, NULL, '65aa92264fea011df5744932cb3bc365', NULL, NULL, 1, 0, '2021-09-18 16:32:53', '2021-09-18 16:32:53', NULL);
+INSERT INTO `users` (`id`, `email`, `username`, `ime`, `prezime`, `organizacija`, `id_zemlje`, `id_nac`, `id_oblast`, `id_zvanja`, `id_status_prijave`, `adresa`, `telefon`, `web_str`, `biografija`, `radovi`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(4, 'zika@zikic.com', 'zika', 'Zivadin', '', '', 5, 2, 2, 2, 3, '', '', '', '', '', '$2y$10$0XGxBsNMYmIQKr8cnsKDGOWBQcEYWhcepVDt85huzps.WgolcwrNa', NULL, NULL, NULL, 'b7085ea63f0175d5a137246f68a4d56a', NULL, NULL, 1, 0, '2021-08-20 13:26:23', '2021-08-20 13:26:23', NULL),
+(5, 'mika@mikic.com', 'mika', 'Mickey', '', '', 3, 1, 3, 3, 1, '', '', '', '', '', '$2y$10$y39XRE0/Da4t5kBgfx7AO.5jt6tQ9aamH0xZhDC82fMtSx6IcD3PW', NULL, NULL, NULL, '30e6bfc45c3515518250e38843abce1c', NULL, NULL, 1, 0, '2021-08-20 13:27:03', '2021-09-21 16:05:33', '2021-09-21 16:05:33'),
+(21, 'kiki@kiki.com', 'kiki', 'Kiki', 'Kikic', 'MGM', 2, 1, 3, 3, 1, 'Kikina 99', '066', 'www.kikic.com', '', '7', '$2y$10$y87FgT0hQYUj/Kdgjzx/DeN8706SKQmEI39ix2heANmZ9PBJbLwHq', NULL, NULL, NULL, '24883946fed2a3a4d893f04401ee7701', NULL, NULL, 1, 0, '2021-09-06 15:18:08', '2021-09-06 15:18:08', NULL),
+(22, 'matijastnc@gmail.com', 'mata', 'Matija', 'Stanic', 'Tata Mata', 1, 1, 2, 1, 3, 'Gandijeva 2', '063/123-462', 'www.plk.com', '', 'kkk', '$2y$10$0l2IbvRzEiw42XODmKhaJOoCAtYInkJpObsCS8JQ6PD4uUbFbW0Fa', NULL, NULL, NULL, 'a5598a649caba4e5b547a8ee348b7275', NULL, NULL, 1, 0, '2021-09-10 18:16:46', '2021-09-10 18:16:46', NULL),
+(24, 'ivastanic@gmail.com', 'iva', 'Iva', 'Stanic', 'Tata Mata', 1, 1, 5, 1, 1, 'Gandijeva 2', '063/123-463', 'www.iva.com', '', 'jkllioo', '$2y$10$MxvC1hEznkEYwVTwFLeKQei14nj7C0om1mgrL/LOUGNj/Kq/cqt7q', NULL, NULL, NULL, '763aaf3b82b2fde61946a5aadffee54b', NULL, NULL, 1, 0, '2021-09-15 13:43:10', '2021-09-15 13:43:10', NULL),
+(25, 'ana@gmail.com', 'ana', 'Ana', 'Lukic', 'sdf', 1, 1, 5, 1, 1, 'Gandijeva 22', '069/123456', 'www,ana.com', '', 'asde', '$2y$10$Oko3NKvr7ooPEH81Wh/vpOL4i1gRWRJpHsoEuNvkacVAmelsZszLu', NULL, NULL, NULL, '2c73be2eb2657ade31ce7f3134861eea', NULL, NULL, 1, 0, '2021-09-15 13:44:49', '2021-09-15 13:44:49', NULL),
+(26, 'niki@gmail.com', 'nikola', 'Nikola', 'Lukic', 'qwe', 1, 1, 3, 1, 1, 'Gandijeva 22', '063/123-890', 'www.niki.com', '', 'nbmh', '$2y$10$rHT09QHtI1ykbrxicGQt9ez4520abJ9/orm2/rFqTDQ5T5BpLV7GW', NULL, NULL, NULL, '3d45f71e0d58e2701075c59964b8020a', NULL, NULL, 1, 0, '2021-09-15 13:46:19', '2021-09-15 13:46:19', NULL),
+(27, 'pera@peric.com', 'pera', 'Pera', 'Peric', '', 1, 1, 1, 1, 1, '', '', '', '', '', '$2y$10$kAk0NsJn1DaCAcqRgzkcm.NeSGLsa3dGPbblezmNgriES3EVjWWDS', NULL, NULL, NULL, '65aa92264fea011df5744932cb3bc365', NULL, NULL, 1, 0, '2021-09-18 16:32:53', '2021-09-18 16:32:53', NULL),
+(29, 'jelenastn30@gmail.com', 'jelena', 'Jelena', 'Stanic', 'Novi Beograd', 12, 2, 4, 5, 1, '', '', '', '', '123', '$2y$10$WhbNWjAlHXDpxnNkmZTt7.Wy1YAWRsDk0Kh8L/0PDm/KY1v5xGj2i', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2021-10-01 14:35:46', '2021-10-01 14:36:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -1341,7 +1358,7 @@ ALTER TABLE `anketa_pitanja_vezna`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
@@ -1353,7 +1370,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -1413,13 +1430,13 @@ ALTER TABLE `pitanja`
 -- AUTO_INCREMENT for table `poziv`
 --
 ALTER TABLE `poziv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `prijava`
 --
 ALTER TABLE `prijava`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `recenzent_anketa`
@@ -1437,7 +1454,7 @@ ALTER TABLE `recenzent_anketa_odgovor`
 -- AUTO_INCREMENT for table `recenzent_rezultat`
 --
 ALTER TABLE `recenzent_rezultat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `recenzent_rezultat_odgovor`
@@ -1449,7 +1466,7 @@ ALTER TABLE `recenzent_rezultat_odgovor`
 -- AUTO_INCREMENT for table `rezultat`
 --
 ALTER TABLE `rezultat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `rezultat_oblasti`
@@ -1473,7 +1490,7 @@ ALTER TABLE `status_rezultata`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `zemlja`
@@ -1564,7 +1581,7 @@ ALTER TABLE `recenzent_anketa_odgovor`
 --
 ALTER TABLE `recenzent_rezultat`
   ADD CONSTRAINT `recenzent_rezultat_rezultat` FOREIGN KEY (`id_rezult`) REFERENCES `rezultat` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `recenzent_rezultat_status_rezultata` FOREIGN KEY (`id_status`) REFERENCES `status_rezultata` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `recenzent_rezultat_status_rezultata` FOREIGN KEY (`id_status`) REFERENCES `status_rezultata` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `recenzent_rezultat_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
