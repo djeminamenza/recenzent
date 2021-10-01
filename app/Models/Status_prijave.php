@@ -15,10 +15,10 @@ class Status_prijave extends Model{
 
 public function getStatus_prijave(){
     return $this->builder()
-        ->select('status_prijave.id, opis, id_user, id_status')
-        ->where('prijava.id_user', user_id())
-        ->where('prijava.id_status = status_prijave.id')
-        ->from('prijava')
+        ->select('status_prijave.id, opis, users.id, users.id_status_prijave')
+        ->where('users.id', user_id())
+        ->where('users.id_status_prijave = status_prijave.id')
+        ->from('users')
         ->get();
     }
 }

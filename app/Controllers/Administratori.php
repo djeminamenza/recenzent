@@ -43,7 +43,7 @@ class Administratori extends BaseController
 		$this->modelPoziv = new Poziv();
 		$this->modelAuthGroupsUsers = new AuthGroupsUsers();
 		$this->modelPrijava = new Prijave();
-		$this->modelIzmena_Statusa = new IzmenaStatusaRezultata();
+		$this->modelIzmenaStatusaRezultata = new IzmenaStatusaRezultata();
 		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
 		$this->modelUserStatus = new UserStatus();
 
@@ -209,8 +209,8 @@ class Administratori extends BaseController
 	public function izmenaStatusaRezultata()
     {
         $modelIzmenaStatusaRezultata = new IzmenaStatusaRezultata();
-        $recenzenti['sta'] = $modelIzmenaStatusaRezultata->izmenaStatusaRezultata();
-        return view('administratori/izmena_statusa', $recenzenti);
+        $recenzenti['sta'] = $modelIzmenaStatusaRezultata->IzmenaStatusaRezultata();
+        return view('administratori/izmenaStatusaRezultata', $recenzenti);
     }
 
 	

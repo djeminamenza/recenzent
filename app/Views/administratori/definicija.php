@@ -24,9 +24,9 @@
     <?=csrf_field() ?>
 
     
-          
-         
-          <h4><label for="poziv">Odaberite programski poziv</label></h>
+    <div class="form-row">
+  
+          <h4><label for="poziv">Odaberite programski poziv</label></h4>
             <select name='id_poziv' class="form-control">
             <?php
                   foreach($pozivi as $p):
@@ -35,17 +35,17 @@
                   endforeach;
                   
               ?>
-     
+     </select>
 
-    </div>
+    
   
-        <br>
-        <br>
-        <div class="form-row">
-          <div class="form-group col-md-6">
+                </br>
+                </br>
+                <div class="form-group col-md-6">
             <label for="nazivRezultata">Naziv rezultata</label>
             <input type="text" class="form-control" name='naziv'>
-          </div>      
+          </div> 
+              
     
 
           <!-- kategorije povucene iz baze -->
@@ -59,7 +59,7 @@
               ?>
             </select>
         </div>
-
+        </div>
         </div>
               <fieldset style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 15px; border-radius: 5px;">
                  <legend><h3 style="text-align: center;" >Prijava</h3></legend>

@@ -30,7 +30,9 @@
                     echo '<option value='. $p->id_rezult.'>'.  $p->izbonaziv .'</option>';
                   endforeach;
               ?>
+              
             </select>
+            </br>
                 <h4><label for="rec">Odaberite recenzenta</label></h4>
                 <select name='id_user' class="form-control">
                   
@@ -39,7 +41,9 @@
                       echo '<option value='. $p->id_user.'>'.  $p->recen .'</option>';
                       endforeach;
                   ?>
+                  
                 </select>
+                </br>
                 <div class="form-group">
                 <h4><label for="datum_dodele">Datum dodele</label></h4>
                 <input type="date" class="form-control" name='datum_dodele'>
