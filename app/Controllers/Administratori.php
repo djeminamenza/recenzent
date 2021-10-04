@@ -34,6 +34,7 @@ class Administratori extends BaseController
 	protected $modelIzmenaStatusaRezultata;
 	protected $modelIzbor_recenzenta;
 	protected $modelUserStatus;
+	protected $modelUser;
 
 
 
@@ -46,6 +47,7 @@ class Administratori extends BaseController
 		$this->modelIzmenaStatusaRezultata = new IzmenaStatusaRezultata();
 		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
 		$this->modelUserStatus = new UserStatus();
+		$this->modelUser = new User();
 
 	
 	}
@@ -213,7 +215,16 @@ class Administratori extends BaseController
         return view('administratori/izmenaStatusaRezultata', $recenzenti);
     }
 
-	
+	public function promeniStatusRezultataUOdbijen($id){
+
+		$this->modelRezultat->promeniStatusRezultataUOdbijen($id);
+		return $this->izmenaStatusaRezultata();
+	}
+	public function promeniStatusRezultataUPrihvacen($id){
+
+		$this->modelRezultat->promeniStatusRezultataUPrihvacen($id);
+		return $this->izmenaStatusaRezultata();
+	}
 
 
 	public function premesti($id){
@@ -255,13 +266,11 @@ class Administratori extends BaseController
 		}
 	}
 
-	
-
-	public function deleteUser(){
+	public function deleteUser($id){
 		$userModel = new UserModel();
-		$post = $this->request->getPost();
-		$id = $post['uid'];
-		$userModel->delete($id);
+		$userModel->delete($id, 'true');
+		//$userModel->where('id', $id)->delete();
+		return $this->prijave();
 
 	}
 

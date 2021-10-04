@@ -18,8 +18,8 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th scope="col">ID rezultata</th>
-                <th scope="col">Status </th>
+                <th scope="col">Naziv rezultata</th>
+                <th scope="col">Status na osnovu 2 pregleda </th>
                 <th scope="col">Izmena statusa u bazi</th>
             </tr>
             </thead>
@@ -27,14 +27,24 @@
             <?php
             //var_dump($rec);
             foreach($sta as $c){
-
                 echo '<tr>';
-                 echo '<td scope="row">'.$c->id_rezult.'</td>';
+                 echo '<td scope="row">'.$c->naziv.'</td>';
                  echo '<td scope="row">'.$c->status.'</td>';
-              // echo '<td scope="row">'.$c->opis.'</td>';
-              // echo '<td scope="row">'.$c->recen.'</td>';
-              // echo '<td scope="row">'.$c->opis.'</td>';
-               echo '<td><button type = submit>Promeni u bazi</button></td>';
+                if($c->status == 'Razmatra se'){
+                    echo '<td scope="row"></td>';
+                }
+                elseif($c->status == 'Odbijen'){
+                    echo '<td>';
+                    echo anchor('Administratori/promeniStatusRezultataUOdbijen/' .$c->id_rezult,'Promeni u bazi', ['class' => 'btn btn-primary']);
+                    echo '</td>';
+                }
+                else
+                {
+                    echo '<td>';
+                    echo anchor('Administratori/promeniStatusRezultataUPrihvacen/' .$c->id_rezult,'Promeni u bazi', ['class' => 'btn btn-primary']);
+                    echo '</td>';
+                }
+               
             echo '</tr>';  
             }
             ?> 

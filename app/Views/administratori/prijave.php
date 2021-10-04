@@ -32,7 +32,10 @@
                   }else{
                     echo '<td></td>';
                   }
-                  echo "<td><button value=".$k->kid. "type='button' class='deleteUser btn btn-danger'>Obrisi Korisnika</button></td>";
+                  //echo "<td><button value=".$k->kid. "type='button' class='deleteUser btn btn-danger'>Obrisi Korisnika</button></td>";
+                  echo '<td>';
+                  echo anchor('Administratori/deleteUser/' .$k->kid,'Obrisi Korisnika', ['class' => 'btn btn-danger']);
+                  echo '</td>';
                   echo '</tr>';
               }
           ?>

@@ -25,7 +25,7 @@
                             echo '<td><h4>'. $k->id. '</h4></td>';
                     ?>    
                      <td><?php 
-                     echo anchor ('administratori/delete/'.$k->id, 'Obrisi poziv' , ['class' => 'btn btn-danger']); }
+                     echo anchor ('administratori/deletePoziv/'.$k->id, 'Obrisi poziv' , ['class' => 'btn btn-danger']); }
                      ?>
                      </td>
                           
@@ -56,32 +56,7 @@
       </div>
   </div>
 
-   <!-- Script -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type='text/javascript'>
-    $(document).ready(function() {
-
-        $('.deletePoziv').click(function(e) {
-            var uid = $(this).attr("value");
-            $.ajax({
-                url:'<?=base_url()?>/Administratori/deletePoziv',
-                method: 'post',
-                data: {uid: uid},
-                dataType: 'json',
-                success: function(response){
-                   if(response.affectedRows == '1'){
-                        location.reload();
-                    }
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log(XMLHttpRequest);
-                    alert('Doslo je do greske pokusajte kasnije ponovo');
-                }
-            });
-        });
-    });
-</script>
-
+ 
 <?php $this->endSection(); ?>     
 
             <!-- echo anchor('movies/delete/' .$movie->id,'Delete movie', ['class' => 'btn btn-danger']); -->

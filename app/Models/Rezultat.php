@@ -12,24 +12,6 @@ class Rezultat extends Model{
     protected $returnType = 'object';
 
 
-    // public function __construct()
-    // {
-    //     $this->model = new Rezultat();
-    // }
-    
-		/*
-        select * from rezultat
-        inner JOIN poziv p on p.id = rezultat.id_poziv
-        inner JOIN kategorija k on k.id = rezultat.id_kateg
-        inner join oblast o on o.id = rezultat.id_oblast
-        inner JOIN status_rezultata as s on s.id = rezultat.id_status
-        */
-        /*
-        select r.naziv, p.naziv, k.opis, o.naziv, r.datum_prijave, s.opis
-        from rezultat r, poziv p, kategorija k, oblast o, status_rezultata s
-        where r.id_poziv = p.id and r.id_kateg = k.id and r.id_oblast = o.id and r.id_status = s.id
-        */
-
     public function dohvatiRezultate(){
         return $this->builder()
         ->select('rezultat.naziv as ime, datum_prijave')
@@ -42,6 +24,21 @@ class Rezultat extends Model{
         ->select("(select opis from status_rezultata
                 where id_status = status_rezultata.id) as rezstatus")
         ->get()->getResult();
+    }
+
+    
+    public function promeniStatusRezultataUOdbijen($id){
+        return $this->builder()
+        ->set('id_status',2)
+        ->where('id',$id)
+        ->update();
+    }
+
+    public function promeniStatusRezultataUPrihvacen($id){
+        return $this->builder()
+        ->set('id_status',1)
+        ->where('id',$id)
+        ->update();
     }
     
 }
