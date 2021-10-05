@@ -16,6 +16,7 @@
                     <tr>
                     <th><h3>NAZIV</h3></th>
                     <th><h3>ID</h3></th>
+                    <th><h3>BRISANJE POZIVA</h3></th>
                     </tr>
                   <?php
                       foreach($pozivi as $k){
@@ -25,14 +26,13 @@
                             echo '<td><h4>'. $k->id. '</h4></td>';
                     ?>    
                      <td><?php 
-                     echo anchor ('administratori/deletePoziv/'.$k->id, 'Obrisi poziv' , ['class' => 'btn btn-danger']); }
-                     ?>
-                     </td>
-                          
-                      <?php    
-                      echo '</tr>';
-                      
-                  ?>
+                     echo anchor ('administratori/deletePoziv/'.$k->id, 'Obrisi poziv' , ['class' => 'btn btn-danger']); 
+
+                    
+                     echo '</td>';
+                     echo '</tr>';
+                    }
+             ?>
             </table>
             <br>
          <form action="<?= route_to('administratori/attemptPoziv') ?>" method="post">   

@@ -7,7 +7,7 @@
 
          <div class="container masthead mx-auto">
 
-        <div class="col-sm-6 offset-sm-3">
+        <div class="col-sm-8 offset-sm-3">
         <div class="row">
         <div class="card">
         </br>
@@ -18,9 +18,9 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th scope="col">Naziv rezultata</th>
-                <th scope="col">Status na osnovu 2 pregleda </th>
-                <th scope="col">Izmena statusa u bazi</th>
+                <th scope="col">NAZIV REZULTATA</th>
+                <th scope="col">STATUS NA OSNOVU 2 PREGLEDA </th>
+                <th scope="col">IZMENA STATUSA U BAZI</th>
             </tr>
             </thead>
             <tbody>

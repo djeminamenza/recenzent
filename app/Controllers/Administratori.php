@@ -97,34 +97,6 @@ class Administratori extends BaseController
 		}
 	}
 
-
-	public function deletePoziv(){    // pogledaj 48. termin
-
-	$post = $this->request->getPost();
-			try {
-				//$response = delete_data($post['uid']);
-				//return $this->response->setJson(['affectedRows'=>$response]);
-			}catch (Exception $e) {
-				throw new \RuntimeException($e->getMessage(), $e->getCode(), $e);
-			}
-
-
-/* 	
-		if($this->validate([
-			'id'=> 'required'
-
-		])){
-			$poziv =[
-				'id'=>$this->request->getPost('id'),
-			];
-			$pozivID = $this->model->delete($poziv, true);
-			return redirect()->to('administratori/poziv')->with('message', 'Success');
-		}else{
-			return redirect()->back()->withInput->with('errors', $this->validator->getErrors());
-		} */
-	}
-
-
 	public function definicija()
 	{	
 		$kategorijaModel = new Kategorija();
@@ -271,6 +243,24 @@ class Administratori extends BaseController
 		$userModel->delete($id, 'true');
 		//$userModel->where('id', $id)->delete();
 		return $this->prijave();
+
+	}
+	public function deletePoziv($id){
+		$pozivModel = new Poziv();
+		$pozivModel->delete($id, 'true');
+		return $this->poziv();
+
+	}
+	public function deleteRezultat($id){
+		$rezultatModel = new Rezultat();
+		$rezultatModel->delete($id, 'true');
+		return $this->rezultati();
+
+	}
+	public function deleteIzbor_recenzenta($id){
+		$Izbor_recenzentaModel = new Izbor_recenzenta();
+		$Izbor_recenzentaModel->delete($id, 'true');
+		return $this->recenzije();
 
 	}
 

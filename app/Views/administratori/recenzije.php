@@ -5,9 +5,9 @@
 
 
 
-<div class="container masthead">
+<div class="container masthead mx-auto">
     
-<div class="col-sm-6 offset-sm-3 mx-auto">
+<div class="col-sm-8 offset-sm-2 mx-auto">
    
         <div class="row mx-auto">
         <div class="card mx-auto">
@@ -22,6 +22,8 @@
                 <th scope="col">Recenzenti</th>
                 <th scope="col">Naziv rezultata</th>
                 <th scope="col">Status ocene</th>
+                <th scope="col">Oduzimanje rezultata recenzentu</th>
+
             </tr>
             </thead>
             <tbody>
@@ -36,6 +38,9 @@
                 }else{
                     echo '<td scope="row">ocenjena</td>';
                 }
+                echo '<td>';
+                echo anchor ('administratori/deleteIzbor_recenzenta/'.$z->id, 'Obrisi recenzenta' , ['class' => 'btn btn-danger']);
+                echo '</td>';
             echo '</tr>';  
             }
             ?> 

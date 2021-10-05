@@ -6,12 +6,12 @@ use CodeIgniter\Model;
 
 class Recenzent_rezultat extends Model{
     protected $table = 'recenzent_rezultat';
-    protected $allowedFields = ['datum_dodele', 'id_user', 'id_status', 'id_rezult'];
+    protected $allowedFields = ['datum_dodele','id', 'id_user', 'id_status', 'id_rezult'];
     protected $returnType = 'object';
 
     public function Recenzent_rezultat(){
         return $this->builder()
-        ->select("datum_dodele, rezultat.naziv, concat(users.ime,' ', users.prezime) as recen, status_rezultata.opis")
+        ->select("recenzent_rezultat.id, id_user, datum_dodele, rezultat.naziv, concat(users.ime,' ', users.prezime) as recen, status_rezultata.opis")
         ->where('rezultat.id = recenzent_rezultat.id_rezult')
         ->where('users.id = recenzent_rezultat.id_user')
         ->where('status_rezultata.id= recenzent_rezultat.id_status')

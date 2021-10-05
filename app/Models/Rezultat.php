@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class Rezultat extends Model{
     protected $table = 'rezultat';
-    protected $allowedFields = ['naziv', 'id_poziv', 'id_kateg','id_status',
+    protected $allowedFields = ['id', 'naziv', 'id_poziv', 'id_kateg','id_status',
                                 'datum', 'opis','clanovi','biografije', 
                                 'id_oblast','god_rez', 'datum_prijave'];
     protected $returnType = 'object';
@@ -14,7 +14,7 @@ class Rezultat extends Model{
 
     public function dohvatiRezultate(){
         return $this->builder()
-        ->select('rezultat.naziv as ime, datum_prijave')
+        ->select('id, rezultat.naziv as ime, datum_prijave')
         ->select("(select naziv from poziv
                 where id_poziv = poziv.id) as rezpoziv")
         ->select("(select opis from kategorija
