@@ -34,6 +34,19 @@ public function dohvatiKorisnike(){
 // **********************************************************
     ->get()->getResult();
     }   
+
+
+    public function loadUser($id){
+        $query = "
+            SELECT users.ime, users.prezime, users.organizacija, users.id_zemlje as zemlja, users.id_nac as nacionalnost, users.id_oblast as oblast, users.id_zvanja as zvanje,
+            users.adresa, users.telefon, users.web_str, users.radovi, users.biografija, users.email
+            FROM users 
+            WHERE users.id = ".$id;
+        
+        $query=$this->db->query($query);
+            
+        return $query->getResultArray();
+    }
 }
 /*
 
