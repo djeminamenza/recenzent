@@ -9,7 +9,7 @@
         
         
 <div class="container masthead mx-auto">
-  <div class="col-sm-12 offset-sm-1 mx-auto">
+  <div class="col-sm-12 offset-sm-0 mx-auto">
         <div class="row">
         <div class="card">
         </br>
@@ -27,7 +27,7 @@
                 <th>OBLAST</th>
                 <th>DATUM PRIJAVE</th>
                 <th>STATUS REZULTATA</th>
-                <th>BRISANJE NEPOTREBNIH REZULTATA</th>
+                <th>BRISANJE NEPOTREBNIH REZULTATA&nbsp;&nbsp;&nbsp;</th>
 
             </tr>
             <?php
@@ -44,7 +44,7 @@
                         echo '<td>'. $r->datum_prijave. '</td>';
                         echo '<td>'. $r->rezstatus. '</td>';
                         echo '<td>';
-                        echo anchor('Administratori/deleteRezultat/' .$r->id,'Obrisi rezultat', ['class' => 'btn btn-danger']);
+                        echo anchor('Administratori/deleteRezultat/' .$r->id,'Obrisi', ['class' => 'btn btn-danger']);
                         echo '</td>';
       
                       echo '</tr>';

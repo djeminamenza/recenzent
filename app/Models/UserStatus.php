@@ -18,6 +18,14 @@ class UserStatus extends Model{
         ->update();
     }
 
+    public function odbijMe($id){
+        return $this->builder()
+        ->set('id_status_prijave', 4)
+        ->where('id_status_prijave',1)
+        ->where('id',$id)
+        ->update();
+    }
+
 }
 
 ?>

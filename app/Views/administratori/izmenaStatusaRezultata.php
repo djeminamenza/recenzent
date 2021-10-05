@@ -7,7 +7,7 @@
 
          <div class="container masthead mx-auto">
 
-        <div class="col-sm-8 offset-sm-3">
+        <div class="col-sm-10 offset-sm-2">
         <div class="row">
         <div class="card">
         </br>
@@ -20,6 +20,7 @@
             <tr>
                 <th scope="col">NAZIV REZULTATA</th>
                 <th scope="col">STATUS NA OSNOVU 2 PREGLEDA </th>
+                <th scope="col">KONACNI STATUS REZULTATA </th>
                 <th scope="col">IZMENA STATUSA U BAZI</th>
             </tr>
             </thead>
@@ -30,7 +31,8 @@
                 echo '<tr>';
                  echo '<td scope="row">'.$c->naziv.'</td>';
                  echo '<td scope="row">'.$c->status.'</td>';
-                if($c->status == 'Razmatra se'){
+                 echo '<td scope="row">'.$c->Konacan_Status.'</td>';
+                 if($c->status == 'Razmatra se' || $c->Konacan_Status == 'odbijen' || $c->Konacan_Status == 'prihvacen'){                    echo '<td scope="row"></td>';
                     echo '<td scope="row"></td>';
                 }
                 elseif($c->status == 'Odbijen'){

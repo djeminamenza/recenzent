@@ -199,14 +199,19 @@ class Administratori extends BaseController
 	}
 
 
-	public function premesti($id){
-
+	public function premesti($id)
+	{
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
 		$this->modelUserStatus->promeniMiStatus($id);
 		return $this->prijave();
-	
-
 	}
+
+	public function odbij($id)
+	{
+		$this->modelUserStatus->odbijMe($id);
+		return $this->prijave();
+	}
+
 	public function izbor_recenzenta()
 	{	
 		$modelIzbor_recenzenta = new Izbor_recenzenta();

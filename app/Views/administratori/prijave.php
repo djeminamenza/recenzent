@@ -6,17 +6,15 @@
 
 <div class="container masthead mx-auto">
   <h1 style="text-align: center;">Pregled recenzenata</h1>
-  <div class="container masthead">
   <!-- korisnici dohvaceni iz baze -->
     <div class="form-group" style="text-align: center;">
       <table class="table table-bordered">
           <tr>
-          <th>id korisnika</th>
+          <th>id</th>
           <th>Ime i prezime</th>
           <th>uloga</th>
-          <th>prijava za recenzenta</th>
-          <th>prebaci u recenzente</th>
-          <th>obrisi korisnika</th>
+          <th>prijava</th>
+          <th colspan="3">prebaci u recenzente</th>
           </tr>
           <?php
               foreach($korisnici as $k){
@@ -25,22 +23,24 @@
                   echo '<td>'.$k->korisnik.'</td>';
                   echo '<td>'.$k->uloga.'</td>';
                   echo '<td>'.$k->opis.'</td>';
-                  if($k->gid==3 ){//&& $k->id_status <> 4){
+                  if($k->gid==3 && $k->id_status_prijave <> 4){
                     echo '<td>';
-                    echo anchor('Administratori/premesti/' .$k->kid,'Premesti', ['class' => 'btn btn-primary']);
+                    echo anchor('Administratori/premesti/' .$k->kid,'Premesti', ['class' => 'btn btn-success']);
+                    echo '</td>';
+                    echo '<td>';
+                    echo anchor('Administratori/odbij/' .$k->kid,'Odbij', ['class' => 'btn btn-primary']);
                     echo '</td>';
                   }else{
                     echo '<td></td>';
+                    echo '<td></td>';
                   }
-                  //echo "<td><button value=".$k->kid. "type='button' class='deleteUser btn btn-danger'>Obrisi Korisnika</button></td>";
                   echo '<td>';
-                  echo anchor('Administratori/deleteUser/' .$k->kid,'Obrisi Korisnika', ['class' => 'btn btn-danger']);
+                  echo anchor('Administratori/deleteUser/' .$k->kid,'Obrisi', ['class' => 'btn btn-danger']);
                   echo '</td>';
                   echo '</tr>';
               }
           ?>
       </table>
     </div>
-  </div>
 </div>
 <?php $this->endSection(); ?>   
