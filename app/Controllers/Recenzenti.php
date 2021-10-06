@@ -38,13 +38,19 @@ class Recenzenti extends BaseController
 		return view('recenzenti/index');
 	}
 
+	/**
+	 * Ucitaj podatke korisnika u formu za izmenu
+	 */
     public function profil()
 	{
-
+		//izvlacimo user id iz sessije, kako bi izmenili podatke za odgovarajucek korisnika
 		$userid = $this->session->get('logged_in');
+
+		//ucitavamo sve podatke o tom korisniku kako bi popunili elemente forme
 		$user = new Korisnici();
 		$user = $user->loadUser($userid);
 
+		/**kupimo ponovo podatke da popunimo dropodwns na formi */
 		$nacionalnost = new Nacionalnost();
 		$zemlja = new Zemlja();
 		$oblasti = new Oblast();
@@ -55,12 +61,50 @@ class Recenzenti extends BaseController
 		$podaci['nacionalnosti'] = $nacionalnost->findAll();
 		$podaci['zvanje'] = $zvanje->findAll();
 
-		return $this->_render('recenzenti/profil', ['user'=>$user, 'podaci'=>$podaci]);
+		//empty message koji se koristi u SAcuvaj metodi
+		$message = '';
+
+		//saljemo sve podatke u VIEW profil template
+		return $this->_render('recenzenti/profil', ['user'=>$user, 'podaci'=>$podaci, 'userid'=>$userid, 'message'=>$message]);
 	}
 
+	/**
+	 * Sacuvaj izmene o korisniku iz forme sa profil strane, nakon klika na dugme sacuvaj izmene
+	 * Po sacuvanim izmenama redirektujemo se natrag sa session porukom
+	 */
 	public function sacuvajIzmene(){
-		return true;
-		return $this->_render('recenzenti/profil', ['user'=>$user, 'podaci'=>$podaci]);
+		
+		//podatke iz forme dovlacimo iz POST-a
+		$userData = $this->request->getPost();
+
+		//snimamo nove podatke za datag korisnika
+		$user = new Korisnici();
+		$response = $user->saveUserData($userData);
+		
+		/**SQL query response odgovoran za kreiranje response poruke iznad forme */
+    	if($response == true){
+			$message = ['class'=>'alert-success','message'=>'Uspesno ste sacuvali svoje izmene.'];
+		}else{
+			$message = ['class'=>'alert-danger','message'=>'Nismo uspeli u ovom trenutku da sacuvamo Vase izmene, molimo pokusajte ponovo.'];
+		}
+
+		/**kupimo ponovo podatke o korisniku da popunimo input polja na formi */
+		//ovog puta uzimam ID korisnika iz hidden polja iz forme umesto iz sesije
+		$user = $user->loadUser($userData['sessid']);
+
+		/**kupimo ponovo podatke da popunimo dropodwns na formi */
+		$nacionalnost = new Nacionalnost();
+		$zemlja = new Zemlja();
+		$oblasti = new Oblast();
+		$zvanje = new Zvanje();
+
+		$podaci['zemlje'] = $zemlja->findAll();
+		$podaci['oblasti'] = $oblasti->findAll();
+		$podaci['nacionalnosti'] = $nacionalnost->findAll();
+		$podaci['zvanje'] = $zvanje->findAll();
+
+		/**Vracamo sve podatke natrag u view template */
+		return $this->_render('recenzenti/profil', ['user'=>$user, 'podaci'=>$podaci,'userid'=>$userData['sessid'], 'message'=>$message]);
 	}
 
     public function rezultati()
@@ -83,6 +127,7 @@ class Recenzenti extends BaseController
 		return view('recenzenti/obavestenja');
 	}
 
+	//render metoda
 	protected function _render(string $view, array $data = [])
 	{
 		return view($view, $data);

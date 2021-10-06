@@ -33,9 +33,25 @@ public function dohvatiKorisnike(){
     ->from('status_prijave')
 // **********************************************************
     ->get()->getResult();
+
+            /*
+
+        SELECT * FROM users
+        inner join auth_groups_users 
+        on id = auth_groups_users.user_id
+        inner join auth_groups 
+        where auth_groups_users.group_id = auth_groups.id 
+        and auth_groups.name=3
+
+
+        */
     }   
 
-
+    /**
+     * Ucitavamo sve podatke o korisniku
+     * metoda se poziva u "Recenzenti" kontroleru, "profil()" metoda
+     * saljemo array data natrag metodi
+     */
     public function loadUser($id){
         $query = "
             SELECT users.ime, users.prezime, users.organizacija, users.id_zemlje as zemlja, users.id_nac as nacionalnost, users.id_oblast as oblast, users.id_zvanja as zvanje,
@@ -47,16 +63,39 @@ public function dohvatiKorisnike(){
             
         return $query->getResultArray();
     }
+
+    /**
+     * Snimamo izmenjene podatke o korisniku natrag u bazu
+     *  metoda se poziva u "Recenzenti" kontroleru, "sacuvajIzmene()" metoda
+     */
+    public function saveUserData($userData){
+
+        //UPDATE query
+        $query="
+        UPDATE users 
+        SET 
+        email = '".$userData['email']."',
+        ime = '".$userData['ime']."',
+        prezime = '".$userData['prezime']."',
+        id_nac = '".$userData['id_nac']."',
+        id_zemlje = '".$userData['id_zemlje']."',
+        id_oblast = '".$userData['id_oblast']."',
+        id_zvanja = '".$userData['id_zvanja']."',
+        organizacija = '".$userData['organizacija']."',
+        telefon = '".$userData['telefon']."',
+        adresa = '".$userData['adresa']."',
+        web_str = '".$userData['web_str']."',
+        radovi =  '".$userData['radovi']."'
+        WHERE id =".$userData['sessid'];
+        
+        //vracamo true ili false response u metodu kako bi formirali response message
+        try{
+            $query=$this->db->query($query);
+            return true;
+        }catch(\Exception $e){
+            return false;
+        }
+    }
 }
-/*
 
-SELECT * FROM users
-inner join auth_groups_users 
-on id = auth_groups_users.user_id
-inner join auth_groups 
-where auth_groups_users.group_id = auth_groups.id 
-and auth_groups.name=3
-
-
-*/
 ?>

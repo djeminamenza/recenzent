@@ -12,15 +12,20 @@
 <div class="container masthead">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-
             <div class="card">
                 <h2 class="card-header"><?=lang('Izmeni licne podatke')?></h2>
                 <div class="card-body">
 
-                    <form action="recenzenti/sacuvajIzmene" method="post" enctype="multipart/form-data">
+                    <?php if($message): ?>
+                        <div class="alert <?php echo $message['class'] ?>"><?php echo $message['message'] ?></div>      
+                    <?php endif; ?>
+
+
+                    <form action="sacuvajIzmene" method="post" enctype="multipart/form-data">
                         <?= csrf_field() ?>
-                        
-                            <div class="form-row">
+                        <input type="hidden" name="sessid" value="<?php echo $userid?>" />
+
+                        <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="ime">Ime</label>
                             <input type="text" class="form-control" placeholder="Ime Korisnika" id="ime" name="ime" value="<?php echo $user[0]['ime']?>">
@@ -109,5 +114,5 @@
 </div>
 
 
-    </div>
+</div>
 <?php $this->endSection(); ?>     
