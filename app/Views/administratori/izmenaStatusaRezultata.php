@@ -7,7 +7,7 @@
 
          <div class="container masthead mx-auto">
 
-        <div class="col-sm-10 offset-sm-2">
+        <div class="col-sm-12 offset-sm-1">
         <div class="row">
         <div class="card">
         </br>
@@ -20,7 +20,7 @@
             <tr>
                 <th scope="col">NAZIV REZULTATA</th>
                 <th scope="col">STATUS NA OSNOVU 2 PREGLEDA </th>
-                <th scope="col">KONACNI STATUS REZULTATA </th>
+                <th scope="col">KONACNI STATUS </th>
                 <th scope="col">IZMENA STATUSA U BAZI</th>
             </tr>
             </thead>
