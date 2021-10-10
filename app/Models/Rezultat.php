@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Rezultat extends Model{
     protected $table = 'rezultat';
     protected $allowedFields = ['id', 'naziv', 'id_poziv', 'id_kateg','id_status',
-                                'datum', 'opis','clanovi','biografije', 
+                                'god_rez', 'opis','clanovi','biografije', 
                                 'id_oblast','god_rez', 'datum_prijave'];
     protected $returnType = 'object';
 
@@ -25,6 +25,21 @@ class Rezultat extends Model{
                 where id_status = status_rezultata.id) as rezstatus")
         ->get()->getResult();
     }
+    public function dohvatiRezultat($id){
+        return $this->builder()
+        ->select('id, rezultat.naziv as ime, datum_prijave, god_rez, opis, clanovi, biografije')
+        ->select("(select naziv from poziv
+                where id_poziv = poziv.id) as rezpoziv")
+        ->select("(select opis from kategorija
+                where id_kateg = kategorija.id) as rezkateg")
+        ->select("(select naziv from oblast
+                where id_oblast = oblast.id) as rezoblast")
+        ->select("(select opis from status_rezultata
+                where id_status = status_rezultata.id) as rezstatus")
+        ->where('id', $id)
+        ->get();
+    }
+
 
     
     public function promeniStatusRezultataUOdbijen($id){

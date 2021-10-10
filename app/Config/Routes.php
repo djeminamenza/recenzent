@@ -34,6 +34,8 @@ $routes->post('administratori/poziv', 'Administratori::attemptPoziv');
 $routes->get('korisnici/status_prijave', 'Korisnici::status_prijave');
 $routes->get('administratori/izbor_recenzenta', 'Administratori::Izbor_recenzenta');
 $routes->post('administratori/izbor_recenzenta', 'Administratori::attemptIzbor_recenzenta');
+$routes->post('administratori/izmenica', 'Administratori::attemptIzmena');
+
 
 /*
 $routes->add('administratori/index', 'Administratori::index', ['filter' => 'role:admin']);

@@ -35,6 +35,8 @@ class Administratori extends BaseController
 	protected $modelIzbor_recenzenta;
 	protected $modelUserStatus;
 	protected $modelUser;
+	protected $session;
+
 
 
 
@@ -48,6 +50,7 @@ class Administratori extends BaseController
 		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
 		$this->modelUserStatus = new UserStatus();
 		$this->modelUser = new User();
+		$this->session = service('session');
 
 	
 	}
@@ -267,6 +270,64 @@ class Administratori extends BaseController
 		$Izbor_recenzentaModel->delete($id, 'true');
 		return $this->recenzije();
 
+	}
+	public function izmena_rezultata()
+	{
+		$data['rezultati'] = $this->modelRezultat->dohvatiRezultate();
+		return view('administratori/izmena_rezultata', $data);
+	}
+	public function izmenica($id)
+	{
+		$kategorijaModel = new Kategorija();
+		$def['kategorije'] = $kategorijaModel->findAll();
+		$oblastiModel = new Oblast();
+		$def['oblasti'] = $oblastiModel->findAll();
+		$pozivModel = new Poziv();
+		$def['pozivi'] = $pozivModel->findAll();
+
+		$rezultat = $this->modelRezultat->dohvatiRezultat($id);
+		$def['rezultat'] = $rezultat->getResult()[0];
+		return view('administratori/izmenica', $def);
+		
+	}
+
+	public function attemptIzmena(){
+		if($this->validate([
+			'naziv' => 'required',
+			'biografije' => [
+				'uploaded[biografije]',
+				'mime_in[biografije,application/pdf]'
+			]
+			])){
+
+				$rezultat = [			
+					'id_poziv' =>$this->request->getPost('id_poziv'),	
+					'id_kateg' =>$this->request->getPost('id_kateg'),
+					'id_status' =>$this->request->getPost('id_status'),
+					'naziv' =>$this->request->getPost('naziv'),		
+					'opis' =>$this->request->getPost('opis'),		
+					'clanovi' =>$this->request->getPost('clanovi'),		
+					'god_rez' =>$this->request->getPost('god_rez'),		
+					'datum_prijave' =>$this->request->getPost('datum_prijave'),
+					'id_oblast' =>$this->request->getPost('id_oblast'),		
+				];
+
+				$biografijaID = $this->modelRezultat->update($rezultat, true);
+
+				$biografijaName = $biografijaID . ".pdf";
+				$biografija = $this->request->getFile('biografije');
+				$biografija->move('../public/biografije/rezultati', $biografijaName, true);
+
+
+				//$rezultat['id'] = $biografijaID;
+				$rezultat['biografije'] = $biografijaName;
+				$this->modelRezultat->update($biografijaID, $rezultat);
+
+				return redirect()->to('administratori/izmenica')->with('message','Success');
+
+			}else{
+				return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+			}
 	}
 
 }
