@@ -11,7 +11,7 @@
 <div class="container masthead mx-auto">
   <div class="col-sm-12 offset-sm-0 mx-auto">
         <div class="row">
-        <div class="card">
+
         </br>
     <div class="form col-md-12" style="text-align: center;">
         <h1 style="text-align: center;">Lista naucnih rezultata</h1>
@@ -21,13 +21,13 @@
             <tr>
             <th>ID</th>
 
-                <th>NAZIV REZULTATA</th>
+                <th>NAZIV</th>
                 <th>PROGRAMSKI POZIV</th>
                 <th>KATEGORIJA</th>
                 <th>OBLAST</th>
                 <th>DATUM PRIJAVE</th>
-                <th>STATUS REZULTATA</th>
-                <th>BRISANJE NEPOTREBNIH REZULTATA&nbsp;&nbsp;&nbsp;</th>
+                <th>STATUS</th>
+                <th colspan="2">REZULTAT:</th>
 
             </tr>
             <?php
@@ -44,6 +44,9 @@
                         echo '<td>'. $r->datum_prijave. '</td>';
                         echo '<td>'. $r->rezstatus. '</td>';
                         echo '<td>';
+                        echo anchor('Administratori/editRezultat/' .$r->id,'Izmeni', ['class' => 'btn btn-success', 'width' =>'auto']);
+                        echo '</td>';
+                        echo '<td>';
                         echo anchor('Administratori/deleteRezultat/' .$r->id,'Obrisi', ['class' => 'btn btn-danger']);
                         echo '</td>';
       
@@ -52,7 +55,7 @@
             ?>  
         </table>
         </div>
-    </div>
+
     </div>
       </div>
   </div>

@@ -26,6 +26,13 @@ class Rezultat extends Model{
         ->get()->getResult();
     }
 
+    public function dajMiRezultat($id) {
+            return $this->builder()
+            ->select('*')
+            ->where('id',$id)
+            ->get()->getResult();
+    }
+
     
     public function promeniStatusRezultataUOdbijen($id){
         return $this->builder()

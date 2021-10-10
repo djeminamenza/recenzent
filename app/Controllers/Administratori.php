@@ -16,10 +16,12 @@ use App\Models\UserStatus;
 use App\Models\Izbor_recenzenta;
 use Myth\Auth\Models;
 use CodeIgniter\Model;
+use Config\Email;
 use Exception;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
+//use Myth\Auth\Authentication\Activators\BaseActivator::getActivatorSettings;
 
 
 class Administratori extends BaseController
@@ -35,6 +37,7 @@ class Administratori extends BaseController
 	protected $modelIzbor_recenzenta;
 	protected $modelUserStatus;
 	protected $modelUser;
+	protected $modelKorisnici;
 
 
 
@@ -48,6 +51,7 @@ class Administratori extends BaseController
 		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
 		$this->modelUserStatus = new UserStatus();
 		$this->modelUser = new User();
+		$this->modelKorisnici = new Korisnici();
 
 	
 	}
@@ -160,9 +164,12 @@ class Administratori extends BaseController
 	}
 
 
-	public function ankete()
+	public function anketa1()
 	{
-		return view('administratori/ankete');
+		$user = new Korisnici;  
+		$podaci['darko']=$user->trebaMiEmail(25);
+		$this->send(25);
+		return view('administratori/anketa1', $podaci);
 	}
 	
 
@@ -203,6 +210,9 @@ class Administratori extends BaseController
 	{
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
 		$this->modelUserStatus->promeniMiStatus($id);
+		$this->modelKorisnici->send($id);
+		
+		//
 		return $this->prijave();
 	}
 
@@ -248,25 +258,64 @@ class Administratori extends BaseController
 		$userModel->delete($id, 'true');
 		//$userModel->where('id', $id)->delete();
 		return $this->prijave();
-
 	}
+
 	public function deletePoziv($id){
 		$pozivModel = new Poziv();
 		$pozivModel->delete($id, 'true');
 		return $this->poziv();
-
 	}
+
 	public function deleteRezultat($id){
 		$rezultatModel = new Rezultat();
 		$rezultatModel->delete($id, 'true');
 		return $this->rezultati();
-
 	}
+
 	public function deleteIzbor_recenzenta($id){
 		$Izbor_recenzentaModel = new Izbor_recenzenta();
 		$Izbor_recenzentaModel->delete($id, 'true');
 		return $this->recenzije();
-
 	}
 
+	public function editRezultat($id){
+		$kategorijaModel = new Kategorija();
+		$data['kategorije'] = $kategorijaModel->findAll();
+		$oblastiModel = new Oblast();
+		$data['oblasti'] = $oblastiModel->findAll();
+		$pozivModel = new Poziv();
+		$data['pozivi'] = $pozivModel->findAll();
+		$data['rezultat'] = $this->modelRezultat->dajMiRezultat($id);
+		return view('administratori/izmenaRezultata', $data);
+	}
+
+
+   public function send($id): bool
+   {
+	   $email = service('email');
+	   $config = new Email;
+
+	   //$settings = $this->getActivatorSettings();
+	   $user = new Korisnici;  
+	   $user->trebaMiEmail($id);
+	   $sent = $email->setFrom($config->fromEmail, $config->fromName)
+			 ->setTo($user->email)
+			 ->setSubject('Odobrena prijava')
+			 ->setMessage('Честитамо,'.$user->ime.' '.$user->prezime.' постали сте мајка! Добродошли на портал рецензентe наш.')
+			 ->setMailType('html')
+			 ->send();
+
+	   if (! $sent)
+	   {
+		   $this->error = lang('Auth.errorSendingActivation', [$user->email]);
+		   return false;
+	   }
+
+	   return true;
+   }
+
+
+
 }
+
+//return redirect()->to('Administatori/edit');

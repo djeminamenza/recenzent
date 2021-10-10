@@ -13,11 +13,6 @@ class Korisnici extends BaseController
 		
 	}	
 
-	// public function index()
-	// {
-	// 	return view('administratori/index');
-	// }
-
 	public function status_prijave()
 	{
 		// $status_prijave = $this->model->getStatus_prijave();
