@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class Rezultat extends Model{
     protected $table = 'rezultat';
     protected $allowedFields = ['id', 'naziv', 'id_poziv', 'id_kateg','id_status',
-                                'datum', 'opis','clanovi','biografije', 
+                                'god_rez', 'opis','clanovi','biografije', 
                                 'id_oblast','god_rez', 'datum_prijave'];
     protected $returnType = 'object';
 
@@ -24,13 +24,6 @@ class Rezultat extends Model{
         ->select("(select opis from status_rezultata
                 where id_status = status_rezultata.id) as rezstatus")
         ->get()->getResult();
-    }
-
-    public function dajMiRezultat($id) {
-            return $this->builder()
-            ->select('*')
-            ->where('id',$id)
-            ->get()->getResult();
     }
 
     

@@ -1,6 +1,7 @@
 <?php
     $this->extend('layout');
     $this->section('content');
+    //$rez = $rezultat;
 ?>
 
 
@@ -28,12 +29,18 @@
   
           <h4><label for="poziv">Odaberite programski poziv</label></h4>
             <select name='id_poziv' class="form-control">
+              <!-- prikaz poziva rezultata koji se EDIT-uje -->  
             <?php
-                  echo var_dump($rezultat);
-                  foreach($pozivi as $p):
+                   foreach($pozivi as $p):
+                    if($rezultat->id_poziv == $p->id) 
+                    {
+                    echo '<option value='.$p->id.' selected>'.  $p->naziv .'</option>';
+                    }
+                    else
+                    {
                     echo '<option value='. $p->id.'>'.  $p->naziv .'</option>';
-                    //echo '<option value='.$i.' <selected>'.  $rezultat->naziv .'</option>';
-                  endforeach;
+                    }
+                  endforeach; 
                   
               ?>
      </select>
@@ -44,7 +51,8 @@
                 </br>
                 <div class="form-group col-md-6">
             <label for="nazivRezultata">Naziv rezultata</label>
-            <input type="text" class="form-control" name='naziv'>
+          <!-- prikaz naziva rezultata koji se EDIT-uje -->  
+            <input type="text" class="form-control" name="naziv" value="<?=$rezultat->naziv?>">
           </div> 
               
     
@@ -53,9 +61,17 @@
         <div class="form-group col-md-6">
           <label for="kategorija">Kategorija</label>
             <select name='id_kateg' class="form-control">
+              <!-- prikaz kategorije rezultata koji se EDIT-uje -->  
               <?php
                   foreach($kategorije as $k):
-                    echo '<option value='. $k->id. 'selected>'.  $k->opis .'</option>';
+                    if($rezultat->id_kateg == $k->id) 
+                    {
+                    echo '<option value='.$k->id.' selected>'.  $k->opis .'</option>';
+                    }
+                    else
+                    {
+                    echo '<option value='. $k->id.'>'.  $k->opis .'</option>';
+                    }
                   endforeach;
               ?>
             </select>
