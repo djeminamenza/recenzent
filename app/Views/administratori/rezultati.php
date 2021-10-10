@@ -9,7 +9,7 @@
         
         
 <div class="container masthead mx-auto">
-  <div class="col-sm-12 offset-sm-0 mx-auto">
+  <div class="col-sm-12">
         <div class="row">
 
         </br>
@@ -22,7 +22,7 @@
             <th>ID</th>
 
                 <th>NAZIV</th>
-                <th>PROGRAMSKI POZIV</th>
+                <th>POZIV</th>
                 <th>KATEGORIJA</th>
                 <th>OBLAST</th>
                 <th>DATUM PRIJAVE</th>

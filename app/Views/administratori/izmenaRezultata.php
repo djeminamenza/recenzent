@@ -82,22 +82,21 @@
                  <legend><h3 style="text-align: center;" >Prijava</h3></legend>
                   <div class="form-group">
                     <label for="opisRezultata">Opis rezultata</label>
-                    <input type="text" class="form-control" name='opis' placeholder="Opišite svoj rezultat u kratkim crtama.">
+                    <input type="text" class="form-control" name='opis' placeholder="Opišite svoj rezultat u kratkim crtama." value="<?=$rezultat->opis?>">
                   </div>
                   <div class="form-group">
                       <label for="godinaRezultata">Godina rezultata</label>
-                      <input type="text" class="form-control" name='god_rez' placeholder="Koje godine ste kreirali ovaj rezultat?">
+                      <input type="text" class="form-control" name='god_rez' placeholder="Koje godine ste kreirali ovaj rezultat?" value="<?=$rezultat->god_rez?>">
                     </div>
                     <div class = "form-row">
                     <div class="form-group">
                   <label for="clanovi">Imena članova tima</label>
-                  <input type="text" class="form-control" name='clanovi'>
+                  <input type="text" class="form-control" name='clanovi'value="<?=$rezultat->clanovi?>">
               </div>
 
-              &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp;<div class="form-group">
-                  <label for="biografije">Biografije članova&nbsp; &nbsp; &nbsp;  &nbsp;</label>
-                   <input type="file" class="form-control-file" name='biografije'>
-              </div>
+              <div class="form-group col-md-6">
+                  <label for="biografije">Biografije članova</label>
+                   <?= anchor(['public/biografije/rezultati/'.$rezultat->biografije],$rezultat->biografije)?>              </div>
               <div class="form-group">
               <label for="id_status">Početni status rezultata</label>
                 <select name= "id_status" class="form-control">
@@ -116,15 +115,24 @@
           <label for="oblasti">Oblast rada</label>
             <select name='id_oblast' class="form-control">
               <?php
+                 
                   foreach($oblasti as $o):
-                    echo '<option value='. $o->id. 'selected>'.  $o->naziv .'</option>';
-                  endforeach;
+                    if($rezultat->id_oblast == $o->id) 
+                    {
+                    echo '<option value='.$o->id.' selected>'.  $o->naziv .'</option>';
+                    }
+                    else
+                    {
+                    echo '<option value='. $o->id.'>'.  $o->naziv .'</option>';
+                    }
+                   endforeach;
+
               ?>
             </select>
         </div>
             <div class="form-group col-md-6">
                 <label for="datum prijave">Datum prijave</label>
-                <input type="date" class="form-control" name='datum_prijave'>
+                <input type="date" class="form-control" name='datum_prijave'value="<?=$rezultat->datum_prijave?>">
             </div>
 
         </div>      

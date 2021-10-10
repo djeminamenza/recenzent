@@ -302,7 +302,7 @@ class Administratori extends BaseController
 	   $sent = $email->setFrom($config->fromEmail, $config->fromName)
 			 ->setTo($user->email)
 			 ->setSubject('Odobrena prijava')
-			 ->setMessage('Честитамо,'.$user->ime.' '.$user->prezime.' постали сте мајка! Добродошли на портал рецензентe наш.')
+			 ->setMessage('Čestitamo,'.$user->ime.' '.$user->prezime.' postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!')
 			 ->setMailType('html')
 			 ->send();
 
