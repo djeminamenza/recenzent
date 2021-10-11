@@ -20,6 +20,7 @@ class Recenzent_rezultat extends Model{
         ->from('users')
         ->from('status_rezultata')
         ->from('izmena')
+        ->orderBy('rezultat.naziv')
         ->get()->getResult();
     }
 }
