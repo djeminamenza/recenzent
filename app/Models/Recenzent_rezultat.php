@@ -11,13 +11,15 @@ class Recenzent_rezultat extends Model{
 
     public function Recenzent_rezultat(){
         return $this->builder()
-        ->select("recenzent_rezultat.id, id_user, datum_dodele, rezultat.naziv, concat(users.ime,' ', users.prezime) as recen, status_rezultata.opis")
+        ->select("recenzent_rezultat.id, id_user, datum_dodele, rezultat.naziv, concat(users.ime,' ', users.prezime) as recen, status_rezultata.opis, izmena.status")
         ->where('rezultat.id = recenzent_rezultat.id_rezult')
         ->where('users.id = recenzent_rezultat.id_user')
         ->where('status_rezultata.id= recenzent_rezultat.id_status')
+        ->where('izmena.id_rezult = recenzent_rezultat.id_rezult')
         ->from('rezultat')
         ->from('users')
         ->from('status_rezultata')
+        ->from('izmena')
         ->get()->getResult();
     }
 }

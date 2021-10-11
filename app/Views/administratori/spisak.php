@@ -24,7 +24,9 @@
                 <th scope="col">Naziv rezultata</th>
                 <th scope="col">Recenzent/i</th>
                 <th scope="col">Datum dodeljivanja</th>
-                <th scope="col">Konačna odluka</th>
+                <th scope="col">Odluka recenzenta</th>
+                <th scope="col">Konacna odluka</th>
+
             </tr>
             </thead>
             <tbody>
@@ -36,6 +38,8 @@
                echo '<td scope="row">'.$c->recen.'</td>';
                echo '<td scope="row">'.$c->datum_dodele.'</td>';
                echo '<td scope="row">'.$c->opis.'</td>';
+               echo '<td scope="row">'.$c->status.'</td>';
+
             echo '</tr>';  
             }
             ?> 
