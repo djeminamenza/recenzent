@@ -25,16 +25,20 @@ $routes->set404Override();
 $routes->setAutoRoute(true);
 
 /*------------ proba rute Za upload ------------------------------*/
-$routes->post('administratori/rezultati', 'Administratori::upload');
+//$routes->post('administratori/rezultati', 'Administratori::upload');
 $routes->get('administratori/definicija', 'Administratori::definicija');
 $routes->post('administratori/definicija', 'Administratori::attemptDefinicija');
 $routes->post('administratori/poziv', 'Administratori::attemptPoziv');
+$routes->post('administratori/anketa1', 'Administratori::send');
+//$routes->get('administratori/rezultati', 'Administratori::editRezultat');
+$routes->get('administratori/izmenaRezultata', 'Administratori::izmenaRezultata');
+$routes->post('administratori/izmenaRezultata', 'Administratori::attemptIzmena');
 /*------------ kraj probe rute Za upload ------------------------------*/
 
 $routes->get('korisnici/status_prijave', 'Korisnici::status_prijave');
 $routes->get('administratori/izbor_recenzenta', 'Administratori::Izbor_recenzenta');
 $routes->post('administratori/izbor_recenzenta', 'Administratori::attemptIzbor_recenzenta');
-$routes->post('administratori/izmenica', 'Administratori::attemptIzmena');
+
 
 /*
 $routes->add('administratori/index', 'Administratori::index', ['filter' => 'role:admin']);

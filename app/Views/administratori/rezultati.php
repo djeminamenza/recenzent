@@ -44,7 +44,7 @@
                         echo '<td>'. $r->datum_prijave. '</td>';
                         echo '<td>'. $r->rezstatus. '</td>';
                         echo '<td>';
-                        echo anchor('Administratori/editRezultat/' .$r->id,'Izmeni', ['class' => 'btn btn-success', 'width' =>'auto']);
+                        echo anchor('Administratori/izmenaRezultata/' .$r->id,'Izmeni', ['class' => 'btn btn-success', 'width' =>'auto']);
                         echo '</td>';
                         echo '<td>';
                         echo anchor('Administratori/deleteRezultat/' .$r->id,'Obrisi', ['class' => 'btn btn-danger']);

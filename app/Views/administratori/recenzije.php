@@ -22,7 +22,7 @@
                 <th scope="col">Recenzenti</th>
                 <th scope="col">Naziv rezultata</th>
                 <th scope="col">Status ocene</th>
-                <th scope="col">Oduzimanje rezultata recenzentu</th>
+                <th scope="col">Oduzimanje rezultata</th>
 
             </tr>
             </thead>

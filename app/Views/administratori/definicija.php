@@ -31,7 +31,6 @@
             <?php
                   foreach($pozivi as $p):
                     echo '<option value='. $p->id.'>'.  $p->naziv .'</option>';
-                    //echo '<option value='.$n->id.' <selected>'.  $n->naziv .'</option>';
                   endforeach;
                   
               ?>
@@ -86,6 +85,7 @@
                 <select name= "id_status" class="form-control">
                   <option value="3"selected>razmatra se</option>
                 </select>
+                <input type="text" class="form-control" name='id'value="" hidden>
                 </div>
               </div>
 

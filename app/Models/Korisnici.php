@@ -39,7 +39,7 @@ public function dohvatiKorisnike(){
 
         $korisnik = new Korisnici;
         return $korisnik->builder()
-        ->select('ime, prezime, email')
+        ->select('id, ime, prezime, email')
         ->where('id',$id)
         ->get()->getResult();
     
