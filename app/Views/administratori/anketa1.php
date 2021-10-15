@@ -24,17 +24,30 @@
             ?>  
         </table>
     </div>
+    <form action="<?= site_url('administratori/send') ?>" method="POST" enctype="multipart/form-data">
+    <?=csrf_field() ?>
+
+    
+    <div class="form-row">
+  
+    <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" name='id' value="<?=$user[0]->id?>">
+                  </div>
+        <button type="submit" class="btn btn-primary btn-block">шаљи на перу</button>
+        </div>
+      </form>
 
 
     <script>
 
         function send(){
             let params = {
-                id_to_send : <?= $user[0]->id?>,
+                id :<?= $user[0]->id?>,
             };
             console.log(JSON.stringify(params));
 
-            let url = "<?=site_url('administratori/send')?>";
+            let url = "<?=site_url('Аdministratori/send')?>";
             fetch(url, {
                 method: 'post',
                 headers: {
@@ -47,6 +60,6 @@
             console.log('Success:', params);
             });
         }
-    </script>    
+    </script>
 
 <?php $this->endSection(); ?>     

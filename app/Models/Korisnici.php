@@ -35,8 +35,20 @@ public function dohvatiKorisnike(){
         where auth_groups_users.group_id = auth_groups.id 
         and auth_groups.name=3
     */
-    public function trebaMiEmail($id){
+    public function dohvatiRecenzente(){
+        return $this->builder()
+        ->select("users.id as kid, concat(ime,' ',prezime) as recenzent")
+        //->select("auth_groups.id as gid ")
+    // **********************************************************
+        ->where('users.id = auth_groups_users.user_id')
+        ->where('auth_groups_users.group_id = 2')
+    // **********************************************************
+        ->from('auth_groups_users')
+    // **********************************************************
+        ->get()->getResult();
+    } 
 
+    public function trebaMiEmail($id){
         $korisnik = new Korisnici;
         return $korisnik->builder()
         ->select('id, ime, prezime, email')

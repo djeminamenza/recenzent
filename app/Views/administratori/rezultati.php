@@ -7,7 +7,8 @@
 
     
         
-        
+<?= view('Myth\Auth\Views\_message_block') ?>
+
 <div class="container masthead mx-auto">
   <div class="col-sm-12">
         <div class="row">
@@ -27,7 +28,7 @@
                 <th>OBLAST</th>
                 <th>DATUM PRIJAVE</th>
                 <th>STATUS</th>
-                <th colspan="2">REZULTAT:</th>
+                <th colspan="3">REZULTAT:</th>
 
             </tr>
             <?php
@@ -48,6 +49,9 @@
                         echo '</td>';
                         echo '<td>';
                         echo anchor('Administratori/deleteRezultat/' .$r->id,'Obrisi', ['class' => 'btn btn-danger']);
+                        echo '</td>';
+                        echo '<td>';
+                        echo anchor('Administratori/dodelaRezultata/' .$r->id,'Dodeli', ['class' => 'btn btn-info']);
                         echo '</td>';
       
                       echo '</tr>';

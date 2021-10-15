@@ -12,8 +12,10 @@
           <h1 style="text-align: center;">Izmena naučnog rezultata</h1>
           </br>
           </br>
-          <?= view('Myth\Auth\Views\_message_block') ?>
-          <form action="<?=route_to('administratori/attemptIzmena') ?>" method="POST" enctype="multipart/form-data">
+          <?= view('Myth\Auth\Views\_message_block')?>
+          <form action="<?=route_to('izmenaRezultata')?>" method='POST' enctype='multipart/form-data'>
+          
+
 
             <?=csrf_field() ?>      
               <div class="form-row">
@@ -82,9 +84,23 @@
                           <?= anchor(['public/biografije/rezultati/'.$ovajRezultat->biografije],$ovajRezultat->biografije)?>
                       </div>
                       <div class="form-group">
-                        <label for="id_status">Početni status rezultata</label>
+                        <label for="id_status">Status rezultata</label>
                           <select name= "id_status" class="form-control">
-                            <option value="3"selected>razmatra se</option>
+                          <?php
+                              switch ($ovajRezultat->id_status) {
+                                case "1":
+                                  echo '<option value=1 selected>prihvacen</option>';
+                                  break;
+                                case "2":
+                                  echo '<option value=2 selected>odbijen</option>';
+                                  break;
+                                case "3":
+                                  echo '<option value=3 selected>razmatra se</option>';
+                                  break;
+                                default:
+                                echo '<option value=3 selected>razmatra se</option>';
+                              }
+                        ?>
                           </select>
                           <label for="id">ID</label>
                           <input type="text" class="form-control" name='id' value="<?=$ovajRezultat->id?>">

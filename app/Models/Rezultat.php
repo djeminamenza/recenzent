@@ -6,8 +6,8 @@ use CodeIgniter\Model;
 
 class Rezultat extends Model{
     protected $table = 'rezultat';
-    protected $allowedFields = ['id', 'naziv', 'id_poziv', 'id_kateg','id_status',
-                                'god_rez', 'opis','clanovi','biografije', 
+    protected $allowedFields = ['id', 'naziv', 'id_poziv', 'id_kateg',
+                                'id_status', 'opis','clanovi','biografije', 
                                 'id_oblast','god_rez', 'datum_prijave'];
     protected $returnType = 'object';
 
@@ -26,6 +26,12 @@ class Rezultat extends Model{
         ->get()->getResult();
     }
 
+    public function dohvatiRezultat($id){
+        return $this->builder()
+        ->select('id, rezultat.naziv as ime')
+        ->where('id',$id)
+        ->get()->getResult();
+    }
     
     public function promeniStatusRezultataUOdbijen($id){
         return $this->builder()
