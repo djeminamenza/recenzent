@@ -38,6 +38,7 @@ class Administratori extends BaseController
 	protected $modelUserStatus;
 	protected $modelUser;
 	protected $modelKorisnici;
+	protected $modelRecenzent_rezultat;
 	protected $session;
 	
 
@@ -54,6 +55,7 @@ class Administratori extends BaseController
 		$this->modelUserStatus = new UserStatus();
 		$this->modelUser = new User();
 		$this->modelKorisnici = new Korisnici();
+		$this->modelRecenzent_rezultat = new Recenzent_rezultat();
 		//$this->session = service('session');
 
 
@@ -381,7 +383,20 @@ class Administratori extends BaseController
 		   'id' =>$this->request->getPost('dodeljeni'), // ово би требало да је ареј
 		   'rez' =>$this->request->getPost('rezultat')
 		];
-		var_dump($data);
-		   die();
+		// var_dump ($data['rez']);
+		// die();
+		for($i=0; $i<sizeof($data['id']);$i++){
+			$podaci = [
+				'id_user'=>$data['id'][$i],
+				'id_rezult'=>$data['rez'],
+				'id_status'=>3,	// 3=razmatra se
+				'datum_dodele' => date("Y-m-d"),
+			];
+			$this->modelRecenzent_rezultat->insert($podaci);
+			var_dump($podaci);
+			echo '<br>';
+		}
+
+        return redirect()->to('administratori/recenzije')->with('message', 'Success');
 	}
 }

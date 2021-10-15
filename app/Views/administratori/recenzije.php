@@ -11,6 +11,7 @@
    
         <div class="row mx-auto">
         <div class="card mx-auto">
+        <?= view('Myth\Auth\Views\_message_block') ?>
         </br>
     <div class="form col-md-12 mx-auto" style="text-align: center;">
         <h1 style="text-align: center;">Pregled ocenjenih rezultata</h1>
