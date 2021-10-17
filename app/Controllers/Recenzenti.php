@@ -10,6 +10,7 @@ use App\Models\Oblast;
 use App\Models\Zemlja;
 use App\Models\Zvanje;
 use App\Models\Korisnici;
+use App\Models\Status_recenzije;
 
 class Recenzenti extends BaseController
 {
@@ -22,6 +23,7 @@ class Recenzenti extends BaseController
 	 * @var Session
 	 */
 	protected $session;
+	protected $modelStatus_recenzije;
 
 	public function __construct()
 	{
@@ -30,6 +32,7 @@ class Recenzenti extends BaseController
 		$this->session = service('session');
 
 		$this->config = config('Auth');
+		$this->modelStatus_recenzije = new Status_recenzije();
 	
 	}
 
@@ -112,10 +115,24 @@ class Recenzenti extends BaseController
 		return view('recenzenti/rezultati');
 	}
 
-    public function recenzije()
+	public function recenzije()
+    {
+        $recenzije =  $this->modelStatus_recenzije ->Status_recenzije();
+        $podaci['recenzija'] = $recenzije -> getResult();
+        return view('recenzenti/recenzije', $podaci);
+    }
+	public function odbij($id)
 	{
-		return view('recenzenti/recenzije');
+		$this->modelStatus_recenzije->promeniStatusRecenzijeUOdbijen($id);
+		return redirect()->to('recenzenti/recenzije');
 	}
+	public function prihvati($id)
+	{
+		$this->modelStatus_recenzije->promeniStatusRecenzijeUPrihvacen($id);
+		return redirect()->to('recenzenti/recenzije');
+	}
+
+
 
     public function ankete()
 	{
