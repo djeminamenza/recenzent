@@ -34,15 +34,20 @@ class Status_recenzije extends Model{
 
     public function promeniStatusRecenzijeUOdbijen($id){
         return $this->builder()
-        ->set('id_status',2)
+        ->set([
+            'id_status'=>2,
+            'datum_ocene'=>date("Y-m-d")
+        ])
         ->where('id',$id)
         ->update();
     }
 
     public function promeniStatusRecenzijeUPrihvacen($id){
         return $this->builder()
-        ->set('id_status',1)
-        ->where('id',$id)
+        ->set([
+            'id_status'=>1,
+            'datum_ocene'=>date("Y-m-d")
+        ])        ->where('id',$id)
         ->update();
     }
 

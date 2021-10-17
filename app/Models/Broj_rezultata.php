@@ -11,7 +11,9 @@ class Broj_rezultata extends Model{
 
     public function Broj_rezultata(){
         return $this->builder()
-        ->select("concat(users.ime,' ', users.prezime) as recen, rezultat.naziv, count(*) as zbir, status_rezultata.opis")
+        ->select("concat(users.ime,' ', users.prezime) as recen, rezultat.naziv, status_rezultata.opis")
+        ->select("count(status_rezultata.opis) as zbir")
+        ->where('status_rezultata.opis','razmatra se')
         ->where('users.id = recenzent_rezultat.id_user')
         ->where('rezultat.id = recenzent_rezultat.id_rezult')
         ->where('status_rezultata.id = recenzent_rezultat.id_status')

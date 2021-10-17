@@ -214,7 +214,9 @@ class Administratori extends BaseController
 	{
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
 		$this->modelUserStatus->promeniMiStatus($id);
-		$this->send($id);
+		// $this->send($id);
+		// return redirect()->to('administratori/prijave');
+		return redirect()->send($id);
 
 
 		//
@@ -290,44 +292,42 @@ class Administratori extends BaseController
 	{
 		//    echo 'CAO!';
 		//    die(); 
-		$id = $this->request->getVar('id');
-		$user = new Korisnici;
-		$user->trebaMiEmail($id);
-
-		/*--------------------------*/
-		$email = \Config\Services::email();
-		//$email->initialize($config);
-		$email->setFrom('recenzije.kontakt@gmail.com', 'Admin');
-		$email->setTo($email);
-		$email->setSubject('Status Recenzenta');
-		$email->setMessage('Čestitamo, postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!');
-		$email->send();
-		/*--------------------------*/
-
-		
-
 		// $id = $this->request->getVar('id');
-		// log_message('error', 'stiglo:' . $id);
-		// echo 'CAO!';
-		// die(); 
-		// $email = service('email');
-		// $config = new Email;
-
-		// //$settings = $this->getActivatorSettings();
 		// $user = new Korisnici;
 		// $user->trebaMiEmail($id);
-		// $sent = $email->setFrom($config->fromEmail, $config->fromName)
-		// 	->setTo($user->email)
-		// 	->setSubject('Odobrena prijava')
-		// 	->setMessage('Čestitamo,' . $user->ime . ' ' . $user->prezime . ' postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!')
-		// 	->setMailType('html')
-		// 	->send();
 
-		// if (!$sent) {
-		// 	$this->error = lang('Auth.errorSendingActivation', [$user->email]);
-		// 	return false;
-		// }
-		// return;
+		// /*--------------------------*/
+		// $email = \Config\Services::email();
+		// //$email->initialize($config);
+		// $email->setFrom('recenzije.kontakt@gmail.com', 'Admin');
+		// $email->setTo($email);
+		// $email->setSubject('Status Recenzenta');
+		// $email->setMessage('Čestitamo, postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!');
+		// $email->send();
+		/*--------------------------*/
+
+		$id = $this->request->getPost('id');
+		log_message('error', 'stiglo:' . $id);
+		echo 'CAO!';
+		echo $id;
+		die(); 
+		$email = service('email');
+		$config = new Email;
+
+		//$settings = $this->getActivatorSettings();
+		$user = new Korisnici;
+		$user->trebaMiEmail($id);
+		$sent = $email->setFrom($config->fromEmail, $config->fromName)
+			->setTo($user->email)
+			->setSubject('Odobrena prijava')
+			->setMessage('Čestitamo,' . $user->ime . ' ' . $user->prezime . ' postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!')
+			->setMailType('html')
+			->send();
+
+		if (!$sent) {
+			return redirect()->to('administratori/prijave')->with('message', "Nije poslat imejl na '.$user->email.'");
+		}
+		return redirect()->to('administratori/prijave')->with('message', 'Success');
 	}
 
 	public function izmenaRezultata($id)

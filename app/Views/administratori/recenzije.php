@@ -14,7 +14,7 @@
         <?= view('Myth\Auth\Views\_message_block') ?>
         </br>
     <div class="form col-md-12 mx-auto" style="text-align: center;">
-        <h1 style="text-align: center;">Pregled ocenjenih rezultata</h1>
+        <h1 style="text-align: center;">Pregled dodeljenih rezultata</h1>
         </br>
         </br>
         <table class="table table-bordered">
