@@ -21,28 +21,21 @@ use Exception;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
 use Myth\Auth\Models\UserModel;
-//use Myth\Auth\Authentication\Activators\BaseActivator::getActivatorSettings;
 
 
 class Administratori extends BaseController
 {
-	// *********************************************************
-	// dodato za probu uploadovanja biografije
 	protected $modelRezultat;
 	protected $request;
 	protected $modelPoziv;
 	protected $modelAuthGroupsUsers;
 	protected $modelPrijave;
 	protected $modelIzmenaStatusaRezultata;
-	
 	protected $modelUserStatus;
 	protected $modelUser;
 	protected $modelKorisnici;
 	protected $modelRecenzent_rezultat;
 	protected $session;
-	
-
-
 
 	public function __construct()
 	{
@@ -51,18 +44,11 @@ class Administratori extends BaseController
 		$this->modelAuthGroupsUsers = new AuthGroupsUsers();
 		$this->modelPrijava = new Prijave();
 		$this->modelIzmenaStatusaRezultata = new IzmenaStatusaRezultata();
-		
 		$this->modelUserStatus = new UserStatus();
 		$this->modelUser = new User();
 		$this->modelKorisnici = new Korisnici();
 		$this->modelRecenzent_rezultat = new Recenzent_rezultat();
-		//$this->session = service('session');
-
-
 	}
-	// kraj dodatka
-	// *********************************************************
-
 
 	public function index()
 	{
@@ -82,20 +68,16 @@ class Administratori extends BaseController
 		return view('administratori/prijave', $data);
 	}
 
-
 	public function poziv()
 	{
 		$podaci['pozivi'] = $this->modelPoziv->findAll();
 		return view('administratori/poziv', $podaci);
 	}
 
-
 	public function attemptPoziv()
 	{
-
 		if ($this->validate([
 			'naziv' => 'required'
-
 		])) {
 			$poziv = [
 				'naziv' => $this->request->getPost('naziv'),
@@ -140,7 +122,6 @@ class Administratori extends BaseController
 			];
 
 			$biografijaID = $this->modelRezultat->insert($rezultat, true);
-
 			$biografijaName = $biografijaID . ".pdf";
 			$biografija = $this->request->getFile('biografije');
 			$biografija->move('../public/biografije/rezultati', $biografijaName, true);
@@ -155,32 +136,24 @@ class Administratori extends BaseController
 		}
 	}
 
-
 	public function recenzije()
 	{
 		$Recenzent_rezultatModel = new Recenzent_rezultat();
-		$data['rez'] = $Recenzent_rezultatModel->Recenzent_rezultat();        //return view('administratori/recenzije', $data);
-
+		$data['rez'] = $Recenzent_rezultatModel->Recenzent_rezultat();
 		$Broj_rezultataModel = new Broj_rezultata();
 		$data['br'] = $Broj_rezultataModel->Broj_rezultata();
 		return view('administratori/recenzije', $data);
 	}
 
-
 	public function anketa1()
 	{
-		$user = new Korisnici;
-		$podaci['user'] = $user->trebaMiEmail(25);
-		return view('administratori/anketa1', $podaci);
+		return view('administratori/anketa1');
 	}
-
-
 
 	public function obavestenja()
 	{
 		return view('administratori/obavestenja');
 	}
-
 
 	public function spisak()
 	{
@@ -198,29 +171,21 @@ class Administratori extends BaseController
 
 	public function promeniStatusRezultataUOdbijen($id)
 	{
-
 		$this->modelRezultat->promeniStatusRezultataUOdbijen($id);
 		return $this->izmenaStatusaRezultata();
 	}
+
 	public function promeniStatusRezultataUPrihvacen($id)
 	{
-
 		$this->modelRezultat->promeniStatusRezultataUPrihvacen($id);
 		return $this->izmenaStatusaRezultata();
 	}
-
 
 	public function premesti($id)
 	{
 		$this->modelAuthGroupsUsers->prebaciURecenzente($id);
 		$this->modelUserStatus->promeniMiStatus($id);
-		// $this->send($id);
-		// return redirect()->to('administratori/prijave');
-		return redirect()->send($id);
-
-
-		//
-		return $this->prijave();
+		return redirect()->to('administratori/send/' . $id);
 	}
 
 	public function odbij($id)
@@ -229,12 +194,10 @@ class Administratori extends BaseController
 		return $this->prijave();
 	}
 
-
 	public function deleteUser($id)
 	{
 		$userModel = new UserModel();
 		$userModel->delete($id, 'true');
-		//$userModel->where('id', $id)->delete();
 		return $this->prijave();
 	}
 
@@ -258,47 +221,27 @@ class Administratori extends BaseController
 		$Izbor_recenzentaModel->delete($id, 'true');
 		return $this->recenzije();
 	}
-	
+
 	public function send($id)
 	{
-		//    echo 'CAO!';
-		//    die(); 
-		// $id = $this->request->getVar('id');
-		// $user = new Korisnici;
-		// $user->trebaMiEmail($id);
-
-		// /*--------------------------*/
-		// $email = \Config\Services::email();
-		// //$email->initialize($config);
-		// $email->setFrom('recenzije.kontakt@gmail.com', 'Admin');
-		// $email->setTo($email);
-		// $email->setSubject('Status Recenzenta');
-		// $email->setMessage('Čestitamo, postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!');
-		// $email->send();
-		/*--------------------------*/
-
-		$id = $this->request->getPost('id');
-		log_message('error', 'stiglo:' . $id);
-		echo 'CAO!';
-		echo $id;
-		die(); 
+		//$id = $this->request->getPost('id');
 		$email = service('email');
 		$config = new Email;
-
-		//$settings = $this->getActivatorSettings();
-		$user = new Korisnici;
-		$user->trebaMiEmail($id);
+		$user = $this->modelKorisnici->trebaMiEmail($id);
+		echo ($user[0]->email);
 		$sent = $email->setFrom($config->fromEmail, $config->fromName)
-			->setTo($user->email)
+			->setTo($user[0]->email)
 			->setSubject('Odobrena prijava')
-			->setMessage('Čestitamo,' . $user->ime . ' ' . $user->prezime . ' postali ste recenzent! Na portal se logujete sa postojećim pristupnim podacima. Dobrodošli!')
+			->setMessage('Čestitamo, ' . $user[0]->ime . ' ' . $user[0]->prezime . '
+						postali ste recenzent! Na portal se logujete sa postojećim 
+						pristupnim podacima. Dobrodošli!')
 			->setMailType('html')
 			->send();
 
 		if (!$sent) {
-			return redirect()->to('administratori/prijave')->with('message', "Nije poslat imejl na '.$user->email.'");
+			return redirect()->to('administratori/prijave')->with('message', "Nije poslat imejl na " . $user[0]->email);
 		}
-		return redirect()->to('administratori/prijave')->with('message', 'Success');
+		return redirect()->to('administratori/prijave')->with('message', 'Korisnik prihvacen za recenzenta i obavesten imejlom!');
 	}
 
 	public function izmenaRezultata($id)
@@ -315,8 +258,6 @@ class Administratori extends BaseController
 
 	public function attemptIzmenaRezultata()
 	{
-		//    echo 'CAO!';
-		//    die();
 		if ($this->validate([
 			'naziv' => 'required',
 		])) {
@@ -351,23 +292,20 @@ class Administratori extends BaseController
 	public function dodeliRezultat()
 	{
 		$data = [
-		   'id' =>$this->request->getPost('dodeljeni'), // ово би требало да је ареј
-		   'rez' =>$this->request->getPost('rezultat')
+			'id' => $this->request->getPost('dodeljeni'),
+			'rez' => $this->request->getPost('rezultat')
 		];
-		// var_dump ($data['rez']);
-		// die();
-		for($i=0; $i<sizeof($data['id']);$i++){
+		for ($i = 0; $i < sizeof($data['id']); $i++) {
 			$podaci = [
-				'id_user'=>$data['id'][$i],
-				'id_rezult'=>$data['rez'],
-				'id_status'=>3,	// 3=razmatra se
+				'id_user' => $data['id'][$i],
+				'id_rezult' => $data['rez'],
+				'id_status' => 3,	// 3=razmatra se
 				'datum_dodele' => date("Y-m-d"),
 			];
 			$this->modelRecenzent_rezultat->insert($podaci);
 			var_dump($podaci);
 			echo '<br>';
 		}
-
-        return redirect()->to('administratori/recenzije')->with('message', 'Success');
+		return redirect()->to('administratori/recenzije')->with('message', 'Success');
 	}
 }

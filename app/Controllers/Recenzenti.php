@@ -14,7 +14,7 @@ use App\Models\Status_recenzije;
 
 class Recenzenti extends BaseController
 {
-		/**
+	/**
 	 * @var AuthConfig
 	 */
 	protected $config;
@@ -33,7 +33,6 @@ class Recenzenti extends BaseController
 
 		$this->config = config('Auth');
 		$this->modelStatus_recenzije = new Status_recenzije();
-	
 	}
 
 	public function index()
@@ -44,7 +43,7 @@ class Recenzenti extends BaseController
 	/**
 	 * Ucitaj podatke korisnika u formu za izmenu
 	 */
-    public function profil()
+	public function profil()
 	{
 		//izvlacimo user id iz sessije, kako bi izmenili podatke za odgovarajucek korisnika
 		$userid = $this->session->get('logged_in');
@@ -68,27 +67,28 @@ class Recenzenti extends BaseController
 		$message = '';
 
 		//saljemo sve podatke u VIEW profil template
-		return $this->_render('recenzenti/profil', ['user'=>$user, 'podaci'=>$podaci, 'userid'=>$userid, 'message'=>$message]);
+		return $this->_render('recenzenti/profil', ['user' => $user, 'podaci' => $podaci, 'userid' => $userid, 'message' => $message]);
 	}
 
 	/**
 	 * Sacuvaj izmene o korisniku iz forme sa profil strane, nakon klika na dugme sacuvaj izmene
 	 * Po sacuvanim izmenama redirektujemo se natrag sa session porukom
 	 */
-	public function sacuvajIzmene(){
-		
+	public function sacuvajIzmene()
+	{
+
 		//podatke iz forme dovlacimo iz POST-a
 		$userData = $this->request->getPost();
 
 		//snimamo nove podatke za datag korisnika
 		$user = new Korisnici();
 		$response = $user->saveUserData($userData);
-		
+
 		/**SQL query response odgovoran za kreiranje response poruke iznad forme */
-    	if($response == true){
-			$message = ['class'=>'alert-success','message'=>'Uspesno ste sacuvali svoje izmene.'];
-		}else{
-			$message = ['class'=>'alert-danger','message'=>'Nismo uspeli u ovom trenutku da sacuvamo Vase izmene, molimo pokusajte ponovo.'];
+		if ($response == true) {
+			$message = ['class' => 'alert-success', 'message' => 'Uspesno ste sacuvali svoje izmene.'];
+		} else {
+			$message = ['class' => 'alert-danger', 'message' => 'Nismo uspeli u ovom trenutku da sacuvamo Vase izmene, molimo pokusajte ponovo.'];
 		}
 
 		/**kupimo ponovo podatke o korisniku da popunimo input polja na formi */
@@ -107,20 +107,20 @@ class Recenzenti extends BaseController
 		$podaci['zvanje'] = $zvanje->findAll();
 
 		/**Vracamo sve podatke natrag u view template */
-		return $this->_render('recenzenti/profil', ['user'=>$user, 'podaci'=>$podaci,'userid'=>$userData['sessid'], 'message'=>$message]);
+		return $this->_render('recenzenti/profil', ['user' => $user, 'podaci' => $podaci, 'userid' => $userData['sessid'], 'message' => $message]);
 	}
 
-    public function rezultati()
+	public function rezultati()
 	{
 		return view('recenzenti/rezultati');
 	}
 
 	public function recenzije()
-    {
-        $recenzije =  $this->modelStatus_recenzije ->Status_recenzije();
-        $podaci['recenzija'] = $recenzije -> getResult();
-        return view('recenzenti/recenzije', $podaci);
-    }
+	{
+		$recenzije =  $this->modelStatus_recenzije->Status_recenzije();
+		$podaci['recenzija'] = $recenzije->getResult();
+		return view('recenzenti/recenzije', $podaci);
+	}
 	public function odbij($id)
 	{
 		$this->modelStatus_recenzije->promeniStatusRecenzijeUOdbijen($id);
@@ -132,14 +132,12 @@ class Recenzenti extends BaseController
 		return redirect()->to('recenzenti/recenzije');
 	}
 
-
-
-    public function ankete()
+	public function ankete()
 	{
 		return view('recenzenti/ankete');
 	}
 
-    public function obavestenja()
+	public function obavestenja()
 	{
 		return view('recenzenti/obavestenja');
 	}

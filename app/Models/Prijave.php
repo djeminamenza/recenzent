@@ -6,17 +6,17 @@ use CodeIgniter\Model;
 use Myth\Auth\Models\LoginModel;
 use Myth\Auth\Models\UserModel;
 
-class Prijave extends Model{
+class Prijave extends Model
+{
     protected $table = 'prijava';
-    protected $allowedFields = ['id_user','id_status'];
+    protected $allowedFields = ['id_user', 'id_status'];
     protected $returnType = 'object';
 
-
-
-    public function changeStatus_prijave($id){
+    public function changeStatus_prijave($id)
+    {
         return $this->builder()
-        ->set('id_status', 3)
-        ->where('id_user',$id)
-        ->update();
-        }
+            ->set('id_status', 3)
+            ->where('id_user', $id)
+            ->update();
+    }
 }

@@ -8,8 +8,6 @@ class IzmenaStatusaRezultata extends Model{
     protected $table = 'izmena ';
     protected $allowedFields = ['id_rezult', 'status', 'Konacan_Status', 'naziv'];
     protected $returnType = 'object';
-
-
        
     public function IzmenaStatusaRezultata(){
         return $this->builder()
@@ -17,7 +15,4 @@ class IzmenaStatusaRezultata extends Model{
         ->get()->getResult();
     }
 }
-
-?>
- 
- 
+?> 

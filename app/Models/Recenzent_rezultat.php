@@ -28,5 +28,4 @@ class Recenzent_rezultat extends Model{
 }
 /* select rezultat.naziv, users.ime, users.prezime, recenzent_rezultat.datum_dodele,status_rezultata.opis from recenzent_rezultat left join users on recenzent_rezultat.id_user = users.id 
 join rezultat on recenzent_rezultat.id_rezult = rezultat.id join status_rezultata on recenzent_rezultat.id_status = status_rezultata.id */
- 
 ?>

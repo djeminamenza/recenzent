@@ -17,7 +17,4 @@ class AuthGroupsUsers extends Model{
         ->where('user_id',$id)
         ->update();
     }
-
 }
-
-?>

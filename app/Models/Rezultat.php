@@ -14,7 +14,7 @@ class Rezultat extends Model{
 
     public function dohvatiRezultate(){
         return $this->builder()
-        ->select('id, rezultat.naziv as ime, datum_prijave')
+        ->select('id, id_status, rezultat.naziv as ime, datum_prijave')
         ->select("(select naziv from poziv
                 where id_poziv = poziv.id) as rezpoziv")
         ->select("(select opis from kategorija
@@ -45,12 +45,10 @@ class Rezultat extends Model{
         ->set('id_status',1)
         ->where('id',$id)
         ->update();
-    }
-    
+    }    
 }
 /*
         ->join('kategorija k', 'id_kateg = k.id', 'inner')
         ->join('oblast o', 'id_oblast = o.id', 'inner')
         ->join('status_rezultata s', 'id_status = s.id', 'inner')
 */
-?>

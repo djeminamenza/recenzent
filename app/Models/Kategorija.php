@@ -9,5 +9,4 @@ class Kategorija extends Model{
     protected $allowedFields = ['name'];
     protected $returnType = 'object';
 }
-
 ?>

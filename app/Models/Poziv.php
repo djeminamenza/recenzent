@@ -9,14 +9,9 @@ class Poziv extends Model{
     protected $allowedFields = ['naziv','id'];
     protected $returnType = 'object';
 
-
     public function umetniPoziv($name){
         $object = new Poziv();
         return $this->builder()
         ->insert($name);
-        
-       
     }
 }
-
-?>

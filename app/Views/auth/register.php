@@ -11,16 +11,12 @@
 <div class="container masthead">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
-
             <div class="card">
                 <h2 class="card-header"><?=lang('Auth.register')?></h2>
                 <div class="card-body">
-
                     <?= view('Myth\Auth\Views\_message_block') ?>
-
                     <form action="<?= route_to('register') ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field() ?>
-                        
                         <div class="form-row">
                             <div class="form-group col-md-6">
                             <label for="ime">Ime</label>
@@ -111,7 +107,6 @@
                             <textarea class="form-control" placeholder="" name="radovi" style="height: 100px"></textarea>
                         </div>
 
-
                         <div class="form-group">
                             <label for="email"><?=lang('Auth.email')?></label>
                             <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>"
@@ -138,7 +133,6 @@
 
                         <button type="submit" class="btn btn-primary btn-block"><?=lang('Auth.register')?></button>
                     </form>
-
 
                     <hr>
 

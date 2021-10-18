@@ -11,8 +11,6 @@ class Status_prijave extends Model{
     protected $allowedFields = ['opis'];
     protected $returnType = 'object';
 
-    
-
 public function getStatus_prijave(){
     return $this->builder()
         ->select('status_prijave.id, opis, users.id, users.id_status_prijave')

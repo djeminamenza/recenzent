@@ -6,6 +6,7 @@
 
 
          <div class="container masthead mx-auto">
+         <?= view('Myth\Auth\Views\_message_block')?>
 
         <div class="col-sm-12 offset-sm-1">
         <div class="row">

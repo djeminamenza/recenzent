@@ -1,11 +1,9 @@
 <?php
-    $this->extend('layout');
-    $this->section('content');
+$this->extend('layout');
+$this->section('content');
 ?>
-    <div class="container masthead mx-auto">
+<div class="container masthead mx-auto">
+    <h1 style="text-align: center;">Pregled obavestenja</h1>
+</div>
 
-        <h1 style="text-align: center;">Pregled obavestenja</h1>
-
-    </div>
-
-<?php $this->endSection(); ?>     
+<?php $this->endSection(); ?>

@@ -25,7 +25,5 @@ class UserStatus extends Model{
         ->where('id',$id)
         ->update();
     }
-
 }
-
 ?>

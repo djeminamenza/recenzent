@@ -9,5 +9,4 @@ class Status extends Model{
     protected $allowedFields = ['opis'];
     protected $returnType = 'object';
 }
-
 ?>

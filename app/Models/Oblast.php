@@ -9,5 +9,4 @@ class Oblast extends Model{
     protected $allowedFields = ['naziv'];
     protected $returnType = 'object';
 }
-
 ?>

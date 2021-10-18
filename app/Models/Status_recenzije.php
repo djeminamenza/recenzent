@@ -8,16 +8,6 @@ class Status_recenzije extends Model{
     protected $allowedFields = ['id, id_user, id_rezult, id_status'];
     protected $returnType = 'object';
    
-// public function Status_recenzije(){
-//     return $this->builder()
-//         ->select('recenzent_rezultat.id, id_rezult, rezultat.naziv,recenzent_rezultat.id_status, status_rezultata.opis')
-//         ->where('users.id', user_id())
-//        // ->where('users.id_status_prijave = status_prijave.id')
-//         ->from('rezultat')
-//         ->from('users')
-//         ->from('status_rezultata')
-//         ->get();
-//     }
 
     public function Status_recenzije(){
         return $this->builder()
@@ -50,5 +40,4 @@ class Status_recenzije extends Model{
         ])        ->where('id',$id)
         ->update();
     }
-
 }
