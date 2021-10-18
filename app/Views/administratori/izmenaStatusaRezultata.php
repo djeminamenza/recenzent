@@ -10,8 +10,7 @@
         <div class="col-sm-12 offset-sm-1">
         <div class="row">
         <div class="card">
-        </br>
-    <div class="form col-md-12" style="text-align: center;">
+    <div class="form col-md-12" style="text-align: center; margin-top: 3%;">
     <h1 style="text-align: center;">Konačna odluka o rezultatu</h1>
 
     </br>
@@ -20,8 +19,8 @@
             <tr>
                 <th scope="col">NAZIV REZULTATA</th>
                 <th scope="col">STATUS NA OSNOVU 2 PREGLEDA </th>
-                <th scope="col">KONACNI STATUS </th>
-                <th scope="col">IZMENA STATUSA U BAZI</th>
+                <th scope="col">KONAČNI STATUS </th>
+                <th scope="col">IZMENI STATUS U BAZI</th>
             </tr>
             </thead>
             <tbody>

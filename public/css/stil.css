@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/*!
+* Start Bootstrap - Agency v7.0.6 (https://startbootstrap.com/theme/agency)
+* Copyright 2013-2021 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-agency/blob/master/LICENSE)
+*/
+/*!
+ * Bootstrap v5.1.0 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+ 
+  
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#mainNav .container {
+  max-width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+#subheading .container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a{
+width: 40%;
+padding: 1%;
+}
+
+#mainNav a{
+  color: #191c1f;
+}
+
+#mainNav{
+  margin-right: 2%;
+}
+
+.py-3 {
+  padding-top: 4% !important;
+  padding-bottom: 0 !important;
+}
+
+#logbtn{
+  background-color: #f90;
+}
+
+#logbtn a{
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding-right: 10px;
+  font-weight: 600;
+  letter-spacing: 0.0425em;
+  text-transform: uppercase;
+  color: white;
+
+}
+#nlogbtn{
+  background-color: black;
+
+}
+#nlogbtn a{
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding-right: 10px;
+  font-weight: 600;
+  letter-spacing: 0.0425em;
+  text-transform: uppercase;
+  color: white;
+}
+
+#nlogbtn a:hover{
+  color: #f90;
+}
+
+#dropdownMenu2:hover{
+  color: #f90;
+}
+
+.btn {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding-right: 10px;
+  font-weight: 600;
+  letter-spacing: 0.0425em;
+  text-transform: uppercase;
+  color: white;
+}
+
+a {
+  width: 92%;
+
+}

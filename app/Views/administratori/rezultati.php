@@ -12,10 +12,8 @@
 <div class="container masthead mx-auto">
   <div class="col-sm-12">
         <div class="row">
-
-        </br>
-    <div class="form col-md-12" style="text-align: center;">
-        <h1 style="text-align: center;">Lista naucnih rezultata</h1>
+    <div class="form col-md-12" style="text-align: center; margin-top: 3%;">
+        <h1 style="text-align: center;">Lista naučnih rezultata</h1>
         </br>
         </br>
         <table class="table table-bordered">
@@ -48,7 +46,7 @@
                         echo anchor('Administratori/izmenaRezultata/' .$r->id,'Izmeni', ['class' => 'btn btn-success', 'width' =>'auto']);
                         echo '</td>';
                         echo '<td>';
-                        echo anchor('Administratori/deleteRezultat/' .$r->id,'Obrisi', ['class' => 'btn btn-danger']);
+                        echo anchor('Administratori/deleteRezultat/' .$r->id,'Obriši', ['class' => 'btn btn-danger']);
                         echo '</td>';
                         echo '<td>';
                         echo anchor('Administratori/dodelaRezultata/' .$r->id,'Dodeli', ['class' => 'btn btn-info']);

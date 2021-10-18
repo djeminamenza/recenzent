@@ -34,7 +34,7 @@ class Administratori extends BaseController
 	protected $modelAuthGroupsUsers;
 	protected $modelPrijave;
 	protected $modelIzmenaStatusaRezultata;
-	protected $modelIzbor_recenzenta;
+	
 	protected $modelUserStatus;
 	protected $modelUser;
 	protected $modelKorisnici;
@@ -51,7 +51,7 @@ class Administratori extends BaseController
 		$this->modelAuthGroupsUsers = new AuthGroupsUsers();
 		$this->modelPrijava = new Prijave();
 		$this->modelIzmenaStatusaRezultata = new IzmenaStatusaRezultata();
-		$this->modelIzbor_recenzenta = new Izbor_recenzenta();
+		
 		$this->modelUserStatus = new UserStatus();
 		$this->modelUser = new User();
 		$this->modelKorisnici = new Korisnici();
@@ -229,35 +229,6 @@ class Administratori extends BaseController
 		return $this->prijave();
 	}
 
-	public function izbor_recenzenta()
-	{
-		$modelIzbor_recenzenta = new Izbor_recenzenta();
-		$def['rec'] = $modelIzbor_recenzenta->Izbor_recenzenta();
-		return view('administratori/izbor_recenzenta', $def);
-	}
-	public function attemptIzbor_recenzenta()
-	{
-
-		if ($this->validate([
-			'id_rezult' => 'required',
-			'id_user' => 'required',
-			'datum_dodele' => 'required'
-
-
-		])) {
-			$izbor = [
-				'id_rezult' => $this->request->getPost('id_rezult'),
-				'id_user' => $this->request->getPost('id_user'),
-				'datum_dodele' => $this->request->getPost('datum_dodele'),
-				'id_status' => 3,	// 3 je recenzent
-
-			];
-			$izborID = $this->modelIzbor_recenzenta->insert($izbor, true);
-			return redirect()->to('administratori/izbor_recenzenta')->with('message', 'Success');
-		} else {
-			return redirect()->back()->withInput->with('errors', $this->validator->getErrors());
-		}
-	}
 
 	public function deleteUser($id)
 	{

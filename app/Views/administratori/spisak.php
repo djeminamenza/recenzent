@@ -5,18 +5,11 @@
 
 
 
-<?php
 
-
-
-
-  /* $sql = "SELECT imeRec, datumDod FROM rezultati  WHERE nazivRez='$nazivRezultata'";
-    $sql1 = "SELECT konOdl FROM rezultati "." JOIN odluke on(id_lokacije=lokacija.id)  WHERE nazivRez='$nazivRezultata'";
-*/
-?>
-    <div class="container masthead mx-auto">
+    <div class="container masthead mx-auto" style="text-align: center;margin-top: 3%;">
         <div class="col">
-        </br>
+          <h1 style="text-align: center;">Uporedni pregled ocena: recenzent/konačni rezultat</h1>
+
         </br>
         <table class="table table-bordered">
             <thead>
@@ -25,7 +18,7 @@
                 <th scope="col">Recenzent/i</th>
                 <th scope="col">Datum dodeljivanja</th>
                 <th scope="col">Odluka recenzenta</th>
-                <th scope="col">Konacna odluka</th>
+                <th scope="col">Konačna odluka</th>
 
             </tr>
             </thead>

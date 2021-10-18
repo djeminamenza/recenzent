@@ -29,7 +29,8 @@
             helper('html');
             helper('auth');
             echo link_tag('css/styles.css');
-            
+            echo link_tag('css/stil.css');
+  
         ?>
     </head>
     <body id="page-top">

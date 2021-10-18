@@ -4,10 +4,11 @@
 ?>
 
 
-<div class="container masthead mx-auto">
-  <h1 style="text-align: center;">Pregled recenzenata</h1>
+<div class="container masthead mx-auto" style="text-align: center;margin-top: 3%;">
+  <h1 style="text-align: center;">Prijave recenzenata - nove, prihvaćene, odbijene</h1>
   <!-- korisnici dohvaceni iz baze -->
     <div class="form-group" style="text-align: center;">
+</br>
       <table class="table table-bordered">
           <tr>
           <th>id</th>

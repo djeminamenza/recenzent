@@ -22,9 +22,9 @@
         NAUČNI REZULTAT
         </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button"><?= anchor('administratori/definicija', 'Definicija'); ?></button>
-        <button class="dropdown-item" type="button"><?= anchor('administratori/rezultati', 'Rezultati'); ?></button>
-        <button class="dropdown-item" type="button"><?= anchor('administratori/izmenaStatusaRezultata', 'Konacni status rezultata'); ?></button>
+        <button class="dropdown-item" type="button"><?= anchor('administratori/definicija', 'Definicija rezultata'); ?></button>
+        <button class="dropdown-item" type="button"><?= anchor('administratori/rezultati', 'Izmena, brisanje, dodela'); ?></button>
+        <button class="dropdown-item" type="button"><?= anchor('administratori/izmenaStatusaRezultata', 'Konačni status rezultata'); ?></button>
 
        </div>
      </div>
@@ -36,8 +36,7 @@
         <button class="dropdown-item" type="button"><?= anchor('administratori/prijave', 'Prijave'); ?></button>
         <button class="dropdown-item" type="button"><?= anchor('administratori/spisak', 'Spisak'); ?></button>
         <button class="dropdown-item" type="button"><?= anchor('administratori/recenzije', 'Recenzije'); ?></button>
-        <button class="dropdown-item" type="button"><?= anchor('administratori/obavestenja', 'Obavestenja'); ?></button>
-        <button class="dropdown-item" type="button"><?= anchor('administratori/izbor_recenzenta', 'Izbor recenzenta'); ?></button>
+        <button class="dropdown-item" type="button"><?= anchor('administratori/obavestenja', 'Obaveštenja'); ?></button>
 
         </div>  
             </div>
@@ -73,7 +72,7 @@
                       <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/rezultati', 'Rezultati'); ?></button>
                       <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/recenzije', 'Recenzije'); ?></button>
                       <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/ankete', 'Ankete'); ?></button>
-                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/obavestenja', 'Obavestenja'); ?></button>
+                      <button class="btn dropdown-item mr-1" type="button" id="nlogbtn"><?= anchor('recenzenti/obavestenja', 'Obaveštenja'); ?></button>
 
            
             
