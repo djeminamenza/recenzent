@@ -11,6 +11,7 @@ use App\Models\Zemlja;
 use App\Models\Zvanje;
 use App\Models\Korisnici;
 use App\Models\Status_recenzije;
+use App\Models\Neocenjeni_rezultati;
 
 class Recenzenti extends BaseController
 {
@@ -112,7 +113,10 @@ class Recenzenti extends BaseController
 
 	public function rezultati()
 	{
-		return view('recenzenti/rezultati');
+		$id=user_id();
+		$Neocenjeni_rezultatiModel = new Neocenjeni_rezultati();
+		$data['br'] = $Neocenjeni_rezultatiModel->Neocenjeni_rezultati($id);
+		return view('recenzenti/rezultati', $data);
 	}
 
 	public function recenzije()
