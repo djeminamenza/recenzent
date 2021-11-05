@@ -7,22 +7,40 @@ $this->section('content');
     <div class="row ">
       <div class="card mx-auto">
         </br>
-        <div class="form col-md-12" style="text-align: center;">
+        <div class="form col-md-12" >
           <h1 style="text-align: center;">Prikaz rezultata</h1>
           </br>
           </br>
           <?= view('Myth\Auth\Views\_message_block') ?>
             <?= csrf_field() ?>
+            <table class="table table-bordered">
+                        
+         <tr>
+                                
+         <td><h4>Naziv rezultata: </h4></td> <td><h5><?=$ovajRezultat->naziv?></h5></td>
+          </tr>
+          <tr>
+          <td><h4>Opis: </h4></td> <td><h5><?=$ovajRezultat->opis?></h5></td>
+              </tr>
+              <tr>
+              <td><h4>Članovi tima: </h4></td><td><h5><?=$ovajRezultat->clanovi?></h5></td>
+              </tr>
+              <tr>
+              <td><h4>Biografija: </h4></td><td><h5></h5></td>
+              </tr>
+              <tr>
+              <td><h4>Godina rezultata: </h4></td><td><h5><?=$ovajRezultat->god_rez?></h5></td>
+              </tr>
+              <tr>
+              <td><h4>Datum prijave: </h4></td><td><h5><?=$ovajRezultat->datum_prijave?></h5></td>
+              </tr>
+              <tr>
 
-        
-            <p><h4>Naziv rezultata: <?=$ovajRezultat->naziv?></h4></p>
-              <p><h4>Opis: <?=$ovajRezultat->opis?></h4></p>
-              <p><h4>Clanovi tima: <?=$ovajRezultat->clanovi?></h4></p>
-              <p><h4>Biografija: </h4></p>
-              <p><h4>Godina rezultata: <?=$ovajRezultat->god_rez?></h4></p>
-              <p><h4>Datum prijave: <?=$ovajRezultat->datum_prijave?></h4></p>
-
-
+              <td colspan="2"><?php echo anchor('recenzenti/recenzije/', 'Vrati se na ocenjivanje', ['class' => 'btn btn-success']);
+              ?>
+              </td>
+              </tr>
+</table>
               </br>
 
       </div>
