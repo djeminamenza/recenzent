@@ -26,7 +26,20 @@ $this->section('content');
               <td><h4>Članovi tima: </h4></td><td><h5><?=$ovajRezultat->clanovi?></h5></td>
               </tr>
               <tr>
-              <td><h4>Biografija: </h4></td><td><h5><a href="<?= base_url('assets/biografije/'.$ovajRezultat->biografije)?>"/><?=$ovajRezultat->biografije ?></a>
+              <td><h4>Biografija: </h4></td><td><h5>
+              <?php
+              $atts = [
+                  'width'       => 800,
+                  'height'      => 600,
+                  'scrollbars'  => 'yes',
+                  'status'      => 'yes',
+                  'resizable'   => 'yes',
+                  'screenx'     => 0,
+                  'screeny'     => 0,
+                  'window_name' => '_blank',
+              ];
+              echo anchor_popup('biografije/rezultati/'.$ovajRezultat->biografije, $ovajRezultat->biografije, $atts);
+              ?>
               </h5></td>
               </tr>
               <tr>
