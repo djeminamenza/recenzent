@@ -26,7 +26,8 @@ $this->section('content');
               <td><h4>Članovi tima: </h4></td><td><h5><?=$ovajRezultat->clanovi?></h5></td>
               </tr>
               <tr>
-              <td><h4>Biografija: </h4></td><td><h5></h5></td>
+              <td><h4>Biografija: </h4></td><td><h5><a href="<?= base_url('assets/biografije/'.$ovajRezultat->biografije)?>"/><?=$ovajRezultat->biografije ?></a>
+              </h5></td>
               </tr>
               <tr>
               <td><h4>Godina rezultata: </h4></td><td><h5><?=$ovajRezultat->god_rez?></h5></td>
@@ -36,9 +37,9 @@ $this->section('content');
               </tr>
               <tr>
 
-              <td colspan="2"><?php echo anchor('recenzenti/recenzije/', 'Vrati se na ocenjivanje', ['class' => 'btn btn-success']);
+              <td colspan="2"><h4><?php echo anchor('recenzenti/recenzije/', 'Vrati se na ocenjivanje', ['class' => 'btn btn-success']);
               ?>
-              </td>
+              </h4></td>
               </tr>
 </table>
               </br>
