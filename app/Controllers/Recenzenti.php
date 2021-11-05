@@ -12,6 +12,8 @@ use App\Models\Zvanje;
 use App\Models\Korisnici;
 use App\Models\Status_recenzije;
 use App\Models\Neocenjeni_rezultati;
+use App\Models\Rezultat;
+
 
 class Recenzenti extends BaseController
 {
@@ -25,6 +27,7 @@ class Recenzenti extends BaseController
 	 */
 	protected $session;
 	protected $modelStatus_recenzije;
+	protected $modelRezultat;
 
 	public function __construct()
 	{
@@ -34,6 +37,7 @@ class Recenzenti extends BaseController
 
 		$this->config = config('Auth');
 		$this->modelStatus_recenzije = new Status_recenzije();
+		$this->modelRezultat = new Rezultat();
 	}
 
 	public function index()
@@ -110,6 +114,14 @@ class Recenzenti extends BaseController
 		/**Vracamo sve podatke natrag u view template */
 		return $this->_render('recenzenti/profil', ['user' => $user, 'podaci' => $podaci, 'userid' => $userData['sessid'], 'message' => $message]);
 	}
+
+	
+	public function prikazRezultata($id)
+	{
+		$data['ovajRezultat'] = $this->modelRezultat->find($id);
+		return view('recenzenti/prikazRezultata', $data);
+	}
+
 
 	public function rezultati()
 	{

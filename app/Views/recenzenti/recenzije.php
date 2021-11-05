@@ -19,7 +19,8 @@ $this->section('content');
       foreach ($recenzija as $r) {
         echo '<tr>';
         echo '<td><h4>' . $r->id_rezult . '</h4></td>';
-        echo '<td><h4>' . $r->naziv . '</h4></td>';
+        //echo '<td><h4>' . $r->naziv . '</h4></td>';
+        echo'<td><h4>'. anchor('recenzenti/prikazRezultata/' . $r->id_rezult, $r->naziv).'</h4></td>';
         echo '<td><h4>' . $r->opis . '</h4></td>';
         echo '<td>';
         if ($r->opis == 'odbijen' || $r->opis == 'razmatra se') {

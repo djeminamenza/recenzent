@@ -29,6 +29,7 @@
     <?php
     helper('html');
     helper('auth');
+    helper('download');
     echo link_tag('css/styles.css');
     echo link_tag('css/stil.css');
     ?>
